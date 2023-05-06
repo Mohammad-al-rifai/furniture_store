@@ -1,5 +1,5 @@
 import 'package:ecommerce/presentation/cubit/product_cubit/product_cubit.dart';
-import 'package:ecommerce/presentation/screens/merchant/products/product_details_widgets/video_widget.dart';
+import 'package:ecommerce/presentation/screens/merchant/products/product_widgets/video_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -39,9 +39,8 @@ class GalleryWidget extends StatelessWidget {
                 return buildMainImage(context);
               } else if (index == cubit.gallery.length + 1 &&
                   cubit.videoUrl.isNotEmpty) {
-                return const VideoWidget(
-                  videoUrl:
-                      'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4',
+                return VideoWidget(
+                  videoUrl: cubit.videoUrl,
                 );
               } else {
                 return Hero(

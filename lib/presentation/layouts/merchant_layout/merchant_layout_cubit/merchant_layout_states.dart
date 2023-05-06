@@ -23,3 +23,11 @@ class GetMerchantCategoriesLoadingState extends MerchantLayoutStates {}
 class GetMerchantCategoriesDoneState extends MerchantLayoutStates {}
 
 class GetMerchantCategoriesErrorState extends MerchantLayoutStates {}
+
+// Get Merchant Offers
+
+class GetMerchantOffersLoadingState extends MerchantLayoutStates {}
+
+class GetMerchantOffersDoneState extends MerchantLayoutStates {}
+
+class GetMerchantOffersErrorState extends MerchantLayoutStates {}

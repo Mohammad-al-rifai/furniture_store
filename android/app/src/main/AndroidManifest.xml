@@ -2,10 +2,13 @@
     package="com.example.ecommerce">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
+
     <application
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
-        android:label="ecommerce">
+        android:label="ecommerce"
+        android:usesCleartextTraffic="true">
         <activity
             android:name=".MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"

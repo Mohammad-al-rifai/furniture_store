@@ -2,11 +2,11 @@ import 'package:ecommerce/presentation/screens/merchant/products/details_screen.
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../app/functions.dart';
-import '../../../../domain/models/product_models/merchant_products_model.dart';
-import '../../../components/default_image.dart';
-import '../../../resources/color_manager.dart';
-import '../../../resources/values_manager.dart';
+import '../../../../../app/functions.dart';
+import '../../../../../domain/models/product_models/merchant_products_model.dart';
+import '../../../../components/default_image.dart';
+import '../../../../resources/color_manager.dart';
+import '../../../../resources/values_manager.dart';
 
 class ProductWidget extends StatelessWidget {
   const ProductWidget({

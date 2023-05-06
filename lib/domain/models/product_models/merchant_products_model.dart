@@ -68,7 +68,7 @@ class MerchantProductsData {
   }
 
   Map<String, dynamic> toJson() => {
-        "products": products.map((x) => x?.toJson()).toList(),
+        "products": products.map((x) => x.toJson()).toList(),
       };
 
   @override
@@ -136,7 +136,7 @@ class MerchantProduct {
         "_id": id,
         "name": name,
         "mainCategorie": mainCategorie,
-        "Class": productClass.map((x) => x?.toJson()).toList(),
+        "Class": productClass.map((x) => x.toJson()).toList(),
         "Guarantee": guarantee,
         "manufacturingMaterial": manufacturingMaterial,
         "mainImage": mainImage,
@@ -213,7 +213,7 @@ class MerchantProductClass {
         "width": width,
         "price": price,
         "sallableInPoints": sallableInPoints,
-        "group": group.map((x) => x?.toJson()).toList(),
+        "group": group.map((x) => x.toJson()).toList(),
         "_id": id,
         "priceAfterDiscount": priceAfterDiscount,
       };
