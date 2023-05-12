@@ -1,3 +1,4 @@
+import 'package:ecommerce/presentation/components/main_scaffold.dart';
 import 'package:ecommerce/presentation/resources/string_manager.dart';
 import 'package:ecommerce/presentation/resources/values_manager.dart';
 import 'package:ecommerce/presentation/screens/home/widgets/categories_widget.dart';
@@ -20,17 +21,19 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      physics: const BouncingScrollPhysics(),
-      child: Column(
-        children: const [
-          BannerWidget(),
-          CategoriesWidget(),
-          DefaultLabel(text: AppStrings.hotSelling),
-          HotSellingWidget(),
-          DefaultLabel(text: AppStrings.merchants),
-          AllMerchantsWidget(),
-        ],
+    return MainScaffold(
+      bodyWidget: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
+        child: Column(
+          children: const [
+            BannerWidget(),
+            CategoriesWidget(),
+            DefaultLabel(text: AppStrings.hotSelling),
+            HotSellingWidget(),
+            DefaultLabel(text: AppStrings.merchants),
+            AllMerchantsWidget(),
+          ],
+        ),
       ),
     );
   }

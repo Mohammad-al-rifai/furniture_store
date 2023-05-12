@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:ecommerce/config/urls.dart';
 import 'package:ecommerce/presentation/layouts/merchant_layout/merchant_layout_cubit/merchant_layout_cubit.dart';
 import 'package:ecommerce/presentation/resources/color_manager.dart';
@@ -45,13 +46,14 @@ class _MerchantLayoutState extends State<MerchantLayout> {
                   imageUrl:
                       Urls.filesUrl + (widget.merchantUser?.marketLogo ?? ''),
                 ),
-                bottom: const TabBar(
+                bottom: TabBar(
+                  labelStyle: getMediumStyle(color: ColorManager.primary),
                   tabs: [
-                    Tab(text: AppStrings.products),
-                    Tab(text: AppStrings.categories),
-                    Tab(text: AppStrings.offers),
+                    Tab(text: AppStrings.products.tr()),
+                    Tab(text: AppStrings.categories.tr()),
+                    Tab(text: AppStrings.offers.tr()),
                   ],
-                  physics: BouncingScrollPhysics(),
+                  physics: const BouncingScrollPhysics(),
                 ),
                 title: MText(
                   text:

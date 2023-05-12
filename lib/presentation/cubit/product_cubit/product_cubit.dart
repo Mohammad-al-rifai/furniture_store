@@ -18,6 +18,7 @@ class ProductCubit extends Cubit<ProductStates> {
 
   // get Single Product:
   SingleProModel singleProModel = SingleProModel();
+  SingleProduct product = SingleProduct();
 
   getSinglePro({
     required String proId,
@@ -28,6 +29,9 @@ class ProductCubit extends Cubit<ProductStates> {
     ).then((value) {
       if (value.data['status']) {
         singleProModel = SingleProModel.fromJson(value.data);
+        if (singleProModel.data?.product != null) {
+          product = singleProModel.data!.product!;
+        }
         emit(GetSingleProDoneState());
       }
     }).catchError((err) {

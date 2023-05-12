@@ -1,5 +1,6 @@
 // ignore_for_file: must_be_immutable
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_conditional_rendering/conditional.dart';
 
@@ -47,7 +48,7 @@ class DefaultButton extends StatelessWidget {
           );
         },
         fallbackBuilder: (BuildContext context) {
-          return DefaultLoading(
+          return const DefaultLoading(
             xT: 0.0,
             yT: 0.0,
           );

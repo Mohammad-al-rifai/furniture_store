@@ -14,11 +14,13 @@ class DefaultImage extends StatelessWidget {
     required this.imageUrl,
     this.fit = BoxFit.cover,
     this.clickable = false,
+    this.width,
   }) : super(key: key);
 
   final String? imageUrl;
   final BoxFit? fit;
   final bool clickable;
+  final double? width;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +44,7 @@ class DefaultImage extends StatelessWidget {
   Widget image() => CachedNetworkImage(
         imageUrl: Urls.filesUrl + (imageUrl ?? ''),
         fit: fit,
-        width: double.infinity,
+        width: width ?? double.infinity,
         placeholder: (context, url) => const Center(
           child: SizedBox(
             child: CupertinoActivityIndicator(),

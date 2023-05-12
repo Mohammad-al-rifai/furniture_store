@@ -8,6 +8,7 @@ import 'package:flutter_conditional_rendering/flutter_conditional_rendering.dart
 import '../../../../domain/models/categories/all_categories_model.dart';
 import '../../../components/default_element.dart';
 import '../../../components/default_image.dart';
+import '../../../components/my_text.dart';
 import '../../../layouts/home_layout/home_layout_cubit/home_layout_cubit.dart';
 import '../../../resources/string_manager.dart';
 import '../../../resources/values_manager.dart';
@@ -55,7 +56,9 @@ class CategoriesWidget extends StatelessWidget {
             );
           },
           fallbackBuilder: (context) {
-            return const DefaultLoading();
+            return MText(
+              text: 'Loading...',
+            );
           },
         );
       },

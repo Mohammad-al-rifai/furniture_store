@@ -46,26 +46,26 @@ class SingleProData {
 
 class SingleProduct {
   SingleProduct({
-    required this.id,
-    required this.name,
-    required this.descreption,
-    required this.mainCategorie,
-    required this.productClass,
-    required this.ownerId,
-    required this.guarantee,
-    required this.manufacturingMaterial,
-    required this.deliveryAreas,
+    this.id,
+    this.name,
+    this.descreption,
+    this.mainCategorie,
+    this.productClass,
+    this.ownerId,
+    this.guarantee,
+    this.manufacturingMaterial,
+    this.deliveryAreas,
   });
 
   final String? id;
   final String? name;
   final String? descreption;
   final String? mainCategorie;
-  final List<SingleProClass> productClass;
+  final List<SingleProClass>? productClass;
   final SingleProOwnerId? ownerId;
   final int? guarantee;
   final String? manufacturingMaterial;
-  final List<SingleProDeliveryArea> deliveryAreas;
+  final List<SingleProDeliveryArea>? deliveryAreas;
 
   factory SingleProduct.fromJson(Map<String, dynamic> json) {
     return SingleProduct(
@@ -94,11 +94,11 @@ class SingleProduct {
         "name": name,
         "descreption": descreption,
         "mainCategorie": mainCategorie,
-        "Class": productClass.map((x) => x.toJson()).toList(),
+        "Class": productClass?.map((x) => x.toJson()).toList(),
         "owner_id": ownerId?.toJson(),
         "Guarantee": guarantee,
         "manufacturingMaterial": manufacturingMaterial,
-        "deliveryAreas": deliveryAreas.map((x) => x.toJson()).toList(),
+        "deliveryAreas": deliveryAreas?.map((x) => x.toJson()).toList(),
       };
 }
 

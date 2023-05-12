@@ -4,6 +4,7 @@ import 'package:ecommerce/presentation/resources/color_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../resources/values_manager.dart';
 import 'home_layout_cubit/home_layout_cubit.dart';
 
 class HomeLayout extends StatefulWidget {
@@ -20,31 +21,8 @@ class _HomeLayoutState extends State<HomeLayout> {
       listener: (context, state) {},
       builder: (context, state) {
         var cubit = HomeLayoutCubit.get(context);
-        return Scaffold(
-          appBar: getAppBar(),
-          body: cubit.bottomScreens[cubit.currentIndex],
-          bottomNavigationBar: BottomNavigationBar(
-            currentIndex: cubit.currentIndex,
-            onTap: (index) {
-              cubit.changeBottom(index);
-            },
-            items: cubit.bottomItems,
-          ),
-        );
+        return cubit.bottomScreens[cubit.currentIndex];
       },
-    );
-  }
-
-  TextEditingController searchController = TextEditingController();
-
-  PreferredSizeWidget getAppBar() {
-    return AppBar(
-      title: TFF(
-        controller: searchController,
-        label: 'search'.tr(),
-        prefixIcon: Icons.search,
-        validator: (String value) {},
-      ),
     );
   }
 }

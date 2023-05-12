@@ -1,4 +1,5 @@
 class AppMargin {
+  static const double m4 = 4.0;
   static const double m8 = 8.0;
   static const double m12 = 12.0;
   static const double m14 = 14.0;
@@ -39,6 +40,7 @@ class AppSize {
   static const double s70 = 70.0;
   static const double s75 = 75.0;
   static const double s100 = 100.0;
+  static const double s150 = 150.0;
   static const double s180 = 180.0;
   static const double s200 = 200.0;
   static const double s260 = 260.0;

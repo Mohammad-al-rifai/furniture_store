@@ -1,9 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:ecommerce/presentation/cubit/cart_cubit/cart_cubit.dart';
 import 'package:ecommerce/presentation/layouts/merchant_layout/merchant_layout_cubit/merchant_layout_cubit.dart';
 import 'package:ecommerce/presentation/screens/register/register_cubit/register_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../presentation/cubit/order_cubit/order_cubit.dart';
 import '../presentation/layouts/home_layout/home_layout_cubit/home_layout_cubit.dart';
 import '../presentation/resources/theme_manager.dart';
 import '../presentation/screens/splash/splash_screen.dart';
@@ -37,6 +39,8 @@ class _MyAppState extends State<MyApp> {
             ..getMerchant(),
         ),
         BlocProvider(create: (BuildContext context) => MerchantLayoutCubit()),
+        BlocProvider(create: (BuildContext context) => CartCubit()),
+        BlocProvider(create: (BuildContext context) => OrderCubit()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

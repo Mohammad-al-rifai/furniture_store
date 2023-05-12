@@ -6,6 +6,7 @@ import 'package:ecommerce/data/network/local/cache_helper.dart';
 import 'package:ecommerce/data/network/local/keys.dart';
 import 'package:ecommerce/presentation/components/button.dart';
 import 'package:ecommerce/presentation/components/loading.dart';
+import 'package:ecommerce/presentation/components/main_scaffold.dart';
 import 'package:ecommerce/presentation/components/my_divider.dart';
 import 'package:ecommerce/presentation/components/my_text.dart';
 import 'package:ecommerce/presentation/components/text_button.dart';
@@ -44,29 +45,32 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<HomeLayoutCubit, HomeLayoutStates>(
-      listener: (context, state) {
-        // TODO: implement listener
-      },
-      builder: (context, state) {
-        HomeLayoutCubit cubit = HomeLayoutCubit.get(context);
-        return Padding(
-          padding: const EdgeInsetsDirectional.all(AppPadding.p8),
-          child: Column(
-            children: [
-              getUserWidget(),
-              MyDivider(margin: 8.0),
-              languageSettings(),
-              MyDivider(
-                margin: 8.0,
-                width: getScreenWidth(context) / 3,
-                alignment: AlignmentDirectional.centerStart,
-                color: ColorManager.lightPrimary,
-              ),
-            ],
-          ),
-        );
-      },
+    return MainScaffold(
+      isAppBar: false,
+      bodyWidget: BlocConsumer<HomeLayoutCubit, HomeLayoutStates>(
+        listener: (context, state) {
+          // TODO: implement listener
+        },
+        builder: (context, state) {
+          HomeLayoutCubit cubit = HomeLayoutCubit.get(context);
+          return Padding(
+            padding: const EdgeInsetsDirectional.all(AppPadding.p8),
+            child: Column(
+              children: [
+                getUserWidget(),
+                MyDivider(margin: 8.0),
+                languageSettings(),
+                MyDivider(
+                  margin: 8.0,
+                  width: getScreenWidth(context) / 3,
+                  alignment: AlignmentDirectional.centerStart,
+                  color: ColorManager.lightPrimary,
+                ),
+              ],
+            ),
+          );
+        },
+      ),
     );
   }
 
@@ -99,7 +103,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           });
           // Remove uId;
           CacheHelper.removeData(key: CacheHelperKeys.uId).then(
-            (value) {
+                (value) {
               Constants.uId = "";
             },
           );
@@ -135,7 +139,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     Conditional.single(
                       context: context,
                       conditionBuilder: (BuildContext context) =>
-                          state is! GetProfileLoadingState,
+                      state is! GetProfileLoadingState,
                       widgetBuilder: (BuildContext context) {
                         return userData(
                           userInfo: cubit.userProfileModel.data?.user,
@@ -210,10 +214,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             : Container(),
                         state is LogoutErrorState
                             ? MText(
-                                text: AppStrings
-                                    .somethingsErrorPleaseCheckYourInternet,
-                                maxLines: 2,
-                              )
+                          text: AppStrings
+                              .somethingsErrorPleaseCheckYourInternet,
+                          maxLines: 2,
+                        )
                             : Container()
                       ],
                     ),
@@ -307,7 +311,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 Container(
                   decoration: getDeco(
                     color:
-                        Langs.isEN ? ColorManager.white : ColorManager.primary,
+                    Langs.isEN ? ColorManager.white : ColorManager.primary,
                   ),
                   child: TextButton(
                     onPressed: () {
@@ -336,7 +340,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 Container(
                   decoration: getDeco(
                     color:
-                        Langs.isEN ? ColorManager.primary : ColorManager.white,
+                    Langs.isEN ? ColorManager.primary : ColorManager.white,
                   ),
                   child: TextButton(
                     onPressed: () {
