@@ -1,9 +1,6 @@
 import 'package:chewie/chewie.dart';
 import 'package:ecommerce/config/urls.dart';
-import 'package:ecommerce/presentation/resources/assets_manager.dart';
-import 'package:ecommerce/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoWidget extends StatefulWidget {

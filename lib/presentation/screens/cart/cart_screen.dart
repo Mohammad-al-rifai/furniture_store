@@ -15,6 +15,7 @@ import 'package:flutter_conditional_rendering/conditional.dart';
 import 'package:lottie/lottie.dart';
 
 import '../../resources/color_manager.dart';
+import '../order/add_order_screen.dart';
 import 'cart_widgets/cart_item_widget.dart';
 
 class CartScreen extends StatefulWidget {
@@ -78,7 +79,7 @@ class _CartScreenState extends State<CartScreen> {
     return Padding(
       padding: const EdgeInsetsDirectional.all(AppPadding.p8),
       child: SizedBox(
-        height: AppSize.s75,
+        height: AppSize.s50,
         child: Container(
           width: getScreenWidth(context),
           padding: const EdgeInsetsDirectional.only(end: AppPadding.p8),
@@ -87,35 +88,31 @@ class _CartScreenState extends State<CartScreen> {
             borderSize: AppSize.s8,
             withShadow: true,
           ),
-          child: SingleChildScrollView(
-            child: Row(
-              children: [
-                Expanded(
-                  child: Column(
-                    children: [
-                      PairWidget(
-                        label: AppStrings.totalPrice,
-                        value: CartCubit.get(context)
-                                .userCartModel
-                                .data
-                                ?.totalPrice
-                                .toString() ??
-                            "0.0",
-                      ),
-                      PairWidget(
-                        label: AppStrings.itemsCount,
-                        value: CartCubit.get(context).items.length.toString(),
-                      ),
-                    ],
-                  ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Expanded(
+                child: PairWidget(
+                  label: AppStrings.totalPrice,
+                  value: CartCubit.get(context)
+                          .userCartModel
+                          .data
+                          ?.totalPrice
+                          .toString() ??
+                      "0.0",
                 ),
-                DefaultButton(
-                  function: () {},
-                  text: AppStrings.buyNow.tr(),
-                  width: AppSize.s40,
-                ),
-              ],
-            ),
+              ),
+              DefaultButton(
+                function: () {
+                  navigateTo(
+                    context,
+                    AddOrderScreen(),
+                  );
+                },
+                text: AppStrings.buyNow.tr(),
+                width: AppSize.s40,
+              ),
+            ],
           ),
         ),
       ),

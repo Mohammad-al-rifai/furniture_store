@@ -8,6 +8,7 @@ import 'package:ecommerce/domain/models/categories/all_categories_model.dart';
 import 'package:ecommerce/domain/models/home_models/banner_model.dart';
 import 'package:ecommerce/domain/models/product_models/hot_selling_model.dart';
 import 'package:ecommerce/presentation/components/toast_notifications.dart';
+import 'package:ecommerce/presentation/resources/assets_manager.dart';
 import 'package:ecommerce/presentation/resources/constants_manager.dart';
 import 'package:ecommerce/presentation/screens/cart/cart_screen.dart';
 import 'package:ecommerce/presentation/screens/home/home_screen.dart';
@@ -15,9 +16,11 @@ import 'package:ecommerce/presentation/screens/profile/profile_screen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:meta/meta.dart';
 
 import '../../../../data/network/local/keys.dart';
+import '../../../components/default_icon.dart';
 import '../../../screens/categories/categories_screen.dart';
 
 part 'home_layout_states.dart';
@@ -37,13 +40,22 @@ class HomeLayoutCubit extends Cubit<HomeLayoutStates> {
   ];
 
   List<BottomNavigationBarItem> bottomItems = [
-    BottomNavigationBarItem(icon: const Icon(Icons.home), label: 'home'.tr()),
     BottomNavigationBarItem(
-        icon: const Icon(Icons.apps), label: 'categories'.tr()),
+      icon: const DefaultIcon(path: IconsAssets.home),
+      label: 'home'.tr(),
+    ),
     BottomNavigationBarItem(
-        icon: const Icon(Icons.shopping_bag_rounded), label: 'cart'.tr()),
+      icon: const DefaultIcon(path: IconsAssets.category),
+      label: 'categories'.tr(),
+    ),
     BottomNavigationBarItem(
-        icon: const Icon(Icons.person), label: 'profile'.tr()),
+      icon: const DefaultIcon(path: IconsAssets.cart),
+      label: 'cart'.tr(),
+    ),
+    BottomNavigationBarItem(
+      icon: const DefaultIcon(path: IconsAssets.profile),
+      label: 'profile'.tr(),
+    ),
   ];
 
   List<String> titles = [

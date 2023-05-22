@@ -62,5 +62,20 @@
   "add_2_cart": "Add to Cart",
   "buy_now": "Buy Now",
   "vr_mode": "VR Mode",
-  "ar_mode": "AR Mode"
+  "ar_mode": "AR Mode",
+  "total_price": "Total Price",
+  "items_count": "Items Count",
+  "confirmation_deleting": "Confirmation Deleting",
+  "are_you_sure_you_want_2_delete_this_product": "Are you sure you want to deleting",
+  "add_order": "Add Order",
+  "country": "Country",
+  "city": "City",
+  "region": "Region",
+  "street_number": "Street Number",
+  "house_number": "House Number",
+  "your_own_orders": "Your Own Orders",
+  "order_owner": "Order Owner",
+  "order_status": "Order Status",
+  "order_location": "Order Location",
+  "sp": "SP"
 }

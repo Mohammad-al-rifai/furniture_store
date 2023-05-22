@@ -11,6 +11,7 @@ import 'package:ecommerce/presentation/components/my_divider.dart';
 import 'package:ecommerce/presentation/components/my_text.dart';
 import 'package:ecommerce/presentation/components/text_button.dart';
 import 'package:ecommerce/presentation/components/toast_notifications.dart';
+import 'package:ecommerce/presentation/cubit/order_cubit/order_cubit.dart';
 import 'package:ecommerce/presentation/layouts/home_layout/home_layout_cubit/home_layout_cubit.dart';
 import 'package:ecommerce/presentation/resources/assets_manager.dart';
 import 'package:ecommerce/presentation/resources/color_manager.dart';
@@ -19,6 +20,7 @@ import 'package:ecommerce/presentation/resources/string_manager.dart';
 import 'package:ecommerce/presentation/resources/styles_manager.dart';
 import 'package:ecommerce/presentation/resources/values_manager.dart';
 import 'package:ecommerce/presentation/screens/login/login_screen.dart';
+import 'package:ecommerce/presentation/screens/profile/user_order_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_conditional_rendering/conditional.dart';
@@ -39,6 +41,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   void initState() {
     if (Constants.token.isNotEmpty) {
       HomeLayoutCubit.get(context).getProfile();
+      OrderCubit.get(context).getUserOrders();
     }
     super.initState();
   }
@@ -48,25 +51,24 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return MainScaffold(
       isAppBar: false,
       bodyWidget: BlocConsumer<HomeLayoutCubit, HomeLayoutStates>(
-        listener: (context, state) {
-          // TODO: implement listener
-        },
+        listener: (context, state) {},
         builder: (context, state) {
           HomeLayoutCubit cubit = HomeLayoutCubit.get(context);
-          return Padding(
-            padding: const EdgeInsetsDirectional.all(AppPadding.p8),
-            child: Column(
-              children: [
-                getUserWidget(),
-                MyDivider(margin: 8.0),
-                languageSettings(),
-                MyDivider(
-                  margin: 8.0,
-                  width: getScreenWidth(context) / 3,
-                  alignment: AlignmentDirectional.centerStart,
-                  color: ColorManager.lightPrimary,
-                ),
-              ],
+          return SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            child: Padding(
+              padding: const EdgeInsetsDirectional.all(AppPadding.p8),
+              child: Column(
+                children: [
+                  getUserWidget(),
+                  MyDivider(margin: 8.0),
+                  languageSettings(),
+                  const SizedBox(height: AppSize.s8),
+                  state is! LogoutDoneState
+                      ? const UserOrderWidget()
+                      : const SizedBox(),
+                ],
+              ),
             ),
           );
         },
@@ -103,7 +105,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           });
           // Remove uId;
           CacheHelper.removeData(key: CacheHelperKeys.uId).then(
-                (value) {
+            (value) {
               Constants.uId = "";
             },
           );
@@ -139,7 +141,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     Conditional.single(
                       context: context,
                       conditionBuilder: (BuildContext context) =>
-                      state is! GetProfileLoadingState,
+                          state is! GetProfileLoadingState,
                       widgetBuilder: (BuildContext context) {
                         return userData(
                           userInfo: cubit.userProfileModel.data?.user,
@@ -214,10 +216,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             : Container(),
                         state is LogoutErrorState
                             ? MText(
-                          text: AppStrings
-                              .somethingsErrorPleaseCheckYourInternet,
-                          maxLines: 2,
-                        )
+                                text: AppStrings
+                                    .somethingsErrorPleaseCheckYourInternet,
+                                maxLines: 2,
+                              )
                             : Container()
                       ],
                     ),
@@ -311,7 +313,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 Container(
                   decoration: getDeco(
                     color:
-                    Langs.isEN ? ColorManager.white : ColorManager.primary,
+                        Langs.isEN ? ColorManager.white : ColorManager.primary,
                   ),
                   child: TextButton(
                     onPressed: () {
@@ -340,7 +342,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 Container(
                   decoration: getDeco(
                     color:
-                    Langs.isEN ? ColorManager.primary : ColorManager.white,
+                        Langs.isEN ? ColorManager.primary : ColorManager.white,
                   ),
                   child: TextButton(
                     onPressed: () {

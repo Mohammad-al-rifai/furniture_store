@@ -1,5 +1,5 @@
 class Urls {
-  static const String baseUrl = 'http://192.168.78.232:3000';
+  static const String baseUrl = 'http://192.168.104.232:3000';
 
   static const String filesUrl = '$baseUrl/api/download?fileName=';
 
@@ -24,6 +24,8 @@ class Urls {
   static const String getVideo4Product = '/user/allUsers/getProduct/';
   static const String getVRModel4Product = '/user/allUsers/getProduct/';
   static const String getMerchantOffers = '/user/allUsers/getProduct/';
+  static const String getMerchantProsByCat =
+      '/user/allUsers/CategorieProducts/';
 
 // *************** Start Cart Management Feature **************
 
@@ -35,4 +37,5 @@ class Urls {
 
 // *************** Start Order Management Feature **************
   static const String addOrder = '/user/Customer/addOrder';
+  static const String getUserOrders = '/user/Customer/getUserOrders';
 }

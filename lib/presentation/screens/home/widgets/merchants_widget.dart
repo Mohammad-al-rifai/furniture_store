@@ -7,9 +7,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_conditional_rendering/conditional.dart';
 
+import '../../../components/default_element.dart';
 import '../../../components/default_image.dart';
 import '../../../layouts/merchant_layout/merchant_layout.dart';
 import '../../../resources/color_manager.dart';
+import '../../../resources/string_manager.dart';
 import '../../../resources/values_manager.dart';
 
 class AllMerchantsWidget extends StatelessWidget {
@@ -28,26 +30,32 @@ class AllMerchantsWidget extends StatelessWidget {
           context: context,
           conditionBuilder: (context) => cubit.merchants.isNotEmpty,
           widgetBuilder: (context) {
-            return SizedBox(
-              height: AppSize.s60,
-              child: Row(
-                children: [
-                  Expanded(
-                    child: ListView.builder(
-                      shrinkWrap: true,
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) {
-                        return buildMerchantItem(
-                          context,
-                          user: cubit.merchants[index],
-                        );
-                      },
-                      itemCount: cubit.merchants.length,
-                    ),
+            return Column(
+              children: [
+                const SizedBox(height: AppSize.s8),
+                const DefaultLabel(text: AppStrings.merchants),
+                SizedBox(
+                  height: AppSize.s60,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: ListView.builder(
+                          shrinkWrap: true,
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (context, index) {
+                            return buildMerchantItem(
+                              context,
+                              user: cubit.merchants[index],
+                            );
+                          },
+                          itemCount: cubit.merchants.length,
+                        ),
+                      ),
+                      ViewAllWidget(onTap: () {}),
+                    ],
                   ),
-                  ViewAllWidget(onTap: () {}),
-                ],
-              ),
+                ),
+              ],
             );
           },
           fallbackBuilder: (context) {

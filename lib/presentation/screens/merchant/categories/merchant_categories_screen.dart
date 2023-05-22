@@ -12,7 +12,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_conditional_rendering/conditional.dart';
 
 class MerchantCategoriesScreen extends StatefulWidget {
-  const MerchantCategoriesScreen({Key? key}) : super(key: key);
+  const MerchantCategoriesScreen({
+    Key? key,
+    required this.merchantId,
+  }) : super(key: key);
+
+  final String merchantId;
 
   @override
   State<MerchantCategoriesScreen> createState() =>
@@ -47,6 +52,7 @@ class _MerchantCategoriesScreenState extends State<MerchantCategoriesScreen> {
                 itemBuilder: (context, index) {
                   return CategoryItemWidget(
                     catData: cubit.categories[index],
+                    merchantId: widget.merchantId,
                   );
                 },
               ),

@@ -23,7 +23,8 @@ class ProductWidget extends StatelessWidget {
         navigateTo(
           context,
           DetailsScreen(
-            product: product,
+            proId: product?.id,
+            mainImageUrl: product?.mainImage,
           ),
         );
       },

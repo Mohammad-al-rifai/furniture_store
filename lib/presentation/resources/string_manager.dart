@@ -67,12 +67,24 @@ class AppStrings {
   static const String buyNow = "buy_now";
   static const String vrMode = "vr_mode";
   static const String arMode = "ar_mode";
-
-// need Translation Form Here:
-
   static const String totalPrice = "total_price";
   static const String itemsCount = "items_count";
   static const String confirmationDeleting = "confirmation_deleting";
   static const String areYouSureYouWant2DeleteThisProduct =
       "are_you_sure_you_want_2_delete_this_product";
+  static const String addOrder = "add_order";
+  static const String country = "country";
+  static const String city = "city";
+  static const String region = "region";
+  static const String streetNumber = "street_number";
+  static const String houseNumber = "house_number";
+  static const String yourOwnOrders = "your_own_orders";
+  static const String orderOwner = "order_owner";
+  static const String orderStatus = "order_status";
+  static const String orderLocation = "order_location";
+  static const String sp = "sp";
+
+// need Translation Form Here:
+  static const String classWidth = "class_width";
+  static const String mainDescriptions = "main_descriptions";
 }

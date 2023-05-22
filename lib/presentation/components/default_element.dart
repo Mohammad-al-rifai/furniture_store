@@ -26,8 +26,8 @@ class DefaultLabel extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Container(
-              width: 50.0,
-              height: 18.0,
+              width: 20.0,
+              height: 16.0,
               margin: const EdgeInsetsDirectional.only(start: AppMargin.m8),
               decoration: getDeco(withShadow: true),
             ),

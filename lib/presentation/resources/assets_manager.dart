@@ -1,9 +1,17 @@
 const String imagePath = "assets/images";
 const String jsonPath = "assets/json";
+const String iconsPath = "assets/icons";
 
 class ImageAssets {
   static const String splashLogo = "$imagePath/splash_logo.png";
   static const String noImage = "$imagePath/no_image.jpg";
+}
+
+class IconsAssets {
+  static const String home = "$iconsPath/home.svg";
+  static const String category = "$iconsPath/category.svg";
+  static const String cart = "$iconsPath/cart.svg";
+  static const String profile = "$iconsPath/profile.svg";
 }
 
 class JsonAssets {

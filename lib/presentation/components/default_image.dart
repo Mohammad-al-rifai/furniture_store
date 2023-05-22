@@ -15,12 +15,14 @@ class DefaultImage extends StatelessWidget {
     this.fit = BoxFit.cover,
     this.clickable = false,
     this.width,
+    this.height,
   }) : super(key: key);
 
   final String? imageUrl;
   final BoxFit? fit;
   final bool clickable;
   final double? width;
+  final double? height;
 
   @override
   Widget build(BuildContext context) {
@@ -45,6 +47,7 @@ class DefaultImage extends StatelessWidget {
         imageUrl: Urls.filesUrl + (imageUrl ?? ''),
         fit: fit,
         width: width ?? double.infinity,
+        height: height,
         placeholder: (context, url) => const Center(
           child: SizedBox(
             child: CupertinoActivityIndicator(),

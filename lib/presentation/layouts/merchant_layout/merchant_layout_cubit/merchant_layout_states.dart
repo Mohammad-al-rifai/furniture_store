@@ -31,3 +31,11 @@ class GetMerchantOffersLoadingState extends MerchantLayoutStates {}
 class GetMerchantOffersDoneState extends MerchantLayoutStates {}
 
 class GetMerchantOffersErrorState extends MerchantLayoutStates {}
+
+// Get Merchant Offers
+
+class GetMerchantProsByCatLoadingState extends MerchantLayoutStates {}
+
+class GetMerchantProsByCatDoneState extends MerchantLayoutStates {}
+
+class GetMerchantProsByCatErrorState extends MerchantLayoutStates {}

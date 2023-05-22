@@ -20,7 +20,7 @@ ThemeData getApplicationTheme() {
     cardTheme: const CardTheme(
       color: ColorManager.white,
       shadowColor: ColorManager.grey,
-      elevation: AppSize.s4,
+      elevation: AppSize.s8,
     ),
 
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
@@ -31,11 +31,13 @@ ThemeData getApplicationTheme() {
       backgroundColor: ColorManager.white,
       type: BottomNavigationBarType.fixed,
       showSelectedLabels: true,
-      showUnselectedLabels: true,
+      showUnselectedLabels: false,
       unselectedLabelStyle:
           getMediumStyle(color: ColorManager.primary, fontSize: AppSize.s12),
       selectedLabelStyle: getMediumStyle(
-          color: ColorManager.darkPrimary, fontSize: AppSize.s14),
+        color: ColorManager.darkPrimary,
+        fontSize: AppSize.s14,
+      ),
       enableFeedback: true,
     ),
     // app bar theme
@@ -49,8 +51,8 @@ ThemeData getApplicationTheme() {
         statusBarBrightness: Brightness.light,
         statusBarIconBrightness: Brightness.dark,
         statusBarColor: ColorManager.white,
-        systemNavigationBarIconBrightness: Brightness.dark,
-        systemNavigationBarColor: ColorManager.white,
+        systemNavigationBarIconBrightness: Brightness.light,
+        systemNavigationBarColor: ColorManager.darkGrey,
         systemNavigationBarDividerColor: ColorManager.white,
         systemStatusBarContrastEnforced: false,
         systemNavigationBarContrastEnforced: false,

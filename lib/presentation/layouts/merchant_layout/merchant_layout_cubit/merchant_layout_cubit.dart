@@ -44,7 +44,6 @@ class MerchantLayoutCubit extends Cubit<MerchantLayoutStates> {
   }
 
   // Get Merchant Categories
-
   CategoriesModel? categoriesModel = CategoriesModel();
   List<CategoryData> categories = [];
 
@@ -74,5 +73,38 @@ class MerchantLayoutCubit extends Cubit<MerchantLayoutStates> {
     }
   }
 
+  // 3. Get Merchant Products By Category:
 
+  MerchantProductsModel? merchantProductsByCatModel = MerchantProductsModel();
+  List<MerchantProduct> productsOfCat = [];
+
+  getProductsByCategory({
+    required String catName,
+    required String? merchantId,
+  }) {
+    emit(GetMerchantProsByCatLoadingState());
+
+    if (productsOfCat.isNotEmpty) {
+      emit(GetMerchantProsByCatDoneState());
+    } else {
+      DioHelper.getData(
+        url: Urls.getMerchantProsByCat + catName,
+        query: {
+          "owner": merchantId,
+        },
+      ).then((value) {
+        merchantProductsByCatModel = MerchantProductsModel.fromJson(value.data);
+        if (value.data['status'] &&
+            merchantProductsByCatModel?.data?.products != null) {
+          if (merchantProductsByCatModel!.data!.products.isNotEmpty) {
+            productsOfCat = merchantProductsByCatModel!.data!.products;
+            emit(GetMerchantProsByCatDoneState());
+          }
+        }
+      }).catchError((err) {
+        print(err.toString());
+        emit(GetMerchantProsByCatErrorState());
+      });
+    }
+  }
 }

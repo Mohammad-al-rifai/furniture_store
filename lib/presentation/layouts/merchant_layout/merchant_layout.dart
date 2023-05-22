@@ -68,7 +68,8 @@ class _MerchantLayoutState extends State<MerchantLayout> {
                 physics: const BouncingScrollPhysics(),
                 children: [
                   ProductScreen(merchantId: widget.merchantUser?.sId ?? ''),
-                  const MerchantCategoriesScreen(),
+                  MerchantCategoriesScreen(
+                      merchantId: widget.merchantUser?.sId ?? ''),
                   const OffersScreen(),
                 ],
               ),

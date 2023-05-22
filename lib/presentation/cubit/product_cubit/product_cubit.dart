@@ -16,6 +16,16 @@ class ProductCubit extends Cubit<ProductStates> {
 
   static ProductCubit get(context) => BlocProvider.of(context);
 
+  // Start Variable Here:
+  int classSelectedIndex = 0;
+  int groupSelectedIndex = 0;
+
+  // For Add Product 2 Cart:
+  String? classId;
+  String? groupId;
+
+  // End Variable Here.
+
   // get Single Product:
   SingleProModel singleProModel = SingleProModel();
   SingleProduct product = SingleProduct();

@@ -1,4 +1,4 @@
-import 'package:ecommerce/presentation/components/loading.dart';
+import 'package:ecommerce/app/functions.dart';
 import 'package:ecommerce/presentation/resources/color_manager.dart';
 import 'package:ecommerce/presentation/screens/home/widgets/view_all_widget.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +12,6 @@ import '../../../components/my_text.dart';
 import '../../../layouts/home_layout/home_layout_cubit/home_layout_cubit.dart';
 import '../../../resources/string_manager.dart';
 import '../../../resources/values_manager.dart';
-import '../../shared_widgets/category_widget.dart';
 
 class CategoriesWidget extends StatelessWidget {
   const CategoriesWidget({Key? key}) : super(key: key);
@@ -32,8 +31,9 @@ class CategoriesWidget extends StatelessWidget {
               children: [
                 const DefaultLabel(text: AppStrings.categories),
                 SizedBox(
-                  height: AppSize.s60,
+                  height: AppSize.s110,
                   child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Expanded(
                         child: ListView.builder(
@@ -48,7 +48,11 @@ class CategoriesWidget extends StatelessWidget {
                           itemCount: cubit.categories.length,
                         ),
                       ),
-                      ViewAllWidget(onTap: () {}),
+                      ViewAllWidget(
+                        onTap: () {
+                          cubit.changeBottom(1);
+                        },
+                      ),
                     ],
                   ),
                 ),
@@ -57,7 +61,7 @@ class CategoriesWidget extends StatelessWidget {
           },
           fallbackBuilder: (context) {
             return MText(
-              text: 'Loading...',
+              text: AppStrings.somethingsErrorPleaseCheckYourInternet,
             );
           },
         );
@@ -68,24 +72,34 @@ class CategoriesWidget extends StatelessWidget {
   Widget buildCatItem({
     required CategoryData catData,
   }) {
-    return Padding(
-      padding: const EdgeInsetsDirectional.symmetric(
-        horizontal: 4.0,
-      ),
-      child: Container(
-        clipBehavior: Clip.antiAliasWithSaveLayer,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(AppSize.s30),
-          color: ColorManager.primary,
-        ),
-        child: CircleAvatar(
-          radius: AppSize.s30,
-          child: DefaultImage(
-            imageUrl: catData.imageOfCate,
-            fit: BoxFit.contain,
-            clickable: true,
+    return SizedBox(
+      width: 90.0,
+      child: Column(
+        children: [
+          Container(
+            clipBehavior: Clip.antiAliasWithSaveLayer,
+            margin:
+                const EdgeInsetsDirectional.symmetric(vertical: AppMargin.m8),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(AppSize.s30),
+              color: ColorManager.primary,
+            ),
+            child: CircleAvatar(
+              radius: AppSize.s30,
+              child: DefaultImage(
+                imageUrl: catData.imageOfCate,
+                fit: BoxFit.contain,
+                clickable: true,
+              ),
+            ),
           ),
-        ),
+          MText(
+            text: getNameTr(arName: catData.arName, enName: catData.enName),
+            color: ColorManager.black,
+            maxLines: 2,
+            textAlign: TextAlign.center,
+          ),
+        ],
       ),
     );
   }

@@ -62,5 +62,20 @@
   "add_2_cart": "أضف إلى السلة",
   "buy_now": "الشراء الآن",
   "vr_mode": "الواقع الإفتراضي",
-  "ar_mode": "الواقع المختلط"
+  "ar_mode": "الواقع المختلط",
+  "total_price": "السعر الكلي",
+  "items_count": "عدد العناصر",
+  "confirmation_deleting": "تأكيد الحذف",
+  "are_you_sure_you_want_2_delete_this_product": "هل أنت متأكد أنك تريد حذف هذا العنصر",
+  "add_order": "إضافة طلبية",
+  "country": "البلد",
+  "city": "المدينة",
+  "region": "الحي",
+  "street_number": "رقم الشارع",
+  "house_number": "رقم المنزل",
+  "your_own_orders": "طلبياتك",
+  "order_owner": "صاحب الطلبية",
+  "order_status": "حالة الطلبية",
+  "order_location": "مكان الطلبية",
+  "sp": "ليرة سورية"
 }

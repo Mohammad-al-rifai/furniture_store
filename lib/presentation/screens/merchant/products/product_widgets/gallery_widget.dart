@@ -5,22 +5,18 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../app/functions.dart';
 import '../../../../../config/urls.dart';
-import '../../../../../domain/models/product_models/merchant_products_model.dart';
 import '../../../../components/default_image.dart';
-import '../../../../components/full_screen_picture.dart';
 import '../../../../components/my_page_view.dart';
-import '../../../../components/my_text.dart';
 import '../../../../resources/color_manager.dart';
-import '../../../../resources/styles_manager.dart';
 import '../../../../resources/values_manager.dart';
 
 class GalleryWidget extends StatelessWidget {
   GalleryWidget({
     Key? key,
-    required this.product,
+    required this.mainImageUrl,
   }) : super(key: key);
 
-  final MerchantProduct? product;
+  final String? mainImageUrl;
 
   final PageController galleryController = PageController();
 
@@ -64,13 +60,14 @@ class GalleryWidget extends StatelessWidget {
 
   Widget buildMainImage(context) {
     return Hero(
-      tag: product?.mainImage ?? '',
+      tag: mainImageUrl ?? '',
       child: Stack(
         alignment: Alignment.topLeft,
         children: [
           DefaultImage(
-            imageUrl: product?.mainImage,
+            imageUrl: mainImageUrl,
             clickable: true,
+            fit: BoxFit.cover,
           ),
           GestureDetector(
             onTap: () {
@@ -86,31 +83,6 @@ class GalleryWidget extends StatelessWidget {
                   Icons.arrow_back_ios_new,
                   color: ColorManager.white,
                   size: AppSize.s25,
-                ),
-              ),
-            ),
-          ),
-          Align(
-            alignment: AlignmentDirectional.bottomCenter,
-            child: Container(
-              height: 40.0,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: ColorManager.lightPrimary.withOpacity(.4),
-                borderRadius: const BorderRadiusDirectional.only(
-                    topStart: Radius.circular(AppSize.s8),
-                    topEnd: Radius.circular(AppSize.s8)),
-              ),
-              child: Center(
-                child: Material(
-                  color: Colors.transparent,
-                  child: MText(
-                    text: product?.name ?? 'Product Name',
-                    style: getBlackStyle(
-                      color: ColorManager.white,
-                      fontSize: AppSize.s20,
-                    ),
-                  ),
                 ),
               ),
             ),

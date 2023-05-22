@@ -43,6 +43,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                 width: AppSize.s150,
                 fit: BoxFit.fill,
                 clickable: true,
+                height: double.infinity,
               ),
               Expanded(
                 child: Padding(
@@ -138,60 +139,51 @@ class _CartItemWidgetState extends State<CartItemWidget> {
         CartCubit cubit = CartCubit.get(context);
         return Container(
           height: AppSize.s40,
+          width: AppSize.s100,
           decoration: getDeco(
-            color: ColorManager.white,
             withShadow: true,
             borderSize: AppSize.s8,
+            color: ColorManager.white,
           ),
           child: Row(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Expanded(
-                child: Padding(
-                  padding: const EdgeInsetsDirectional.symmetric(
-                    horizontal: AppPadding.p8,
-                  ),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      cubit.operationsOnCart(
-                        productId: widget.cartItem.product?.id ?? '',
-                        classId: widget.cartItem.itemClass?.id ?? '',
-                        groupId: widget.cartItem.group?.id ?? '',
-                        itemID: widget.cartItem.itemID ?? '',
-                        increment: false,
-                      );
-                    },
-                    child: const Icon(
-                      CupertinoIcons.minus_rectangle,
-                      color: ColorManager.white,
-                      size: AppSize.s25,
-                    ),
+                child: TextButton(
+                  onPressed: () {
+                    cubit.operationsOnCart(
+                      productId: widget.cartItem.product?.id ?? '',
+                      classId: widget.cartItem.itemClass?.id ?? '',
+                      groupId: widget.cartItem.group?.id ?? '',
+                      itemID: widget.cartItem.itemID ?? '',
+                      increment: false,
+                    );
+                  },
+                  child: const Icon(
+                    CupertinoIcons.minus,
+                    size: AppSize.s25,
                   ),
                 ),
               ),
               MText(
-                text: widget.cartItem.quantity.toString() ?? '0',
-                style: getExtraBoldStyle(color: ColorManager.darkPrimary),
+                text: widget.cartItem.quantity.toString(),
               ),
               Expanded(
-                child: Padding(
-                  padding: const EdgeInsetsDirectional.symmetric(
-                    horizontal: AppPadding.p8,
-                  ),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      cubit.operationsOnCart(
-                        productId: widget.cartItem.product?.id ?? '',
-                        classId: widget.cartItem.itemClass?.id ?? '',
-                        groupId: widget.cartItem.group?.id ?? '',
-                        itemID: widget.cartItem.itemID ?? '',
-                        increment: true,
-                      );
-                    },
-                    child: const Icon(
-                      CupertinoIcons.plus_app,
-                      color: ColorManager.white,
-                      size: AppSize.s25,
-                    ),
+                child: TextButton(
+                  onPressed: () {
+                    cubit.operationsOnCart(
+                      productId: widget.cartItem.product?.id ?? '',
+                      classId: widget.cartItem.itemClass?.id ?? '',
+                      groupId: widget.cartItem.group?.id ?? '',
+                      itemID: widget.cartItem.itemID ?? '',
+                      increment: true,
+                    );
+                  },
+                  child: const Icon(
+                    CupertinoIcons.plus,
+                    size: AppSize.s25,
                   ),
                 ),
               ),

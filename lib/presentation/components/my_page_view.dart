@@ -39,7 +39,9 @@ class _MyPageViewState extends State<MyPageView> {
           ),
           Padding(
             padding: const EdgeInsetsDirectional.only(
-                bottom: AppPadding.p8, end: AppPadding.p8),
+              bottom: AppPadding.p18,
+              end: AppPadding.p18,
+            ),
             child: SmoothPageIndicator(
               controller: widget.controller,
               effect: ExpandingDotsEffect(

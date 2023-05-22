@@ -51,6 +51,7 @@ dependencies:
   video_player: ^2.6.1
   chewie: ^1.4.0
   model_viewer_plus: ^1.5.0
+  flutter_dismissible_tile: ^1.0.2
 
 
 
@@ -84,7 +85,9 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/fonts/
     - assets/images/
+    - assets/icons/
     - assets/json/
     - assets/translations/
 

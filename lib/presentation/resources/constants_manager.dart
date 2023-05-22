@@ -13,6 +13,8 @@ class Constants {
   static String? fullName = "";
   static String? email = "";
   static String? uId = "";
+
+  static int pageSize = 10;
 }
 
 // Admin Token "Muhammad Admin":
