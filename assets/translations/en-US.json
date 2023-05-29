@@ -77,5 +77,12 @@
   "order_owner": "Order Owner",
   "order_status": "Order Status",
   "order_location": "Order Location",
-  "sp": "SP"
+  "sp": "SP",
+  "class_width": "Class Width",
+  "main_descriptions": "Main Descriptions",
+  "payment_method": "Payment Method",
+  "order_history": "Order History",
+  "notifications_settings": "Notifications Settings",
+  "privacy_policy": "Privacy Policy",
+  "rate_our_app": "Rate Our App"
 }

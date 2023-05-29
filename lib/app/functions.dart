@@ -10,6 +10,8 @@ import '../presentation/resources/values_manager.dart';
 void navigateTo(context, widget) =>
     Navigator.push(context, MaterialPageRoute(builder: (context) => widget));
 
+void popScreen(context) => Navigator.of(context).pop();
+
 void navigateAndFinish(context, widget) => Navigator.pushAndRemoveUntil(
       context,
       MaterialPageRoute(builder: (context) => widget),

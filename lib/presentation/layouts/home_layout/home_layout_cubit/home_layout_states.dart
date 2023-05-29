@@ -54,11 +54,7 @@ class LogoutErrorState extends HomeLayoutStates {}
 // Hot Selling States
 class GetHotSellingLoadingState extends HomeLayoutStates {}
 
-class GetHotSellingDoneState extends HomeLayoutStates {
-  final List<HotSellingProduct>? products;
-
-  GetHotSellingDoneState({this.products});
-}
+class GetHotSellingDoneState extends HomeLayoutStates {}
 
 class GetHotSellingErrorState extends HomeLayoutStates {
   final String? error;

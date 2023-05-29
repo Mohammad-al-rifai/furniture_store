@@ -20,3 +20,12 @@ class GetUserOrdersLoadingState extends OrderStates {}
 class GetUserOrdersDoneState extends OrderStates {}
 
 class GetUserOrdersErrorState extends OrderStates {}
+
+// Get Single Order By ID States:
+
+class GetSingleOrderByIdLoadingState extends OrderStates {}
+
+class GetSingleOrderByIdDoneState extends OrderStates {}
+
+class GetSingleOrderByIdErrorState extends OrderStates {}
+

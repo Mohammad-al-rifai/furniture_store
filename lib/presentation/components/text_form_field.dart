@@ -62,7 +62,7 @@ class TFF extends StatelessWidget {
           onFieldSubmitted!(value);
         }
       },
-      onChanged: (value) {
+      onChanged: (String value) {
         if (onChanged != null) {
           onChanged!(value);
         }

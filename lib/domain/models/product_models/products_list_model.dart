@@ -1,5 +1,5 @@
-class MerchantProductsModel {
-  MerchantProductsModel({
+class ProductsListModel {
+  ProductsListModel({
     this.message,
     this.status,
     this.data,
@@ -7,27 +7,26 @@ class MerchantProductsModel {
 
   final String? message;
   final bool? status;
-  final MerchantProductsData? data;
+  final ProductsListData? data;
 
-  MerchantProductsModel copyWith({
+  ProductsListModel copyWith({
     String? message,
     bool? status,
-    MerchantProductsData? data,
+    ProductsListData? data,
   }) {
-    return MerchantProductsModel(
+    return ProductsListModel(
       message: message ?? this.message,
       status: status ?? this.status,
       data: data ?? this.data,
     );
   }
 
-  factory MerchantProductsModel.fromJson(Map<String, dynamic> json) {
-    return MerchantProductsModel(
+  factory ProductsListModel.fromJson(Map<String, dynamic> json) {
+    return ProductsListModel(
       message: json["message"],
       status: json["status"],
-      data: json["data"] == null
-          ? null
-          : MerchantProductsData.fromJson(json["data"]),
+      data:
+          json["data"] == null ? null : ProductsListData.fromJson(json["data"]),
     );
   }
 
@@ -43,27 +42,27 @@ class MerchantProductsModel {
   }
 }
 
-class MerchantProductsData {
-  MerchantProductsData({
+class ProductsListData {
+  ProductsListData({
     required this.products,
   });
 
-  final List<MerchantProduct> products;
+  final List<Product> products;
 
-  MerchantProductsData copyWith({
-    List<MerchantProduct>? products,
+  ProductsListData copyWith({
+    List<Product>? products,
   }) {
-    return MerchantProductsData(
+    return ProductsListData(
       products: products ?? this.products,
     );
   }
 
-  factory MerchantProductsData.fromJson(Map<String, dynamic> json) {
-    return MerchantProductsData(
+  factory ProductsListData.fromJson(Map<String, dynamic> json) {
+    return ProductsListData(
       products: json["products"] == null
           ? []
-          : List<MerchantProduct>.from(
-              json["products"]!.map((x) => MerchantProduct.fromJson(x))),
+          : List<Product>.from(
+              json["products"]!.map((x) => Product.fromJson(x))),
     );
   }
 
@@ -77,8 +76,8 @@ class MerchantProductsData {
   }
 }
 
-class MerchantProduct {
-  MerchantProduct({
+class Product {
+  Product({
     required this.id,
     required this.name,
     required this.mainCategorie,
@@ -91,21 +90,21 @@ class MerchantProduct {
   final String? id;
   final String? name;
   final String? mainCategorie;
-  final List<MerchantProductClass> productClass;
+  final List<ProductClass> productClass;
   final int? guarantee;
   final String? manufacturingMaterial;
   final String? mainImage;
 
-  MerchantProduct copyWith({
+  Product copyWith({
     String? id,
     String? name,
     String? mainCategorie,
-    List<MerchantProductClass>? productClass,
+    List<ProductClass>? productClass,
     int? guarantee,
     String? manufacturingMaterial,
     String? mainImage,
   }) {
-    return MerchantProduct(
+    return Product(
       id: id ?? this.id,
       name: name ?? this.name,
       mainCategorie: mainCategorie ?? this.mainCategorie,
@@ -117,15 +116,15 @@ class MerchantProduct {
     );
   }
 
-  factory MerchantProduct.fromJson(Map<String, dynamic> json) {
-    return MerchantProduct(
+  factory Product.fromJson(Map<String, dynamic> json) {
+    return Product(
       id: json["_id"],
       name: json["name"],
       mainCategorie: json["mainCategorie"],
       productClass: json["Class"] == null
           ? []
-          : List<MerchantProductClass>.from(
-              json["Class"]!.map((x) => MerchantProductClass.fromJson(x))),
+          : List<ProductClass>.from(
+              json["Class"]!.map((x) => ProductClass.fromJson(x))),
       guarantee: json["Guarantee"],
       manufacturingMaterial: json["manufacturingMaterial"],
       mainImage: json["mainImage"],
@@ -148,8 +147,8 @@ class MerchantProduct {
   }
 }
 
-class MerchantProductClass {
-  MerchantProductClass({
+class ProductClass {
+  ProductClass({
     required this.size,
     required this.length,
     required this.width,
@@ -165,21 +164,21 @@ class MerchantProductClass {
   final int? width;
   final int? price;
   final bool? sallableInPoints;
-  final List<MerchantProductGroup> group;
+  final List<ProductGroup> group;
   final String? id;
   final int? priceAfterDiscount;
 
-  MerchantProductClass copyWith({
+  ProductClass copyWith({
     String? size,
     int? length,
     int? width,
     int? price,
     bool? sallableInPoints,
-    List<MerchantProductGroup>? group,
+    List<ProductGroup>? group,
     String? id,
     int? priceAfterDiscount,
   }) {
-    return MerchantProductClass(
+    return ProductClass(
       size: size ?? this.size,
       length: length ?? this.length,
       width: width ?? this.width,
@@ -191,8 +190,8 @@ class MerchantProductClass {
     );
   }
 
-  factory MerchantProductClass.fromJson(Map<String, dynamic> json) {
-    return MerchantProductClass(
+  factory ProductClass.fromJson(Map<String, dynamic> json) {
+    return ProductClass(
       size: json["size"],
       length: json["length"],
       width: json["width"],
@@ -200,8 +199,8 @@ class MerchantProductClass {
       sallableInPoints: json["sallableInPoints"],
       group: json["group"] == null
           ? []
-          : List<MerchantProductGroup>.from(
-              json["group"]!.map((x) => MerchantProductGroup.fromJson(x))),
+          : List<ProductGroup>.from(
+              json["group"]!.map((x) => ProductGroup.fromJson(x))),
       id: json["_id"],
       priceAfterDiscount: json["priceAfterDiscount"],
     );
@@ -224,8 +223,8 @@ class MerchantProductClass {
   }
 }
 
-class MerchantProductGroup {
-  MerchantProductGroup({
+class ProductGroup {
+  ProductGroup({
     required this.color,
     required this.quantity,
     required this.id,
@@ -235,20 +234,20 @@ class MerchantProductGroup {
   final int? quantity;
   final String? id;
 
-  MerchantProductGroup copyWith({
+  ProductGroup copyWith({
     String? color,
     int? quantity,
     String? id,
   }) {
-    return MerchantProductGroup(
+    return ProductGroup(
       color: color ?? this.color,
       quantity: quantity ?? this.quantity,
       id: id ?? this.id,
     );
   }
 
-  factory MerchantProductGroup.fromJson(Map<String, dynamic> json) {
-    return MerchantProductGroup(
+  factory ProductGroup.fromJson(Map<String, dynamic> json) {
+    return ProductGroup(
       color: json["color"],
       quantity: json["quantity"],
       id: json["_id"],

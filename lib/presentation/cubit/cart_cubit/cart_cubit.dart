@@ -1,10 +1,9 @@
-import 'package:ecommerce/config/urls.dart';
-import 'package:ecommerce/data/network/remote/dio_helper.dart';
-import 'package:ecommerce/presentation/resources/constants_manager.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:meta/meta.dart';
 
+import '../../../config/urls.dart';
+import '../../../data/network/remote/dio_helper.dart';
 import '../../../domain/models/cart_models/user_cart_model.dart';
+import '../../resources/constants_manager.dart';
 
 part 'cart_states.dart';
 
@@ -19,7 +18,7 @@ class CartCubit extends Cubit<CartStates> {
     required String productId,
     required String classId,
     required String groupId,
-    required int quantity,
+    required num quantity,
   }) {
     emit(Add2CartLoadingState());
     DioHelper.postData(

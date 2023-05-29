@@ -6,7 +6,7 @@ import 'package:ecommerce/domain/models/auth_models/merchants_model.dart';
 import 'package:ecommerce/domain/models/auth_models/user_profile.dart';
 import 'package:ecommerce/domain/models/categories/all_categories_model.dart';
 import 'package:ecommerce/domain/models/home_models/banner_model.dart';
-import 'package:ecommerce/domain/models/product_models/hot_selling_model.dart';
+import 'package:ecommerce/domain/models/product_models/products_list_model.dart';
 import 'package:ecommerce/presentation/components/toast_notifications.dart';
 import 'package:ecommerce/presentation/resources/assets_manager.dart';
 import 'package:ecommerce/presentation/resources/constants_manager.dart';
@@ -16,7 +16,6 @@ import 'package:ecommerce/presentation/screens/profile/profile_screen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:meta/meta.dart';
 
 import '../../../../data/network/local/keys.dart';
@@ -145,23 +144,23 @@ class HomeLayoutCubit extends Cubit<HomeLayoutStates> {
   }
 
   //Get HotSelling
-  HotSellingModel? hotSellingModel = HotSellingModel();
-  List<HotSellingProduct> products = [];
+  ProductsListModel? hotSellingModel = ProductsListModel();
+  List<Product> products = [];
 
   getHotSelling() {
     emit(GetHotSellingLoadingState());
 
     if (products.isNotEmpty) {
-      emit(GetHotSellingDoneState(products: products));
+      emit(GetHotSellingDoneState());
     } else {
       DioHelper.getData(
         url: Urls.getHotSelling,
       ).then((value) {
-        hotSellingModel = HotSellingModel.fromJson(value.data);
+        hotSellingModel = ProductsListModel.fromJson(value.data);
         if (value.data['status']) {
           if (hotSellingModel?.data?.products != null) {
             products = hotSellingModel!.data!.products;
-            emit(GetHotSellingDoneState(products: products));
+            emit(GetHotSellingDoneState());
           }
         }
       }).catchError((err) {

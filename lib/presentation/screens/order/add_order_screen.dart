@@ -1,14 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:ecommerce/app/functions.dart';
-import 'package:ecommerce/domain/requests/order_requests/add_order_request_model.dart';
 import 'package:ecommerce/presentation/components/button.dart';
 import 'package:ecommerce/presentation/components/my_text.dart';
 import 'package:ecommerce/presentation/components/text_form_field.dart';
 import 'package:ecommerce/presentation/cubit/order_cubit/order_cubit.dart';
-import 'package:ecommerce/presentation/resources/constants_manager.dart';
 import 'package:ecommerce/presentation/resources/string_manager.dart';
 import 'package:ecommerce/presentation/resources/values_manager.dart';
-import 'package:ecommerce/presentation/screens/profile/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

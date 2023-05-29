@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 
 import '../../../../domain/models/categories/all_categories_model.dart';
-import '../../../../domain/models/product_models/merchant_products_model.dart';
+import '../../../../domain/models/product_models/products_list_model.dart';
 
 part 'merchant_layout_states.dart';
 
@@ -16,8 +16,8 @@ class MerchantLayoutCubit extends Cubit<MerchantLayoutStates> {
   static MerchantLayoutCubit get(context) => BlocProvider.of(context);
 
   // 1- Get Merchant Products:
-  MerchantProductsModel? merchantProductsModel = MerchantProductsModel();
-  List<MerchantProduct> products = [];
+  ProductsListModel? merchantProductsModel = ProductsListModel();
+  List<Product> products = [];
 
   getMerchantProducts({
     required String merchantId,
@@ -29,7 +29,7 @@ class MerchantLayoutCubit extends Cubit<MerchantLayoutStates> {
       DioHelper.getData(
         url: Urls.getMerchantProducts + merchantId,
       ).then((value) {
-        merchantProductsModel = MerchantProductsModel.fromJson(value.data);
+        merchantProductsModel = ProductsListModel.fromJson(value.data);
         if (merchantProductsModel?.data?.products != null) {
           if (merchantProductsModel!.data!.products.isNotEmpty) {
             products = merchantProductsModel!.data!.products;
@@ -75,8 +75,8 @@ class MerchantLayoutCubit extends Cubit<MerchantLayoutStates> {
 
   // 3. Get Merchant Products By Category:
 
-  MerchantProductsModel? merchantProductsByCatModel = MerchantProductsModel();
-  List<MerchantProduct> productsOfCat = [];
+  ProductsListModel? merchantProductsByCatModel = ProductsListModel();
+  List<Product> productsOfCat = [];
 
   getProductsByCategory({
     required String catName,
@@ -93,7 +93,7 @@ class MerchantLayoutCubit extends Cubit<MerchantLayoutStates> {
           "owner": merchantId,
         },
       ).then((value) {
-        merchantProductsByCatModel = MerchantProductsModel.fromJson(value.data);
+        merchantProductsByCatModel = ProductsListModel.fromJson(value.data);
         if (value.data['status'] &&
             merchantProductsByCatModel?.data?.products != null) {
           if (merchantProductsByCatModel!.data!.products.isNotEmpty) {

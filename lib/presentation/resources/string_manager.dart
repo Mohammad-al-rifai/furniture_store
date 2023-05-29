@@ -83,8 +83,17 @@ class AppStrings {
   static const String orderStatus = "order_status";
   static const String orderLocation = "order_location";
   static const String sp = "sp";
-
-// need Translation Form Here:
   static const String classWidth = "class_width";
   static const String mainDescriptions = "main_descriptions";
+  static const String paymentMethod = "payment_method";
+  static const String orderHistory = "order_history";
+  static const String notificationsSettings = "notifications_settings";
+  static const String privacyPolicy = "privacy_policy";
+  static const String rateOurApp = "rate_our_app";
+
+// need Translation Form Here:
+  static const String paymentStatus = "payment_status";
+  static const String fromMerchant = "from_merchant";
+  static const String orderDetails = "order_details";
+
 }

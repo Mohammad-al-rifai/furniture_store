@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../app/functions.dart';
-import '../../../../../domain/models/product_models/merchant_products_model.dart';
+import '../../../../../domain/models/product_models/products_list_model.dart';
 import '../../../../components/default_image.dart';
 import '../../../../resources/color_manager.dart';
 import '../../../../resources/values_manager.dart';
@@ -14,7 +14,7 @@ class ProductWidget extends StatelessWidget {
     required this.product,
   }) : super(key: key);
 
-  final MerchantProduct? product;
+  final Product? product;
 
   @override
   Widget build(BuildContext context) {

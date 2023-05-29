@@ -20,6 +20,8 @@ class GalleryWidget extends StatelessWidget {
 
   final PageController galleryController = PageController();
 
+  final double galleryHeight = AppSize.s260;
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<ProductCubit, ProductStates>(
@@ -29,7 +31,7 @@ class GalleryWidget extends StatelessWidget {
         if (state is GetProductGalleryDoneState || cubit.gallery.isNotEmpty) {
           return MyPageView(
             controller: galleryController,
-            height: AppSize.s260,
+            height: galleryHeight,
             pageWidget: (context, index) {
               if (index == 0) {
                 return buildMainImage(context);
@@ -44,6 +46,7 @@ class GalleryWidget extends StatelessWidget {
                   child: DefaultImage(
                     imageUrl: cubit.gallery[index - 1],
                     clickable: true,
+                    height: galleryHeight,
                   ),
                 );
               }
@@ -68,6 +71,7 @@ class GalleryWidget extends StatelessWidget {
             imageUrl: mainImageUrl,
             clickable: true,
             fit: BoxFit.cover,
+            height: galleryHeight,
           ),
           GestureDetector(
             onTap: () {

@@ -1,5 +1,5 @@
 class Urls {
-  static const String baseUrl = 'http://192.168.104.232:3000';
+  static const String baseUrl = 'http://192.168.51.232:3000';
 
   static const String filesUrl = '$baseUrl/api/download?fileName=';
 
@@ -37,5 +37,7 @@ class Urls {
 
 // *************** Start Order Management Feature **************
   static const String addOrder = '/user/Customer/addOrder';
-  static const String getUserOrders = '/user/Customer/getUserOrders';
+  static const String getUserOrders = '/user/allUsers/getUserOrders';
+  static const String getOrderById = '/user/allUsers/getOrderById/';
+  static const String orderAdvancedSearch = '/user/allUsers/advancedSearch/';
 }

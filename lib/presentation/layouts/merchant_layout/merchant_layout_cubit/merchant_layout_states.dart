@@ -9,7 +9,7 @@ class MerchantLayoutInitialState extends MerchantLayoutStates {}
 class GetMerchantProLoadingState extends MerchantLayoutStates {}
 
 class GetMerchantProDoneState extends MerchantLayoutStates {
-  final List<MerchantProduct>? products;
+  final List<Product>? products;
 
   GetMerchantProDoneState({this.products});
 }

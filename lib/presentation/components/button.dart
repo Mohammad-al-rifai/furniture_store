@@ -38,6 +38,9 @@ class DefaultButton extends StatelessWidget {
         widgetBuilder: (BuildContext context) {
           return ElevatedButton(
             onPressed: () => function(),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: background,
+            ),
             child: Text(
               isUpperCase! ? text.toUpperCase() : text,
               style: getRegularStyle(

@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:ecommerce/app/functions.dart';
 import 'package:ecommerce/presentation/components/button.dart';
-import 'package:ecommerce/presentation/components/error.dart';
 import 'package:ecommerce/presentation/components/loading.dart';
 import 'package:ecommerce/presentation/components/main_scaffold.dart';
 import 'package:ecommerce/presentation/cubit/cart_cubit/cart_cubit.dart';

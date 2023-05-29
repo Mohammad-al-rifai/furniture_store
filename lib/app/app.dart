@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:ecommerce/presentation/cubit/cart_cubit/cart_cubit.dart';
+import 'package:ecommerce/presentation/cubit/search_cubit/search_cubit.dart';
 import 'package:ecommerce/presentation/layouts/merchant_layout/merchant_layout_cubit/merchant_layout_cubit.dart';
 import 'package:ecommerce/presentation/screens/register/register_cubit/register_cubit.dart';
 import 'package:flutter/material.dart';

@@ -6,10 +6,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../app/functions.dart';
 import '../../../../components/button.dart';
 import '../../../../components/my_text.dart';
-import '../../../../components/price_widget.dart';
 import '../../../../components/toast_notifications.dart';
 import '../../../../cubit/cart_cubit/cart_cubit.dart';
-import '../../../../cubit/product_cubit/product_cubit.dart';
 import '../../../../resources/color_manager.dart';
 import '../../../../resources/string_manager.dart';
 import '../../../../resources/values_manager.dart';
@@ -31,7 +29,7 @@ class Add2CartWidget extends StatefulWidget {
 }
 
 class _Add2CartWidgetState extends State<Add2CartWidget> {
-  int quantity = 1;
+  num quantity = 1;
 
   @override
   void initState() {
@@ -72,7 +70,7 @@ class _Add2CartWidgetState extends State<Add2CartWidget> {
                   quantity: quantity,
                 );
               },
-              // isLoading: state is Add2CartLoadingState,
+              isLoading: state is Add2CartLoadingState,
             ),
             Container(
               height: AppSize.s40,
