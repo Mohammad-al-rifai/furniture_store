@@ -1,5 +1,4 @@
 import 'package:ecommerce/presentation/components/my_text.dart';
-import 'package:ecommerce/presentation/components/price_widget.dart';
 import 'package:ecommerce/presentation/resources/color_manager.dart';
 import 'package:ecommerce/presentation/resources/styles_manager.dart';
 import 'package:ecommerce/presentation/resources/values_manager.dart';
@@ -7,13 +6,10 @@ import 'package:ecommerce/presentation/screens/merchant/products/product_widgets
 import 'package:ecommerce/presentation/screens/merchant/products/product_widgets/classes_widget.dart';
 import 'package:ecommerce/presentation/screens/merchant/products/product_widgets/delivery_area_widget.dart';
 import 'package:ecommerce/presentation/screens/merchant/products/product_widgets/gallery_widget.dart';
-import 'package:ecommerce/presentation/screens/merchant/products/product_widgets/add_2_cart_widget.dart';
 import 'package:ecommerce/presentation/screens/merchant/products/product_widgets/pair_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_conditional_rendering/conditional.dart';
-import '../../../../domain/models/product_models/single_pro_model.dart';
 import '../../../components/default_element.dart';
 import '../../../cubit/product_cubit/product_cubit.dart';
 import '../../../resources/string_manager.dart';

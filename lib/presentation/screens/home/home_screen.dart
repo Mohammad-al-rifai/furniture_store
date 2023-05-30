@@ -27,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             // BannerWidget(),
             // CategoriesWidget(),
-            // HotSellingWidget(),
+            HotSellingWidget(),
             AllMerchantsWidget(),
             // testWidget(),
           ],

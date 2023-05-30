@@ -49,14 +49,9 @@ class _OrderSearchScreenState extends State<OrderSearchScreen> {
                 prefixIcon: Icons.search,
                 validator: (String value) {},
                 onFieldSubmitted: (String value) {
-                  SearchCubit
-                      .get(context)
-                      .orderParams
-                      ?.firstName = value;
+                  SearchCubit.get(context).orderParams?.firstName = value;
                   SearchCubit.get(context).orderAdvancedSearch(
-                      params: SearchCubit
-                          .get(context)
-                          .orderParams);
+                      params: SearchCubit.get(context).orderParams);
                 },
               ),
             ),
@@ -83,7 +78,7 @@ class _OrderSearchScreenState extends State<OrderSearchScreen> {
       return Conditional.single(
         context: context,
         conditionBuilder: (context) =>
-        (state.data!.isNotEmpty) && Constants.token.isNotEmpty,
+            (state.data!.isNotEmpty) && Constants.token.isNotEmpty,
         widgetBuilder: (context) {
           return Expanded(
             child: ListView.builder(
@@ -97,30 +92,12 @@ class _OrderSearchScreenState extends State<OrderSearchScreen> {
           );
         },
         fallbackBuilder: (context) {
-          if (Constants.token.isEmpty) {
-            return Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Lottie.asset(JsonAssets.login),
-                DefaultButton(
-                  function: () {
-                    navigateTo(
-                      context,
-                      const LoginScreen(),
-                    );
-                  },
-                  text: AppStrings.login,
-                ),
-              ],
-            );
+          if (state.data!.isEmpty) {
+            return Expanded(child: Lottie.asset(JsonAssets.empty));
           } else {
-            if (state.data!.isEmpty) {
-              return Lottie.asset(JsonAssets.empty);
-            } else {
-              return MText(
-                text: AppStrings.somethingsErrorPleaseCheckYourInternet,
-              );
-            }
+            return MText(
+              text: AppStrings.somethingsErrorPleaseCheckYourInternet,
+            );
           }
         },
       );
@@ -176,8 +153,7 @@ class _OrderSearchScreenState extends State<OrderSearchScreen> {
                   PairWidget(
                     label: AppStrings.orderLocation,
                     value:
-                    '${datum.shippingAddress?.country} - ${datum.shippingAddress
-                        ?.city} - ${datum.shippingAddress?.region}',
+                        '${datum.shippingAddress?.country} - ${datum.shippingAddress?.city} - ${datum.shippingAddress?.region}',
                     notTR: true,
                   ),
                   PairWidget(

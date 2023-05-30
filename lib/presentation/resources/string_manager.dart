@@ -95,5 +95,12 @@ class AppStrings {
   static const String paymentStatus = "payment_status";
   static const String fromMerchant = "from_merchant";
   static const String orderDetails = "order_details";
-
+  static const String wishlist = "wishlist";
+  static const String login2ShowYourWishlist = "login_2_show_your_wishlist";
+  static const String delete = "delete";
+  static const String deletedSuccessfully = "deleted_successfully";
+  static const String youHaveNotWishlistNow = "you_have_not_wishlist_now";
+  static const String deleteYourWishlist = "delete_your_wishlist";
+  static const String areYouSureYouWant2DeleteYourWishlist =
+      "are_you_sure_you_want_2_delete_your_wishlist";
 }

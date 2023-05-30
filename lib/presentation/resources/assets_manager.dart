@@ -18,6 +18,7 @@ class IconsAssets {
   static const String privacy = "$iconsPath/privacy.svg";
   static const String star = "$iconsPath/star.svg";
   static const String payment = "$iconsPath/payment.svg";
+  static const String wishlist = "$iconsPath/wishlist.svg";
 }
 
 class JsonAssets {
@@ -27,4 +28,5 @@ class JsonAssets {
   static const String success = "$jsonPath/success.json";
   static const String login = "$jsonPath/login.json";
   static const String video = "$jsonPath/video.json";
+  static const String emptyWishlist = "$jsonPath/empty_wishlist.json";
 }

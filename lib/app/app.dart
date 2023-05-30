@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../presentation/cubit/order_cubit/order_cubit.dart';
+import '../presentation/cubit/wishlist_cubit/wishlist_cubit.dart';
 import '../presentation/layouts/home_layout/home_layout_cubit/home_layout_cubit.dart';
 import '../presentation/resources/theme_manager.dart';
 import '../presentation/screens/splash/splash_screen.dart';
@@ -42,6 +43,9 @@ class _MyAppState extends State<MyApp> {
         BlocProvider(create: (BuildContext context) => MerchantLayoutCubit()),
         BlocProvider(create: (BuildContext context) => CartCubit()),
         BlocProvider(create: (BuildContext context) => OrderCubit()),
+        BlocProvider(
+          create: (BuildContext context) => WishlistCubit()..getMyWishlist(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

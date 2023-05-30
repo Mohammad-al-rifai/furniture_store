@@ -2,6 +2,7 @@
 import 'package:ecommerce/app/functions.dart';
 import 'package:ecommerce/domain/models/product_models/products_list_model.dart';
 import 'package:ecommerce/presentation/components/my_text.dart';
+import 'package:ecommerce/presentation/cubit/wishlist_cubit/wishlist_cubit.dart';
 import 'package:ecommerce/presentation/resources/color_manager.dart';
 import 'package:ecommerce/presentation/screens/merchant/products/details_screen.dart';
 import 'package:flutter/cupertino.dart';
@@ -16,10 +17,16 @@ import '../../../components/price_widget.dart';
 import '../../../layouts/home_layout/home_layout_cubit/home_layout_cubit.dart';
 import '../../../resources/string_manager.dart';
 import '../../../resources/values_manager.dart';
+import '../../../shared/add_remove_wishlist_widget.dart';
 
-class HotSellingWidget extends StatelessWidget {
+class HotSellingWidget extends StatefulWidget {
   const HotSellingWidget({Key? key}) : super(key: key);
 
+  @override
+  State<HotSellingWidget> createState() => _HotSellingWidgetState();
+}
+
+class _HotSellingWidgetState extends State<HotSellingWidget> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<HomeLayoutCubit, HomeLayoutStates>(
@@ -69,8 +76,6 @@ class HotSellingWidget extends StatelessWidget {
           ),
         );
       },
-      focusColor: ColorManager.primary,
-      autofocus: true,
       highlightColor: ColorManager.lightPrimary,
       child: Card(
         clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -86,18 +91,13 @@ class HotSellingWidget extends StatelessWidget {
               color: ColorManager.black,
               maxLines: 2,
               textAlign: TextAlign.center,
+              notTR: true,
             ),
             const SizedBox(height: AppSize.s8),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                ElevatedButton(
-                  onPressed: () {},
-                  child: const Icon(
-                    CupertinoIcons.cart_badge_plus,
-                    color: ColorManager.white,
-                  ),
-                ),
+                AddRemoveWishlistItem(proId: product.id ?? ''),
                 Expanded(
                   child: priceWidget(
                     price:

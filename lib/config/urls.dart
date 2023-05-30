@@ -1,5 +1,5 @@
 class Urls {
-  static const String baseUrl = 'http://192.168.51.232:3000';
+  static const String baseUrl = 'http://192.168.131.232:3000';
 
   static const String filesUrl = '$baseUrl/api/download?fileName=';
 
@@ -40,4 +40,11 @@ class Urls {
   static const String getUserOrders = '/user/allUsers/getUserOrders';
   static const String getOrderById = '/user/allUsers/getOrderById/';
   static const String orderAdvancedSearch = '/user/allUsers/advancedSearch/';
+
+// *************** Start Wishlist Management Feature **************
+  static const String add2WishList = '/user/Customer/addToWishList';
+  static const String getMyWishlist = '/user/Customer/getWishListByUserID';
+  static const String removeProFromWishlist = '/user/Customer/removeToWishList';
+  static const String deleteMyWishlist =
+      '/user/Customer/deleteWishListByUserID';
 }

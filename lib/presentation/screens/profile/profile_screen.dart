@@ -22,6 +22,7 @@ import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../resources/assets_manager.dart';
+import '../wishlist/wishlist_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -81,6 +82,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           onTap: () => handleOrderHistoryPress(),
                           iconPath: IconsAssets.order,
                           titleTR: AppStrings.orderHistory,
+                        ),
+                        SettingsItemWidget(
+                          onTap: () => handleWishlistPress(),
+                          iconPath: IconsAssets.wishlist,
+                          titleTR: AppStrings.wishlist,
                         ),
                         SettingsItemWidget(
                           onTap: () => handleLangPress(),
@@ -150,5 +156,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
 // 2. handle Order History Press:
   handleOrderHistoryPress() {
     navigateTo(context, const UserOrderScreen());
+  }
+
+  // 3. handle Wishlist Press
+  handleWishlistPress() {
+    navigateTo(context, const WishlistScreen());
   }
 }

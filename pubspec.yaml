@@ -52,6 +52,7 @@ dependencies:
   chewie: ^1.4.0
   model_viewer_plus: ^1.5.0
   flutter_dismissible_tile: ^1.0.2
+  dropdown_button2: ^2.1.3
 
 
 
