@@ -3,9 +3,16 @@ import 'dart:math';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:ecommerce/app/languages.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
+import '../presentation/components/button.dart';
+import '../presentation/components/my_text.dart';
+import '../presentation/resources/assets_manager.dart';
 import '../presentation/resources/color_manager.dart';
+import '../presentation/resources/constants_manager.dart';
+import '../presentation/resources/string_manager.dart';
 import '../presentation/resources/values_manager.dart';
+import '../presentation/screens/login/login_screen.dart';
 
 void navigateTo(context, widget) =>
     Navigator.push(context, MaterialPageRoute(builder: (context) => widget));
@@ -43,8 +50,8 @@ getDeco({
   return BoxDecoration(
     color: color ?? ColorManager.primary,
     borderRadius: BorderRadiusDirectional.only(
-      bottomEnd: const Radius.circular(AppSize.s8),
-      topEnd: const Radius.circular(AppSize.s8),
+      bottomEnd: Radius.circular(AppSize.s8),
+      topEnd: Radius.circular(AppSize.s8),
       bottomStart: Radius.circular(borderSize),
       topStart: Radius.circular(borderSize),
     ),
@@ -104,4 +111,34 @@ Color getRandomColor() {
     green,
     blue,
   );
+}
+
+Widget handleFallBackWidget({
+  List<dynamic>? list,
+  required BuildContext context,
+}) {
+  if (Constants.token.isEmpty) {
+    return Column(
+      children: [
+        Lottie.asset(JsonAssets.login),
+        DefaultButton(
+          function: () {
+            navigateTo(
+              context,
+              const LoginScreen(),
+            );
+          },
+          text: AppStrings.login,
+        ),
+      ],
+    );
+  } else {
+    if (list != null && list.isEmpty) {
+      return Lottie.asset(JsonAssets.empty);
+    } else {
+      return MText(
+        text: AppStrings.somethingsErrorPleaseCheckYourInternet,
+      );
+    }
+  }
 }

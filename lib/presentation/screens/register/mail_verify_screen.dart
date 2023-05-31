@@ -98,7 +98,7 @@ class _MailVerifyScreenState extends State<MailVerifyScreen> {
                           color: ColorManager.primary,
                         ),
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: AppSize.s4,
                       ),
                       Text(
@@ -107,7 +107,7 @@ class _MailVerifyScreenState extends State<MailVerifyScreen> {
                           color: ColorManager.primary,
                         ),
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: AppSize.s4,
                       ),
                       Text(
@@ -116,7 +116,7 @@ class _MailVerifyScreenState extends State<MailVerifyScreen> {
                           color: ColorManager.primary,
                         ),
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: AppSize.s12,
                       ),
                       TFF(
@@ -130,7 +130,7 @@ class _MailVerifyScreenState extends State<MailVerifyScreen> {
                           }
                         },
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: AppSize.s12,
                       ),
                       DefaultButton(

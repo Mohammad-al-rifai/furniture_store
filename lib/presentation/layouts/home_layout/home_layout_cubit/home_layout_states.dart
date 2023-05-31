@@ -88,3 +88,11 @@ class GetMerchantsDoneState extends HomeLayoutStates {
 }
 
 class GetMerchantsErrorState extends HomeLayoutStates {}
+
+// Get Recommended Products States:
+
+class GetRecommendedProductsLoadingState extends HomeLayoutStates {}
+
+class GetRecommendedProductsDoneState extends HomeLayoutStates {}
+
+class GetRecommendedProductsErrorState extends HomeLayoutStates {}

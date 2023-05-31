@@ -17,7 +17,7 @@ ThemeData getApplicationTheme() {
     splashColor: ColorManager.lightPrimary,
 
     // cardView theme
-    cardTheme: const CardTheme(
+    cardTheme: CardTheme(
       color: ColorManager.white,
       shadowColor: ColorManager.grey,
       elevation: AppSize.s8,
@@ -27,7 +27,7 @@ ThemeData getApplicationTheme() {
       elevation: AppSize.s4,
       selectedItemColor: ColorManager.darkPrimary,
       unselectedItemColor: ColorManager.lightPrimary,
-      selectedIconTheme: const IconThemeData(size: AppSize.s28),
+      selectedIconTheme: IconThemeData(size: AppSize.s28),
       backgroundColor: ColorManager.white,
       type: BottomNavigationBarType.fixed,
       showSelectedLabels: true,
@@ -136,7 +136,7 @@ ThemeData getApplicationTheme() {
       ),
 
       // enabled border style
-      enabledBorder: const OutlineInputBorder(
+      enabledBorder: OutlineInputBorder(
         borderSide: BorderSide(
           color: ColorManager.grey,
           width: AppSize.s1_5,
@@ -149,7 +149,7 @@ ThemeData getApplicationTheme() {
       ),
 
       // focused border style
-      focusedBorder: const OutlineInputBorder(
+      focusedBorder: OutlineInputBorder(
         borderSide: BorderSide(
           color: ColorManager.primary,
           width: AppSize.s1_5,
@@ -162,7 +162,7 @@ ThemeData getApplicationTheme() {
       ),
 
       // error border style
-      errorBorder: const OutlineInputBorder(
+      errorBorder: OutlineInputBorder(
         borderSide: BorderSide(
           color: ColorManager.error,
           width: AppSize.s1_5,
@@ -174,7 +174,7 @@ ThemeData getApplicationTheme() {
         ),
       ),
       // focused border style
-      focusedErrorBorder: const OutlineInputBorder(
+      focusedErrorBorder: OutlineInputBorder(
         borderSide: BorderSide(
           color: ColorManager.primary,
           width: AppSize.s1_5,

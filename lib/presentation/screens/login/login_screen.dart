@@ -104,10 +104,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        const SizedBox(
+                         SizedBox(
                           height: AppSize.s180,
                           width: AppSize.s180,
-                          child: Image(
+                          child: const Image(
                             image: AssetImage(
                               ImageAssets.splashLogo,
                             ),
@@ -124,7 +124,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             }
                           },
                         ),
-                        const SizedBox(
+                        SizedBox(
                           height: AppSize.s18,
                         ),
                         TFF(
@@ -146,7 +146,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             }
                           },
                         ),
-                        const SizedBox(
+                        SizedBox(
                           height: AppSize.s18,
                         ),
                         DefaultButton(

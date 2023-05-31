@@ -39,7 +39,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                 child: GridView.builder(
                   shrinkWrap: true,
                   physics: const BouncingScrollPhysics(),
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3,
                     childAspectRatio: 6 / 8,
                     crossAxisSpacing: AppSize.s8,

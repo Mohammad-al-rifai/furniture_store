@@ -144,7 +144,7 @@ class _ClassesWidgetState extends State<ClassesWidget> {
                         borderPadding: EdgeInsets.zero,
                         padding: EdgeInsets.zero,
                         borderType: BorderType.RRect,
-                        radius: const Radius.circular(AppSize.s4),
+                        radius: Radius.circular(AppSize.s4),
                         child: buildColorItem(index, groups),
                       ),
                     );
@@ -225,7 +225,7 @@ class _ClassesWidgetState extends State<ClassesWidget> {
               children: [
                 Text(
                   price1 ?? '',
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: AppSize.s12,
                     decoration: TextDecoration.lineThrough,
                     decorationThickness: 2.85,
@@ -233,21 +233,23 @@ class _ClassesWidgetState extends State<ClassesWidget> {
                     fontWeight: FontWeightManager.light,
                   ),
                 ),
-                const SizedBox(width: AppSize.s8),
+                SizedBox(width: AppSize.s8),
                 Text(
                   price2 ?? '',
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: AppSize.s18,
                     color: ColorManager.success,
                     fontWeight: FontWeightManager.extraBold,
                   ),
                 ),
-                const SizedBox(width: AppSize.s4),
-                MText(
-                  text: AppStrings.sp,
-                  textAlign: TextAlign.center,
-                  style: getMediumStyle(
-                    color: ColorManager.darkPrimary,
+                SizedBox(width: AppSize.s4),
+                Expanded(
+                  child: MText(
+                    text: AppStrings.sp,
+                    textAlign: TextAlign.center,
+                    style: getMediumStyle(
+                      color: ColorManager.darkPrimary,
+                    ),
                   ),
                 ),
               ],

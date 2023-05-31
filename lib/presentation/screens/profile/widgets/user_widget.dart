@@ -200,10 +200,10 @@ class _UserWidgetState extends State<UserWidget> {
               style: getRegularStyle(
                   color: ColorManager.white, fontSize: AppSize.s8),
             ),
-            const SizedBox(
+             SizedBox(
               width: AppSize.s4,
             ),
-            const Icon(
+             Icon(
               Icons.logout,
               color: ColorManager.white,
               size: AppSize.s16,

@@ -37,11 +37,11 @@ class _OldLanguageWidgetState extends State<OldLanguageWidget> {
           width: 4.0,
         ),
         MText(text: AppStrings.appLanguage),
-        const SizedBox(
+         SizedBox(
           width: AppSize.s12,
         ),
         DottedBorder(
-          radius: const Radius.circular(AppSize.s8),
+          radius:  Radius.circular(AppSize.s8),
           color: ColorManager.darkPrimary,
           borderType: BorderType.RRect,
           child: Container(

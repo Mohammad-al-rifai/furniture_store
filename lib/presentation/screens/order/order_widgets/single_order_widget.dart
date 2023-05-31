@@ -114,13 +114,13 @@ class SingleOrderWidget extends StatelessWidget {
                 height: AppSize.s200,
                 clickable: true,
               ),
-              const SizedBox(height: AppSize.s8),
+               SizedBox(height: AppSize.s8),
               MText(
                 text: item?.singleProduct?.product?.name ?? '',
                 color: ColorManager.black,
                 notTR: true,
               ),
-              const SizedBox(height: AppSize.s4),
+               SizedBox(height: AppSize.s4),
               priceWidget(
                 price: item?.price.toString() ?? '',
               ),
@@ -170,7 +170,7 @@ class SingleOrderWidget extends StatelessWidget {
                 ),
               );
             },
-            icon: const Icon(
+            icon:  Icon(
               CupertinoIcons.info_circle,
               color: ColorManager.darkPrimary,
               size: AppSize.s30,

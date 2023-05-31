@@ -8,7 +8,7 @@ import 'my_text.dart';
 
 Widget priceWidget({
   required String price,
-  double fontSize = AppSize.s20,
+  double? fontSize,
 }) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.center,
@@ -18,10 +18,10 @@ Widget priceWidget({
         text: price,
         style: getExtraBoldStyle(
           color: ColorManager.black,
-          fontSize: fontSize,
+          fontSize: fontSize ?? AppSize.s20,
         ),
       ),
-      const SizedBox(width: AppSize.s4),
+      SizedBox(width: AppSize.s4),
       MText(
         text: AppStrings.sp,
         textAlign: TextAlign.start,

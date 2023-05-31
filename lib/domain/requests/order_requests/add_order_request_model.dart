@@ -1,20 +1,9 @@
-class AddOrderRequestModel {
-  AddOrderRequestUserInfo? userInfo;
-  AddOrderRequestShippingAddress? shippingAddress;
+class AddOrderRequest {
+  UserInfo? userInfo;
+  ShippingAddress? shippingAddress;
   String? paymentMethod;
 
-  AddOrderRequestModel(
-      {this.userInfo, this.shippingAddress, this.paymentMethod});
-
-  AddOrderRequestModel.fromJson(Map<String, dynamic> json) {
-    userInfo = json['userInfo'] != null
-        ? AddOrderRequestUserInfo.fromJson(json['userInfo'])
-        : null;
-    shippingAddress = json['shippingAddress'] != null
-        ? AddOrderRequestShippingAddress.fromJson(json['shippingAddress'])
-        : null;
-    paymentMethod = json['paymentMethod'];
-  }
+  AddOrderRequest({this.userInfo, this.shippingAddress, this.paymentMethod});
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
@@ -29,21 +18,13 @@ class AddOrderRequestModel {
   }
 }
 
-class AddOrderRequestUserInfo {
+class UserInfo {
   String? firstName;
   String? lastName;
   String? email;
   String? phone;
 
-  AddOrderRequestUserInfo(
-      {this.firstName, this.lastName, this.email, this.phone});
-
-  AddOrderRequestUserInfo.fromJson(Map<String, dynamic> json) {
-    firstName = json['firstName'];
-    lastName = json['lastName'];
-    email = json['email'];
-    phone = json['phone'];
-  }
+  UserInfo({this.firstName, this.lastName, this.email, this.phone});
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
@@ -55,7 +36,7 @@ class AddOrderRequestUserInfo {
   }
 }
 
-class AddOrderRequestShippingAddress {
+class ShippingAddress {
   String? country;
   String? city;
   String? region;
@@ -63,22 +44,13 @@ class AddOrderRequestShippingAddress {
   String? houseNumber;
   String? description;
 
-  AddOrderRequestShippingAddress(
+  ShippingAddress(
       {this.country,
       this.city,
       this.region,
       this.streetNumber,
       this.houseNumber,
       this.description});
-
-  AddOrderRequestShippingAddress.fromJson(Map<String, dynamic> json) {
-    country = json['country'];
-    city = json['city'];
-    region = json['region'];
-    streetNumber = json['streetNumber'];
-    houseNumber = json['houseNumber'];
-    description = json['description'];
-  }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};

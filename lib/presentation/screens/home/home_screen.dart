@@ -5,6 +5,7 @@ import 'package:ecommerce/presentation/cubit/test_cubit/test_cubit.dart';
 import 'package:ecommerce/presentation/resources/string_manager.dart';
 import 'package:ecommerce/presentation/screens/home/widgets/categories_widget.dart';
 import 'package:ecommerce/presentation/screens/home/widgets/merchants_widget.dart';
+import 'package:ecommerce/presentation/screens/home/widgets/recommended_pro_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'widgets/banners_widget.dart';
@@ -27,6 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             // BannerWidget(),
             // CategoriesWidget(),
+            // RecommendedProWidget(isListView: true),
             HotSellingWidget(),
             AllMerchantsWidget(),
             // testWidget(),

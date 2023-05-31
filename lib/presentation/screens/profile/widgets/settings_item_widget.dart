@@ -44,7 +44,7 @@ class SettingsItemWidget extends StatelessWidget {
                 iconPath,
                 color: ColorManager.darkPrimary,
               ),
-              const SizedBox(width: AppSize.s18),
+               SizedBox(width: AppSize.s18),
               Expanded(
                 child: MText(
                   text: titleTR,
@@ -64,7 +64,7 @@ class SettingsItemWidget extends StatelessWidget {
           ),
           withDivider
               ? Padding(
-                  padding: const EdgeInsetsDirectional.only(
+                  padding:  EdgeInsetsDirectional.only(
                     start: AppSize.s40,
                   ),
                   child: MyDivider(

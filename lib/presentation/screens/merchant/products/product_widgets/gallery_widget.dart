@@ -82,7 +82,7 @@ class GalleryWidget extends StatelessWidget {
               height: 40.0,
               width: 40.0,
               decoration: getDeco(withShadow: true, borderSize: AppSize.s8),
-              child: const Center(
+              child:  Center(
                 child: Icon(
                   Icons.arrow_back_ios_new,
                   color: ColorManager.white,

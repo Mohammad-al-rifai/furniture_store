@@ -55,7 +55,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               child: Column(
                 children: [
                   const UserWidget(),
-                  const SizedBox(height: AppSize.s8),
+                   SizedBox(height: AppSize.s8),
                   Container(
                     margin: const EdgeInsetsDirectional.all(AppMargin.m8),
                     padding: const EdgeInsetsDirectional.all(AppPadding.p12),

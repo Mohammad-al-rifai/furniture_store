@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'fonts_manager.dart';
 
@@ -33,11 +34,11 @@ TextStyle _getTextStyle(
 
 // Black style
 TextStyle getBlackStyle({
-  double fontSize = FontSize.s12,
+  double? fontSize,
   required Color color,
 }) {
   return _getTextStyle(
-    fontSize,
+    fontSize ?? FontSize.s12,
     FontWeightManager.black,
     color,
   );
@@ -45,11 +46,11 @@ TextStyle getBlackStyle({
 
 // extra bold style
 TextStyle getExtraBoldStyle({
-  double fontSize = FontSize.s12,
+  double? fontSize,
   required Color color,
 }) {
   return _getTextStyle(
-    fontSize,
+    fontSize ?? FontSize.s12,
     FontWeightManager.extraBold,
     color,
   );
@@ -57,11 +58,11 @@ TextStyle getExtraBoldStyle({
 
 // bold style
 TextStyle getBoldStyle({
-  double fontSize = FontSize.s12,
+  double? fontSize,
   required Color color,
 }) {
   return _getTextStyle(
-    fontSize,
+    fontSize ?? FontSize.s12,
     FontWeightManager.bold,
     color,
   );
@@ -69,11 +70,11 @@ TextStyle getBoldStyle({
 
 // medium style
 TextStyle getMediumStyle({
-  double fontSize = FontSize.s12,
+  double? fontSize,
   required Color color,
 }) {
   return _getTextStyle(
-    fontSize,
+    fontSize ?? FontSize.s12,
     FontWeightManager.medium,
     color,
   );
@@ -81,11 +82,11 @@ TextStyle getMediumStyle({
 
 // regular style
 TextStyle getRegularStyle({
-  double fontSize = FontSize.s12,
+  double? fontSize,
   required Color color,
 }) {
   return _getTextStyle(
-    fontSize,
+    fontSize ?? FontSize.s12,
     FontWeightManager.regular,
     color,
   );
@@ -93,11 +94,11 @@ TextStyle getRegularStyle({
 
 // light style
 TextStyle getLightStyle({
-  double fontSize = FontSize.s12,
+  double? fontSize,
   required Color color,
 }) {
   return _getTextStyle(
-    fontSize,
+    fontSize ?? FontSize.s12,
     FontWeightManager.light,
     color,
   );
@@ -105,11 +106,11 @@ TextStyle getLightStyle({
 
 // extra light style
 TextStyle getExtraLightStyle({
-  double fontSize = FontSize.s12,
+  double? fontSize,
   required Color color,
 }) {
   return _getTextStyle(
-    fontSize,
+    fontSize ?? FontSize.s12,
     FontWeightManager.extraLight,
     color,
   );

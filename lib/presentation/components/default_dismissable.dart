@@ -20,7 +20,7 @@ class DefaultDismissible extends StatelessWidget {
   Widget build(BuildContext context) {
     return DismissibleTile(
       key: UniqueKey(),
-      borderRadius: const BorderRadius.all(Radius.circular(AppSize.s14)),
+      borderRadius:  BorderRadius.all(Radius.circular(AppSize.s14)),
       delayBeforeResize: const Duration(milliseconds: 500),
       ltrDismissedColor: ColorManager.error,
       rtlDismissedColor: ColorManager.error,

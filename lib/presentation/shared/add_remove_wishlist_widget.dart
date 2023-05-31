@@ -1,9 +1,12 @@
+import 'package:ecommerce/presentation/components/toast_notifications.dart';
+import 'package:ecommerce/presentation/resources/string_manager.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../cubit/wishlist_cubit/wishlist_cubit.dart';
 import '../resources/color_manager.dart';
+import '../resources/constants_manager.dart';
 import '../resources/values_manager.dart';
 
 class AddRemoveWishlistItem extends StatefulWidget {
@@ -29,15 +32,21 @@ class _AddRemoveWishlistItemState extends State<AddRemoveWishlistItem> {
       builder: (context, state) {
         return IconButton(
           onPressed: () {
-            if (WishlistCubit.get(context)
-                .isProInMyWishlist(proId: widget.proId)) {
-              WishlistCubit.get(context).removeProFromWishlist(
-                proId: widget.proId,
-              );
+            if (Constants.token.isNotEmpty) {
+              if (WishlistCubit.get(context)
+                  .isProInMyWishlist(proId: widget.proId)) {
+                WishlistCubit.get(context).removeProFromWishlist(
+                  proId: widget.proId,
+                );
+              } else {
+                WishlistCubit.get(context).addPro2Wishlist(proId: widget.proId);
+              }
             } else {
-              WishlistCubit.get(context).addPro2Wishlist(proId: widget.proId);
+              showToast(
+                text: AppStrings.pleaseLogin2YourAccount,
+                state: ToastStates.WARNING,
+              );
             }
-            setState(() {});
           },
           icon: Icon(
             WishlistCubit.get(context).isProInMyWishlist(proId: widget.proId)

@@ -7,6 +7,7 @@ import 'package:ecommerce/domain/models/auth_models/user_profile.dart';
 import 'package:ecommerce/domain/models/categories/all_categories_model.dart';
 import 'package:ecommerce/domain/models/home_models/banner_model.dart';
 import 'package:ecommerce/domain/models/product_models/products_list_model.dart';
+import 'package:ecommerce/domain/models/rec_ses_models/recomended_pro_model.dart';
 import 'package:ecommerce/presentation/components/toast_notifications.dart';
 import 'package:ecommerce/presentation/resources/assets_manager.dart';
 import 'package:ecommerce/presentation/resources/constants_manager.dart';
@@ -223,6 +224,36 @@ class HomeLayoutCubit extends Cubit<HomeLayoutStates> {
         }
       }).catchError((err) {
         emit(GetMerchantsErrorState());
+      });
+    }
+  }
+
+// Get Recommended Products Using Machine Learning
+
+  RecommendedProModel recommendedProModel = RecommendedProModel();
+
+  List<Product> recommendedProducts = [];
+
+  getRecommendedProducts() {
+    emit(GetRecommendedProductsLoadingState());
+
+    if (recommendedProducts.isNotEmpty) {
+      emit(GetRecommendedProductsDoneState());
+    } else {
+      DioHelper.getData(
+        url: Urls.recSysML,
+        token: Constants.bearer + Constants.token,
+      ).then((value) {
+        recommendedProModel = RecommendedProModel.fromJson(value.data);
+        if (value.data['status']) {
+          if (recommendedProModel.recommendedProducts != null) {
+            recommendedProducts = recommendedProModel.recommendedProducts!;
+            emit(GetRecommendedProductsDoneState());
+          }
+        }
+      }).catchError((err) {
+        print(err.toString());
+        emit(GetRecommendedProductsErrorState());
       });
     }
   }

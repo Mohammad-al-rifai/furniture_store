@@ -96,7 +96,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                     MText(
                       text: AppStrings.enterYourEmailAddress,
                     ),
-                    const SizedBox(
+                    SizedBox(
                       height: AppSize.s12,
                     ),
                     TFF(
@@ -110,7 +110,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                         }
                       },
                     ),
-                    const SizedBox(
+                    SizedBox(
                       height: AppSize.s12,
                     ),
                     Align(
@@ -157,14 +157,14 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const SizedBox(
+                  SizedBox(
                     height: AppSize.s12,
                   ),
                   MText(text: AppStrings.emailVerificationCodeIsSentTo),
                   MText(
                       text: emailController.text,
                       style: getLightStyle(color: ColorManager.primary)),
-                  const SizedBox(
+                  SizedBox(
                     height: AppSize.s12,
                   ),
                   TFF(
@@ -178,7 +178,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                       }
                     },
                   ),
-                  const SizedBox(
+                  SizedBox(
                     height: AppSize.s12,
                   ),
                   TFF(
@@ -200,7 +200,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                       }
                     },
                   ),
-                  const SizedBox(
+                  SizedBox(
                     height: AppSize.s12,
                   ),
                   Align(

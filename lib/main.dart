@@ -5,6 +5,7 @@ import 'package:ecommerce/data/network/local/keys.dart';
 import 'package:ecommerce/presentation/resources/constants_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'app/app.dart';
 import 'app/bloc_observer.dart';
@@ -17,6 +18,7 @@ void main() async {
   Bloc.observer = MyBlocObserver();
   DioHelper.init();
   await CacheHelper.init();
+  await ScreenUtil.ensureScreenSize();
 
   Langs.isEN = CacheHelper.getData(key: CacheHelperKeys.isEN) ?? true;
   Constants.token = CacheHelper.getData(key: CacheHelperKeys.token) ?? "";

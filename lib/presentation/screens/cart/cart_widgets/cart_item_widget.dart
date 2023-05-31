@@ -117,7 +117,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                 },
               );
             },
-            icon: const Icon(
+            icon: Icon(
               CupertinoIcons.delete,
               color: ColorManager.error,
               size: AppSize.s30,
@@ -161,7 +161,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                       increment: false,
                     );
                   },
-                  child: const Icon(
+                  child: Icon(
                     CupertinoIcons.minus,
                     size: AppSize.s25,
                   ),
@@ -181,7 +181,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                       increment: true,
                     );
                   },
-                  child: const Icon(
+                  child: Icon(
                     CupertinoIcons.plus,
                     size: AppSize.s25,
                   ),

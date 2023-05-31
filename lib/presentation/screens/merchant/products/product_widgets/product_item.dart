@@ -6,6 +6,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../app/functions.dart';
 import '../../../../../domain/models/product_models/products_list_model.dart';
 import '../../../../components/default_image.dart';
+import '../../../../components/my_text.dart';
+import '../../../../components/price_widget.dart';
 import '../../../../cubit/wishlist_cubit/wishlist_cubit.dart';
 import '../../../../resources/color_manager.dart';
 import '../../../../resources/values_manager.dart';
@@ -26,7 +28,7 @@ class ProductWidget extends StatefulWidget {
 class _ProductWidgetState extends State<ProductWidget> {
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: () {
         navigateTo(
           context,
@@ -36,29 +38,39 @@ class _ProductWidgetState extends State<ProductWidget> {
           ),
         );
       },
-      child: Stack(
-        alignment: AlignmentDirectional.topEnd,
-        children: [
-          Container(
-            margin:
-                const EdgeInsetsDirectional.symmetric(horizontal: AppMargin.m8),
-            clipBehavior: Clip.antiAliasWithSaveLayer,
-            height: AppSize.s200,
-            width: double.infinity,
-            decoration: getDeco(borderSize: AppSize.s8),
-            child: Hero(
-              tag: widget.product?.mainImage ?? 'Details',
+      highlightColor: ColorManager.lightPrimary,
+      child: Card(
+        clipBehavior: Clip.antiAliasWithSaveLayer,
+        child: Column(
+          children: [
+            SizedBox(
+              height: 140.0,
               child: DefaultImage(imageUrl: widget.product?.mainImage),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsetsDirectional.only(
-              top: AppPadding.p4,
-              end: AppPadding.p8,
+            SizedBox(height: AppSize.s8),
+            MText(
+              text: widget.product?.name ?? 'Pro Name',
+              color: ColorManager.black,
+              maxLines: 2,
+              textAlign: TextAlign.center,
+              notTR: true,
             ),
-            child: AddRemoveWishlistItem(proId: widget.product?.id ?? ''),
-          )
-        ],
+            SizedBox(height: AppSize.s8),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                AddRemoveWishlistItem(proId: widget.product?.id ?? ''),
+                Expanded(
+                  child: priceWidget(
+                    price: widget.product?.productClass[0].price.toString() ??
+                        'Pro Price',
+                    fontSize: AppSize.s18,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

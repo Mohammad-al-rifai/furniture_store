@@ -1,4 +1,3 @@
-import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:ecommerce/app/functions.dart';
 import 'package:ecommerce/presentation/components/button.dart';
@@ -18,7 +17,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_conditional_rendering/conditional.dart';
-import 'package:flutter_dismissible_tile/flutter_dismissible_tile.dart';
 import 'package:lottie/lottie.dart';
 
 import '../../../domain/models/wishlist_models/wishlist_model.dart';
@@ -47,45 +45,48 @@ class _WishlistScreenState extends State<WishlistScreen> {
       appBar: AppBar(
         title: MText(text: AppStrings.wishlist),
         actions: [
-          IconButton(
-            onPressed: () {
-              showDialog(
-                context: context,
-                builder: (context) => AlertDialog(
-                  title: MText(text: AppStrings.deleteYourWishlist),
-                  content: MText(
-                      text: AppStrings.areYouSureYouWant2DeleteYourWishlist),
-                  actions: [
-                    DTextButton(
-                      text: AppStrings.no.tr(),
-                      function: () {
-                        popScreen(context);
-                      },
-                    ),
-                    BlocConsumer<WishlistCubit, WishlistStates>(
-                      listener: (context, state) {
-                        if (state is DeleteMyWishlistDoneState) {
-                          popScreen(context);
-                        }
-                      },
-                      builder: (context, state) {
-                        return DTextButton(
-                          text: AppStrings.yes.tr(),
-                          function: () {
-                            WishlistCubit.get(context).deleteMyWishlist();
-                          },
-                        );
-                      },
-                    ),
-                  ],
-                ),
-              );
-            },
-            icon: const Icon(
-              CupertinoIcons.delete_simple,
-              color: ColorManager.error,
-            ),
-          ),
+          Constants.token.isNotEmpty
+              ? IconButton(
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                        title: MText(text: AppStrings.deleteYourWishlist),
+                        content: MText(
+                            text: AppStrings
+                                .areYouSureYouWant2DeleteYourWishlist),
+                        actions: [
+                          DTextButton(
+                            text: AppStrings.no.tr(),
+                            function: () {
+                              popScreen(context);
+                            },
+                          ),
+                          BlocConsumer<WishlistCubit, WishlistStates>(
+                            listener: (context, state) {
+                              if (state is DeleteMyWishlistDoneState) {
+                                popScreen(context);
+                              }
+                            },
+                            builder: (context, state) {
+                              return DTextButton(
+                                text: AppStrings.yes.tr(),
+                                function: () {
+                                  WishlistCubit.get(context).deleteMyWishlist();
+                                },
+                              );
+                            },
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                  icon: const Icon(
+                    CupertinoIcons.delete_simple,
+                    color: ColorManager.error,
+                  ),
+                )
+              : Container(),
         ],
       ),
       body: getBody(),
@@ -97,7 +98,7 @@ class _WishlistScreenState extends State<WishlistScreen> {
       context: context,
       conditionBuilder: (context) => Constants.token.isNotEmpty,
       widgetBuilder: (context) => myWishlistContent(),
-      fallbackBuilder: (context) => userNotLoggedIn(),
+      fallbackBuilder: (context) => handleFallBackWidget(context: context),
     );
   }
 
@@ -180,7 +181,7 @@ class _WishlistScreenState extends State<WishlistScreen> {
           margin: const EdgeInsetsDirectional.all(AppMargin.m8),
           decoration: BoxDecoration(
             borderRadius: BorderRadiusDirectional.circular(AppSize.s8),
-            boxShadow: const [
+            boxShadow: [
               BoxShadow(
                 color: ColorManager.lightGrey,
                 blurRadius: AppSize.s12,

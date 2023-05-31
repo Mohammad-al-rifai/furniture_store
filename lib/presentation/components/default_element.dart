@@ -31,7 +31,7 @@ class DefaultLabel extends StatelessWidget {
               margin: const EdgeInsetsDirectional.only(start: AppMargin.m8),
               decoration: getDeco(withShadow: true),
             ),
-            const SizedBox(
+             SizedBox(
               width: AppSize.s8,
             ),
             Transform.translate(

@@ -103,4 +103,10 @@ class AppStrings {
   static const String deleteYourWishlist = "delete_your_wishlist";
   static const String areYouSureYouWant2DeleteYourWishlist =
       "are_you_sure_you_want_2_delete_your_wishlist";
+  static const String pleaseLogin2YourAccount = "please_login_2_your_account";
+  static const String rightDone = "right_done";
+  static const String removed = "removed";
+  static const String recommendedProducts = "recommended_products";
+  static const String goNext = "go_next";
+  static const String paymentScreen = "payment_screen";
 }

@@ -8,7 +8,7 @@ import '../../../components/my_divider.dart';
 import '../../../layouts/merchant_layout/merchant_layout_cubit/merchant_layout_cubit.dart';
 import '../../../resources/color_manager.dart';
 import '../../../resources/values_manager.dart';
-import '../products/product_widgets/product_widget.dart';
+import '../products/product_widgets/product_item.dart';
 
 class Products4Screen extends StatefulWidget {
   const Products4Screen({

@@ -1,10 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:ecommerce/app/functions.dart';
 import 'package:ecommerce/presentation/cubit/cart_cubit/cart_cubit.dart';
 import 'package:ecommerce/presentation/cubit/search_cubit/search_cubit.dart';
 import 'package:ecommerce/presentation/layouts/merchant_layout/merchant_layout_cubit/merchant_layout_cubit.dart';
 import 'package:ecommerce/presentation/screens/register/register_cubit/register_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../presentation/cubit/order_cubit/order_cubit.dart';
 import '../presentation/cubit/wishlist_cubit/wishlist_cubit.dart';
@@ -38,7 +40,8 @@ class _MyAppState extends State<MyApp> {
             ..getCategories()
             ..getHotSelling()
             ..getProfile()
-            ..getMerchant(),
+            ..getMerchant()
+            ..getRecommendedProducts(),
         ),
         BlocProvider(create: (BuildContext context) => MerchantLayoutCubit()),
         BlocProvider(create: (BuildContext context) => CartCubit()),
@@ -47,13 +50,22 @@ class _MyAppState extends State<MyApp> {
           create: (BuildContext context) => WishlistCubit()..getMyWishlist(),
         ),
       ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: getApplicationTheme(),
-        localizationsDelegates: context.localizationDelegates,
-        supportedLocales: context.supportedLocales,
-        locale: context.locale,
-        home: const SplashScreen(),
+      child: ScreenUtilInit(
+        designSize: Size(getScreenWidth(context), getScreenHeight(context)),
+        minTextAdapt: true,
+        splitScreenMode: true,
+        useInheritedMediaQuery: true,
+        builder: (BuildContext context, Widget? child) {
+          ScreenUtil.init(context);
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            theme: getApplicationTheme(),
+            localizationsDelegates: context.localizationDelegates,
+            supportedLocales: context.supportedLocales,
+            locale: context.locale,
+            home: const SplashScreen(),
+          );
+        },
       ),
     );
   }

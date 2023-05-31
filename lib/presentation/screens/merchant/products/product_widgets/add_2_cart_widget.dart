@@ -96,7 +96,7 @@ class _Add2CartWidgetState extends State<Add2CartWidget> {
                           }
                         });
                       },
-                      child: const Icon(
+                      child:  Icon(
                         CupertinoIcons.minus,
                         size: AppSize.s20,
                       ),
@@ -113,7 +113,7 @@ class _Add2CartWidgetState extends State<Add2CartWidget> {
                           quantity += 1;
                         });
                       },
-                      child: const Icon(
+                      child:  Icon(
                         CupertinoIcons.plus,
                         size: AppSize.s20,
                       ),

@@ -55,7 +55,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
               child: SingleChildScrollView(
                 physics: const BouncingScrollPhysics(),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.only(
+                  padding:  EdgeInsetsDirectional.only(
                     bottom: AppSize.s25,
                   ),
                   child: Column(
@@ -64,13 +64,13 @@ class _DetailsScreenState extends State<DetailsScreen> {
                       GalleryWidget(
                         mainImageUrl: widget.mainImageUrl,
                       ),
-                      const SizedBox(height: AppSize.s8),
+                       SizedBox(height: AppSize.s8),
                       buildTitleWidget(cubit),
                       ClassesWidget(
                         proClasses: cubit.product.productClass,
                         proId: cubit.product.id,
                       ),
-                      const SizedBox(height: AppSize.s8),
+                       SizedBox(height: AppSize.s8),
                       buildMainDescription(cubit),
                       DeliveryAreaWidget(
                         areas: cubit.product.deliveryAreas,
@@ -115,7 +115,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
       mainAxisSize: MainAxisSize.min,
       children: [
         const DefaultLabel(text: AppStrings.mainDescriptions),
-        const SizedBox(height: AppSize.s8),
+         SizedBox(height: AppSize.s8),
         PairWidget(
           label: AppStrings.productName,
           value: cubit.product.name,

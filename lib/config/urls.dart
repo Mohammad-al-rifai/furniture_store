@@ -1,5 +1,5 @@
 class Urls {
-  static const String baseUrl = 'http://192.168.131.232:3000';
+  static const String baseUrl = 'http://192.168.70.232:3000';
 
   static const String filesUrl = '$baseUrl/api/download?fileName=';
 
@@ -47,4 +47,7 @@ class Urls {
   static const String removeProFromWishlist = '/user/Customer/removeToWishList';
   static const String deleteMyWishlist =
       '/user/Customer/deleteWishListByUserID';
+
+// *************** Start Recommendation System Feature **************
+  static const String recSysML = '/user/allUsers/recommendationsMl';
 }

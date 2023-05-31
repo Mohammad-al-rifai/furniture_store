@@ -45,7 +45,7 @@ class CategoryItemWidget extends StatelessWidget {
               radius: AppSize.s25,
               child: DefaultImage(imageUrl: catData.imageOfCate),
             ),
-            const SizedBox(
+             SizedBox(
               height: AppSize.s8,
             ),
             Text(

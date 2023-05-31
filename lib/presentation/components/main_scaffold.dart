@@ -48,7 +48,7 @@ class MainScaffold extends StatelessWidget {
             backgroundColor: ColorManager.white,
             elevation: 0.0,
           ),
-          child: const Icon(
+          child:  Icon(
             Icons.notifications_active_rounded,
             color: ColorManager.darkPrimary,
             size: AppSize.s25,

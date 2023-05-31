@@ -13,7 +13,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_conditional_rendering/conditional.dart';
 import 'package:lottie/lottie.dart';
 
+import '../../components/my_text.dart';
 import '../../resources/color_manager.dart';
+import '../../resources/constants_manager.dart';
+import '../login/login_screen.dart';
 import '../order/add_order_screen.dart';
 import 'cart_widgets/cart_item_widget.dart';
 
@@ -43,30 +46,26 @@ class _CartScreenState extends State<CartScreen> {
             conditionBuilder: (context) =>
                 cubit.items.isNotEmpty || state is GetUserCartDoneState,
             widgetBuilder: (context) {
-              return cubit.items.isNotEmpty
-                  ? Column(
-                      children: [
-                        buildCartControlWidget(),
-                        const SizedBox(height: AppSize.s8),
-                        Expanded(
-                          child: ListView.builder(
-                            physics: const BouncingScrollPhysics(),
-                            itemBuilder: (context, index) {
-                              return CartItemWidget(
-                                cartItem: cubit.items[index],
-                              );
-                            },
-                            itemCount: cubit.items.length,
-                          ),
-                        ),
-                      ],
-                    )
-                  : Center(
-                      child: Lottie.asset(JsonAssets.empty),
-                    );
+              return Column(
+                children: [
+                  buildCartControlWidget(),
+                  SizedBox(height: AppSize.s8),
+                  Expanded(
+                    child: ListView.builder(
+                      physics: const BouncingScrollPhysics(),
+                      itemBuilder: (context, index) {
+                        return CartItemWidget(
+                          cartItem: cubit.items[index],
+                        );
+                      },
+                      itemCount: cubit.items.length,
+                    ),
+                  ),
+                ],
+              );
             },
             fallbackBuilder: (context) {
-              return const DefaultLoading();
+              return handleFallBackWidget(list: cubit.items, context: context);
             },
           );
         },

@@ -68,7 +68,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      const SizedBox(
+                       SizedBox(
                         height: AppSize.s180,
                         width: AppSize.s180,
                         child: Image(
@@ -77,7 +77,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           ),
                         ),
                       ),
-                      const SizedBox(
+                       SizedBox(
                         height: AppSize.s18,
                       ),
                       TFF(
@@ -90,7 +90,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           }
                         },
                       ),
-                      const SizedBox(
+                       SizedBox(
                         height: AppSize.s18,
                       ),
                       TFF(
@@ -103,7 +103,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           }
                         },
                       ),
-                      const SizedBox(
+                       SizedBox(
                         height: AppSize.s18,
                       ),
                       TFF(
@@ -117,7 +117,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           }
                         },
                       ),
-                      const SizedBox(
+                       SizedBox(
                         height: AppSize.s18,
                       ),
                       TFF(
@@ -139,7 +139,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           }
                         },
                       ),
-                      const SizedBox(
+                       SizedBox(
                         height: AppSize.s18,
                       ),
                       DefaultButton(
@@ -163,7 +163,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         isLoading: state is MailVerificationLoadingState,
                         isUpperCase: true,
                       ),
-                      const SizedBox(
+                       SizedBox(
                         height: AppSize.s18,
                       ),
                       Row(

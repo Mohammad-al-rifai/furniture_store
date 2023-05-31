@@ -1,4 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:ecommerce/app/functions.dart';
+import 'package:ecommerce/domain/requests/order_requests/add_order_request_model.dart';
 import 'package:ecommerce/presentation/components/button.dart';
 import 'package:ecommerce/presentation/components/my_text.dart';
 import 'package:ecommerce/presentation/components/text_form_field.dart';
@@ -7,6 +9,8 @@ import 'package:ecommerce/presentation/resources/string_manager.dart';
 import 'package:ecommerce/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../payment/payment_screen.dart';
 
 // ignore: must_be_immutable
 class AddOrderScreen extends StatelessWidget {
@@ -22,6 +26,10 @@ class AddOrderScreen extends StatelessWidget {
   TextEditingController streetNumberController = TextEditingController();
   TextEditingController houseNumberController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
+
+  AddOrderRequest addOrderRequest = AddOrderRequest();
+  UserInfo userInfo = UserInfo();
+  ShippingAddress shippingAddress = ShippingAddress();
 
   var formKey = GlobalKey<FormState>();
 
@@ -39,11 +47,7 @@ class AddOrderScreen extends StatelessWidget {
 
   Widget getBody() {
     return BlocConsumer<OrderCubit, OrderStates>(
-      listener: (context, state) {
-        if (state is AddOrderDoneState) {
-          Navigator.of(context).pop();
-        }
-      },
+      listener: (context, state) {},
       builder: (context, state) {
         OrderCubit cubit = OrderCubit.get(context);
         return SingleChildScrollView(
@@ -64,7 +68,7 @@ class AddOrderScreen extends StatelessWidget {
                       }
                     },
                   ),
-                  const SizedBox(height: AppSize.s8),
+                  SizedBox(height: AppSize.s8),
                   TFF(
                     controller: lNameController,
                     label: AppStrings.lName.tr(),
@@ -75,7 +79,7 @@ class AddOrderScreen extends StatelessWidget {
                       }
                     },
                   ),
-                  const SizedBox(height: AppSize.s8),
+                  SizedBox(height: AppSize.s8),
                   TFF(
                     controller: phoneController,
                     label: AppStrings.phone.tr(),
@@ -87,7 +91,7 @@ class AddOrderScreen extends StatelessWidget {
                     },
                     keyboardType: TextInputType.phone,
                   ),
-                  const SizedBox(height: AppSize.s8),
+                  SizedBox(height: AppSize.s8),
                   TFF(
                     controller: emailController,
                     label: AppStrings.email.tr(),
@@ -99,7 +103,7 @@ class AddOrderScreen extends StatelessWidget {
                     },
                     keyboardType: TextInputType.emailAddress,
                   ),
-                  const SizedBox(height: AppSize.s8),
+                  SizedBox(height: AppSize.s8),
                   TFF(
                     controller: countryController,
                     label: AppStrings.country.tr(),
@@ -110,7 +114,7 @@ class AddOrderScreen extends StatelessWidget {
                       }
                     },
                   ),
-                  const SizedBox(height: AppSize.s8),
+                  SizedBox(height: AppSize.s8),
                   TFF(
                     controller: cityController,
                     label: AppStrings.city.tr(),
@@ -121,7 +125,7 @@ class AddOrderScreen extends StatelessWidget {
                       }
                     },
                   ),
-                  const SizedBox(height: AppSize.s8),
+                  SizedBox(height: AppSize.s8),
                   TFF(
                     controller: regionController,
                     label: AppStrings.region.tr(),
@@ -132,7 +136,7 @@ class AddOrderScreen extends StatelessWidget {
                       }
                     },
                   ),
-                  const SizedBox(height: AppSize.s8),
+                  SizedBox(height: AppSize.s8),
                   TFF(
                     controller: streetNumberController,
                     label: AppStrings.streetNumber.tr(),
@@ -143,7 +147,7 @@ class AddOrderScreen extends StatelessWidget {
                       }
                     },
                   ),
-                  const SizedBox(height: AppSize.s8),
+                  SizedBox(height: AppSize.s8),
                   TFF(
                     controller: houseNumberController,
                     label: AppStrings.houseNumber.tr(),
@@ -154,7 +158,7 @@ class AddOrderScreen extends StatelessWidget {
                       }
                     },
                   ),
-                  const SizedBox(height: AppSize.s8),
+                  SizedBox(height: AppSize.s8),
                   TFF(
                     controller: descriptionController,
                     label: AppStrings.description.tr(),
@@ -165,25 +169,36 @@ class AddOrderScreen extends StatelessWidget {
                       }
                     },
                   ),
-                  const SizedBox(height: AppSize.s8),
+                  SizedBox(height: AppSize.s8),
                   DefaultButton(
                     function: () {
                       if (formKey.currentState!.validate()) {
-                        OrderCubit.get(context).addOrder(
-                          firstName: fNameController.text,
-                          lastName: lNameController.text,
-                          phone: phoneController.text,
-                          email: emailController.text,
-                          country: countryController.text,
-                          city: cityController.text,
-                          region: regionController.text,
-                          streetNumber: streetNumberController.text,
-                          houseNumber: houseNumberController.text,
-                          description: descriptionController.text,
-                        );
+                        // ========================
+                        userInfo.firstName = fNameController.text;
+                        userInfo.lastName = lNameController.text;
+                        userInfo.phone = phoneController.text;
+                        userInfo.email = emailController.text;
+                        shippingAddress.country = countryController.text;
+                        shippingAddress.city = cityController.text;
+                        shippingAddress.region = regionController.text;
+                        shippingAddress.streetNumber =
+                            streetNumberController.text;
+                        shippingAddress.houseNumber =
+                            houseNumberController.text;
+                        shippingAddress.description =
+                            descriptionController.text;
+
+                        addOrderRequest.userInfo = userInfo;
+                        addOrderRequest.shippingAddress = shippingAddress;
+                        addOrderRequest.paymentMethod = "paypal";
+
+                        // ========================
+                        // OrderCubit.get(context)
+                        //     .addOrder(addOrderRequest: addOrderRequest);
+                        navigateTo(context, const PaymentScreen());
                       }
                     },
-                    text: AppStrings.buyNow,
+                    text: AppStrings.goNext.tr(),
                     isLoading: state is AddOrderLoadingState,
                   ),
                 ],

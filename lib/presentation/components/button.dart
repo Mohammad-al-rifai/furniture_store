@@ -17,7 +17,6 @@ class DefaultButton extends StatelessWidget {
     this.width = double.infinity,
     this.background = ColorManager.primary,
     this.isUpperCase = true,
-    this.radius = AppSize.s8,
     this.isLoading = false,
   });
 
@@ -26,7 +25,6 @@ class DefaultButton extends StatelessWidget {
   double? width;
   Color? background;
   bool? isUpperCase;
-  double? radius;
   bool isLoading;
 
   @override

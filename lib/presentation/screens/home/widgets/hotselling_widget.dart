@@ -1,23 +1,14 @@
-// Hot Selling Widget:
-import 'package:ecommerce/app/functions.dart';
-import 'package:ecommerce/domain/models/product_models/products_list_model.dart';
-import 'package:ecommerce/presentation/components/my_text.dart';
-import 'package:ecommerce/presentation/cubit/wishlist_cubit/wishlist_cubit.dart';
-import 'package:ecommerce/presentation/resources/color_manager.dart';
-import 'package:ecommerce/presentation/screens/merchant/products/details_screen.dart';
+import 'package:ecommerce/presentation/screens/home/widgets/product_item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_conditional_rendering/flutter_conditional_rendering.dart';
 
 import '../../../components/default_element.dart';
-import '../../../components/default_image.dart';
 import '../../../components/loading.dart';
-import '../../../components/price_widget.dart';
 import '../../../layouts/home_layout/home_layout_cubit/home_layout_cubit.dart';
 import '../../../resources/string_manager.dart';
 import '../../../resources/values_manager.dart';
-import '../../../shared/add_remove_wishlist_widget.dart';
 
 class HotSellingWidget extends StatefulWidget {
   const HotSellingWidget({Key? key}) : super(key: key);
@@ -41,7 +32,7 @@ class _HotSellingWidgetState extends State<HotSellingWidget> {
             return Column(
               children: [
                 const DefaultLabel(text: AppStrings.hotSelling),
-                const SizedBox(height: AppSize.s8),
+                SizedBox(height: AppSize.s8),
                 GridView.builder(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
@@ -53,7 +44,7 @@ class _HotSellingWidgetState extends State<HotSellingWidget> {
                   ),
                   itemCount: cubit.products.length,
                   itemBuilder: (context, index) {
-                    return buildProItem(cubit.products[index], context);
+                    return ProductItem(product: cubit.products[index]);
                   },
                 ),
               ],
@@ -62,54 +53,6 @@ class _HotSellingWidgetState extends State<HotSellingWidget> {
           fallbackBuilder: (context) => const DefaultLoading(),
         );
       },
-    );
-  }
-
-  Widget buildProItem(Product product, context) {
-    return InkWell(
-      onTap: () {
-        navigateTo(
-          context,
-          DetailsScreen(
-            proId: product.id,
-            mainImageUrl: product.mainImage,
-          ),
-        );
-      },
-      highlightColor: ColorManager.lightPrimary,
-      child: Card(
-        clipBehavior: Clip.antiAliasWithSaveLayer,
-        child: Column(
-          children: [
-            SizedBox(
-              height: 140.0,
-              child: DefaultImage(imageUrl: product.mainImage),
-            ),
-            const SizedBox(height: AppSize.s8),
-            MText(
-              text: product.name ?? 'Pro Name',
-              color: ColorManager.black,
-              maxLines: 2,
-              textAlign: TextAlign.center,
-              notTR: true,
-            ),
-            const SizedBox(height: AppSize.s8),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                AddRemoveWishlistItem(proId: product.id ?? ''),
-                Expanded(
-                  child: priceWidget(
-                    price:
-                        product.productClass[0].price.toString() ?? 'Pro Price',
-                    fontSize: AppSize.s18,
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
     );
   }
 }

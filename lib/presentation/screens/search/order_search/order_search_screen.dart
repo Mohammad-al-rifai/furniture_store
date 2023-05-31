@@ -119,7 +119,7 @@ class _OrderSearchScreenState extends State<OrderSearchScreen> {
         },
         itemCount: cubit.getFiltersList.length,
         separatorBuilder: (BuildContext context, int index) {
-          return const SizedBox(width: AppSize.s4);
+          return  SizedBox(width: AppSize.s4);
         },
       ),
     );
@@ -198,7 +198,7 @@ class _OrderSearchScreenState extends State<OrderSearchScreen> {
                     ),
                   );
                 },
-                icon: const Icon(
+                icon:  Icon(
                   CupertinoIcons.info_circle,
                   color: ColorManager.darkPrimary,
                   size: AppSize.s30,

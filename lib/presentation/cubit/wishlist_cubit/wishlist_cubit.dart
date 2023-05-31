@@ -27,6 +27,7 @@ class WishlistCubit extends Cubit<WishlistStates> {
     ).then((value) {
       if (value.data['status']) {
         emit(AddPro2WishlistDoneState());
+        showToast(text: AppStrings.rightDone, state: ToastStates.SUCCESS);
         getMyWishlist();
       }
     }).catchError((err) {
@@ -49,6 +50,7 @@ class WishlistCubit extends Cubit<WishlistStates> {
     ).then((value) {
       if (value.data['status']) {
         emit(RemoveProFromWishlistDoneState());
+        showToast(text: AppStrings.removed, state: ToastStates.SUCCESS);
         getMyWishlist();
       }
     }).catchError((err) {
