@@ -9,7 +9,11 @@ class OrderInitialState extends OrderStates {}
 
 class AddOrderLoadingState extends OrderStates {}
 
-class AddOrderDoneState extends OrderStates {}
+class AddOrderDoneState extends OrderStates {
+  final String? orderId;
+
+  AddOrderDoneState({required this.orderId});
+}
 
 class AddOrderErrorState extends OrderStates {}
 
@@ -28,4 +32,3 @@ class GetSingleOrderByIdLoadingState extends OrderStates {}
 class GetSingleOrderByIdDoneState extends OrderStates {}
 
 class GetSingleOrderByIdErrorState extends OrderStates {}
-

@@ -53,12 +53,15 @@ dependencies:
   model_viewer_plus: ^1.5.0
   flutter_dismissible_tile: ^1.0.2
   flutter_screenutil: ^5.8.2
-  flutter_paypal_checkout: ^1.0.1
+  webview_flutter: ^4.2.2
+  webview_flutter_android: ^2.8.0
+  http: ^0.13.3
 
 
 
 
-
+dependency_overrides:
+  webview_flutter: ^3.0.4
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2

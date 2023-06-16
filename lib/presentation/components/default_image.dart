@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce/app/functions.dart';
 import 'package:ecommerce/presentation/components/full_screen_picture.dart';
+import 'package:ecommerce/presentation/resources/assets_manager.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -53,9 +54,9 @@ class DefaultImage extends StatelessWidget {
             child: CupertinoActivityIndicator(),
           ),
         ),
-        errorWidget: (context, url, error) => const Center(
+        errorWidget: (context, url, error) => Center(
           child: SizedBox(
-            child: DefaultError(),
+            child: Image.asset(ImageAssets.noImage),
           ),
         ),
       );

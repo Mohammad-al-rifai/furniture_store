@@ -96,3 +96,19 @@ class GetRecommendedProductsLoadingState extends HomeLayoutStates {}
 class GetRecommendedProductsDoneState extends HomeLayoutStates {}
 
 class GetRecommendedProductsErrorState extends HomeLayoutStates {}
+
+// Get Home Data States:
+
+class GetHomeDataLoadingState extends HomeLayoutStates {}
+
+class GetHomeDataDoneState extends HomeLayoutStates {}
+
+class GetHomeDataErrorState extends HomeLayoutStates {}
+
+// Get Site Features States:
+
+class GetSiteFeaturesLoadingState extends HomeLayoutStates {}
+
+class GetSiteFeaturesDoneState extends HomeLayoutStates {}
+
+class GetSiteFeaturesErrorState extends HomeLayoutStates {}

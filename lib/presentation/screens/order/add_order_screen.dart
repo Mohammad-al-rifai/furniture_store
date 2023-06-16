@@ -3,6 +3,7 @@ import 'package:ecommerce/app/functions.dart';
 import 'package:ecommerce/domain/requests/order_requests/add_order_request_model.dart';
 import 'package:ecommerce/presentation/components/button.dart';
 import 'package:ecommerce/presentation/components/my_text.dart';
+import 'package:ecommerce/presentation/components/text_button.dart';
 import 'package:ecommerce/presentation/components/text_form_field.dart';
 import 'package:ecommerce/presentation/cubit/order_cubit/order_cubit.dart';
 import 'package:ecommerce/presentation/resources/string_manager.dart';
@@ -10,7 +11,8 @@ import 'package:ecommerce/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../payment/payment_screen.dart';
+import '../payment/pay_discount_screen.dart';
+import '../payment/paypal_payment_screen.dart';
 
 // ignore: must_be_immutable
 class AddOrderScreen extends StatelessWidget {
@@ -40,6 +42,12 @@ class AddOrderScreen extends StatelessWidget {
         title: MText(
           text: AppStrings.addOrder,
         ),
+        actions: [
+          DTextButton(
+            text: AppStrings.paymentScreen,
+            function: () {},
+          ),
+        ],
       ),
       body: getBody(),
     );
@@ -47,7 +55,11 @@ class AddOrderScreen extends StatelessWidget {
 
   Widget getBody() {
     return BlocConsumer<OrderCubit, OrderStates>(
-      listener: (context, state) {},
+      listener: (context, state) {
+        if (state is AddOrderDoneState) {
+          navigateTo(context, PayDiscountScreen(orderId: state.orderId));
+        }
+      },
       builder: (context, state) {
         OrderCubit cubit = OrderCubit.get(context);
         return SingleChildScrollView(
@@ -193,9 +205,8 @@ class AddOrderScreen extends StatelessWidget {
                         addOrderRequest.paymentMethod = "paypal";
 
                         // ========================
-                        // OrderCubit.get(context)
-                        //     .addOrder(addOrderRequest: addOrderRequest);
-                        navigateTo(context, const PaymentScreen());
+                        OrderCubit.get(context)
+                            .addOrder(addOrderRequest: addOrderRequest);
                       }
                     },
                     text: AppStrings.goNext.tr(),

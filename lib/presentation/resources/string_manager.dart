@@ -109,4 +109,7 @@ class AppStrings {
   static const String recommendedProducts = "recommended_products";
   static const String goNext = "go_next";
   static const String paymentScreen = "payment_screen";
+  static const String siteFeatures = "site_features";
+  static const String checkPayDiscountScreen = "check_pay_discount_screen";
+  static const String pay = "pay";
 }

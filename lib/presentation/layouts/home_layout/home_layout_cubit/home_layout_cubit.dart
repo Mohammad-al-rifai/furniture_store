@@ -5,6 +5,7 @@ import 'package:ecommerce/data/network/remote/dio_helper.dart';
 import 'package:ecommerce/domain/models/auth_models/merchants_model.dart';
 import 'package:ecommerce/domain/models/auth_models/user_profile.dart';
 import 'package:ecommerce/domain/models/categories/all_categories_model.dart';
+import 'package:ecommerce/domain/models/featuers_models/featuers_model.dart';
 import 'package:ecommerce/domain/models/home_models/banner_model.dart';
 import 'package:ecommerce/domain/models/product_models/products_list_model.dart';
 import 'package:ecommerce/domain/models/rec_ses_models/recomended_pro_model.dart';
@@ -72,6 +73,20 @@ class HomeLayoutCubit extends Cubit<HomeLayoutStates> {
     currentIndex = index;
     emit(ChangeBottomNavState(index: currentIndex));
   }
+
+  // Home Screen Functions:
+  fetchData() {
+    emit(GetHomeDataLoadingState());
+    // getBanners();
+    // getCategories();
+    // getHotSelling();
+    // getProfile();
+    // getMerchant();
+    // getRecommendedProducts();
+    getFeatures();
+  }
+
+  // ======================
 
   // Get Profile
   UserProfileModel userProfileModel = UserProfileModel();
@@ -256,5 +271,44 @@ class HomeLayoutCubit extends Cubit<HomeLayoutStates> {
         emit(GetRecommendedProductsErrorState());
       });
     }
+  }
+
+  // Site Features:
+  FeaturesModel featuresModel = FeaturesModel();
+
+  List<FeatureData> featureList = [];
+  int featurePage = 1;
+  bool noMoreFeatures = false;
+
+  getFeatures({
+    String? lang,
+  }) {
+    if (noMoreFeatures) {
+      return;
+    }
+    if (featureList.isEmpty) {
+      emit(GetSiteFeaturesLoadingState());
+    }
+    emit(GetSiteFeaturesLoadingState());
+    DioHelper.getData(
+        url: Urls.getFeatures,
+        token: Constants.bearer + Constants.token,
+        query: {
+          "page": featurePage,
+          "language": lang ?? "en",
+        }).then((value) {
+      if (value.data['status']) {
+        featuresModel = FeaturesModel.fromJson(value.data);
+        final list = featuresModel.data;
+        noMoreFeatures = list!.length < Constants.pageSize;
+        featureList.addAll(list);
+        print(featureList.length);
+        featurePage++;
+        emit(GetSiteFeaturesDoneState());
+      }
+    }).catchError((err) {
+      print(err.toString());
+      emit(GetSiteFeaturesErrorState());
+    });
   }
 }

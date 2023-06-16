@@ -35,13 +35,7 @@ class _MyAppState extends State<MyApp> {
       providers: [
         BlocProvider(create: (BuildContext context) => RegisterCubit()),
         BlocProvider(
-          create: (BuildContext context) => HomeLayoutCubit()
-            ..getBanners()
-            ..getCategories()
-            ..getHotSelling()
-            ..getProfile()
-            ..getMerchant()
-            ..getRecommendedProducts(),
+          create: (BuildContext context) => HomeLayoutCubit()..fetchData(),
         ),
         BlocProvider(create: (BuildContext context) => MerchantLayoutCubit()),
         BlocProvider(create: (BuildContext context) => CartCubit()),

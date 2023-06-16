@@ -1,5 +1,5 @@
 class Urls {
-  static const String baseUrl = 'http://192.168.70.232:3000';
+  static const String baseUrl = 'http://192.168.11.27:3001';
 
   static const String filesUrl = '$baseUrl/api/download?fileName=';
 
@@ -50,4 +50,10 @@ class Urls {
 
 // *************** Start Recommendation System Feature **************
   static const String recSysML = '/user/allUsers/recommendationsMl';
+
+// *************** Start Payment Feature **************
+  static const String pay = '/user/Customer/pay';
+
+  // *************** Start Features Feature **************
+  static const String getFeatures = '/user/Customer/getAllFeature';
 }

@@ -32,7 +32,7 @@ class AllMerchantsWidget extends StatelessWidget {
           widgetBuilder: (context) {
             return Column(
               children: [
-                 SizedBox(height: AppSize.s8),
+                SizedBox(height: AppSize.s8),
                 const DefaultLabel(text: AppStrings.merchants),
                 SizedBox(
                   height: AppSize.s60,
@@ -51,7 +51,6 @@ class AllMerchantsWidget extends StatelessWidget {
                           itemCount: cubit.merchants.length,
                         ),
                       ),
-                      ViewAllWidget(onTap: () {}),
                     ],
                   ),
                 ),

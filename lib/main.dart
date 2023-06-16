@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:ecommerce/app/languages.dart';
+import 'package:ecommerce/config/urls.dart';
 import 'package:ecommerce/data/network/local/keys.dart';
 import 'package:ecommerce/presentation/resources/constants_manager.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +23,8 @@ void main() async {
 
   Langs.isEN = CacheHelper.getData(key: CacheHelperKeys.isEN) ?? true;
   Constants.token = CacheHelper.getData(key: CacheHelperKeys.token) ?? "";
+
+
 
   runApp(
     EasyLocalization(

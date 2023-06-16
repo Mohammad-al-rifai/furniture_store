@@ -17,8 +17,9 @@ class OrderCubit extends Cubit<OrderStates> {
 
   static OrderCubit get(context) => BlocProvider.of(context);
 
-  // Add Order Method:
+  String orderID = '';
 
+  // Add Order Method:
   addOrder({
     required AddOrderRequest addOrderRequest,
   }) {
@@ -30,7 +31,8 @@ class OrderCubit extends Cubit<OrderStates> {
       data: addOrderRequest.toJson(),
     ).then((value) {
       if (value.data['status']) {
-        emit(AddOrderDoneState());
+        orderID = value.data["data"]["_id"];
+        emit(AddOrderDoneState(orderId: orderID));
       }
     }).catchError((err) {
       print(err.toString());
