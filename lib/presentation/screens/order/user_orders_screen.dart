@@ -1,19 +1,20 @@
+import 'package:ecommerce/app/functions.dart';
+import 'package:ecommerce/domain/models/order_models/user_orders_model.dart';
+import 'package:ecommerce/presentation/components/loading.dart';
 import 'package:ecommerce/presentation/components/my_text.dart';
 import 'package:ecommerce/presentation/cubit/order_cubit/order_cubit.dart';
+import 'package:ecommerce/presentation/resources/assets_manager.dart';
+import 'package:ecommerce/presentation/resources/color_manager.dart';
 import 'package:ecommerce/presentation/resources/constants_manager.dart';
+import 'package:ecommerce/presentation/resources/string_manager.dart';
+import 'package:ecommerce/presentation/resources/values_manager.dart';
+import 'package:ecommerce/presentation/screens/merchant/products/product_widgets/pair_widget.dart';
+import 'package:ecommerce/presentation/screens/search/order_search/order_search_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_conditional_rendering/conditional.dart';
-
-import '../../../app/functions.dart';
-import '../../../domain/models/order_models/user_orders_model.dart';
-import '../../components/loading.dart';
-import '../../resources/color_manager.dart';
-import '../../resources/string_manager.dart';
-import '../../resources/values_manager.dart';
-import '../merchant/products/product_widgets/pair_widget.dart';
-import '../search/order_search/order_search_screen.dart';
+import 'package:lottie/lottie.dart';
 import 'order_details_screen.dart';
 
 class UserOrderScreen extends StatefulWidget {
@@ -62,13 +63,17 @@ class _UserOrderScreenState extends State<UserOrderScreen> {
                       state is GetUserOrdersDoneState) &&
                   Constants.token.isNotEmpty,
               widgetBuilder: (context) {
-                return ListView.builder(
-                  physics: const BouncingScrollPhysics(),
-                  itemBuilder: (context, index) {
-                    return buildOrderItem(orderData: cubit.orders[index]);
-                  },
-                  itemCount: cubit.orders.length,
-                );
+                if (cubit.orders.isNotEmpty) {
+                  return ListView.builder(
+                    physics: const BouncingScrollPhysics(),
+                    itemBuilder: (context, index) {
+                      return buildOrderItem(orderData: cubit.orders[index]);
+                    },
+                    itemCount: cubit.orders.length,
+                  );
+                } else {
+                  return Lottie.asset(JsonAssets.empty);
+                }
               },
               fallbackBuilder: (context) {
                 return handleFallBackWidget(

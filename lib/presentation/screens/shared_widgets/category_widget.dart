@@ -1,12 +1,11 @@
-import 'package:ecommerce/presentation/layouts/merchant_layout/merchant_layout_cubit/merchant_layout_cubit.dart';
+import 'package:ecommerce/app/functions.dart';
+import 'package:ecommerce/domain/models/categories/all_categories_model.dart';
+import 'package:ecommerce/presentation/components/default_image.dart';
+import 'package:ecommerce/presentation/resources/color_manager.dart';
+import 'package:ecommerce/presentation/resources/styles_manager.dart';
+import 'package:ecommerce/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
 
-import '../../../app/functions.dart';
-import '../../../domain/models/categories/all_categories_model.dart';
-import '../../components/default_image.dart';
-import '../../resources/color_manager.dart';
-import '../../resources/styles_manager.dart';
-import '../../resources/values_manager.dart';
 import '../merchant/categories/products_4_cat_screen.dart';
 
 class CategoryItemWidget extends StatelessWidget {

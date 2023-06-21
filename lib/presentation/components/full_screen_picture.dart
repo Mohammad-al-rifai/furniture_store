@@ -1,12 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:ecommerce/app/functions.dart';
 import 'package:ecommerce/presentation/resources/color_manager.dart';
+import 'package:ecommerce/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
 
-import '../../app/functions.dart';
-import '../resources/values_manager.dart';
 
-class FullScreenPicture extends StatefulWidget {
+
+class FullScreenPicture extends StatelessWidget {
   const FullScreenPicture({
     Key? key,
     required this.imageUrl,
@@ -15,11 +16,6 @@ class FullScreenPicture extends StatefulWidget {
   final String imageUrl;
 
   @override
-  State<FullScreenPicture> createState() => _FullScreenPictureState();
-}
-
-class _FullScreenPictureState extends State<FullScreenPicture> {
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
@@ -27,10 +23,10 @@ class _FullScreenPictureState extends State<FullScreenPicture> {
           alignment: Alignment.topLeft,
           children: [
             Hero(
-              tag: widget.imageUrl,
+              tag: imageUrl,
               child: PhotoView(
                 imageProvider: CachedNetworkImageProvider(
-                  widget.imageUrl,
+                  imageUrl,
                 ),
                 minScale: PhotoViewComputedScale.contained * 0.8,
                 maxScale: PhotoViewComputedScale.covered * 2,

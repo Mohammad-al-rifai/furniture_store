@@ -33,6 +33,7 @@ class _PayPalPaymentScreenState extends State<PayPalPaymentScreen> {
             javascriptMode: JavascriptMode.unrestricted,
             onPageFinished: (String url) {
               if (url.contains('/success')) {
+                print('Yes');
                 popScreen(context);
               }
               setState(() {

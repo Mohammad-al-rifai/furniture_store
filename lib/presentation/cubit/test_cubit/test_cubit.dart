@@ -39,11 +39,11 @@ class TestCubit extends Cubit<TestStates> {
       url: Urls.operationsOnCart,
       token: Constants.bearer + Constants.token,
       data: {
-        "itemID": "646e002f10287eca8f816617",
-        "productId": "6461dd2e23920a30c28904f3",
-        "classId": "6461dd2e23920a30c28904f4",
-        "groupId": "6461dd2e23920a30c28904f5",
-        "increment": false
+        "itemID": "648ee11d9f5a5496cb71c650",
+        "productId": "646f633eda6f8d0be08429f7",
+        "classId": "646f633eda6f8d0be08429f8",
+        "groupId": "646f633eda6f8d0be08429f9",
+        "increment": true
       },
     ).then((value) {
       emit(OperationsOnCartDoneState());

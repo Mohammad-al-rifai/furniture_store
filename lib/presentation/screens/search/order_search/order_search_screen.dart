@@ -1,27 +1,23 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:ecommerce/app/functions.dart';
+import 'package:ecommerce/domain/models/order_models/order_advanced_search_model.dart';
 import 'package:ecommerce/presentation/components/error.dart';
 import 'package:ecommerce/presentation/components/loading.dart';
 import 'package:ecommerce/presentation/components/my_text.dart';
+import 'package:ecommerce/presentation/components/text_form_field.dart';
 import 'package:ecommerce/presentation/cubit/search_cubit/search_cubit.dart';
+import 'package:ecommerce/presentation/resources/assets_manager.dart';
 import 'package:ecommerce/presentation/resources/color_manager.dart';
+import 'package:ecommerce/presentation/resources/constants_manager.dart';
+import 'package:ecommerce/presentation/resources/string_manager.dart';
 import 'package:ecommerce/presentation/resources/values_manager.dart';
+import 'package:ecommerce/presentation/screens/merchant/products/product_widgets/pair_widget.dart';
+import 'package:ecommerce/presentation/screens/order/order_details_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_conditional_rendering/conditional.dart';
 import 'package:lottie/lottie.dart';
-
-import '../../../../app/functions.dart';
-import '../../../../domain/models/order_models/order_advanced_search_model.dart';
-import '../../../components/button.dart';
-import '../../../components/text_form_field.dart';
-import '../../../resources/assets_manager.dart';
-import '../../../resources/constants_manager.dart';
-import '../../../resources/string_manager.dart';
-import '../../login/login_screen.dart';
-import '../../merchant/products/details_screen.dart';
-import '../../merchant/products/product_widgets/pair_widget.dart';
-import '../../order/order_details_screen.dart';
 import 'order_search_widgets/filter_item_widget.dart';
 
 class OrderSearchScreen extends StatefulWidget {

@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:ecommerce/app/languages.dart';
 import 'package:flutter/material.dart';
@@ -128,7 +127,7 @@ Widget handleFallBackWidget({
               const LoginScreen(),
             );
           },
-          text: AppStrings.login,
+          text: AppStrings.login.tr(),
         ),
       ],
     );
@@ -141,4 +140,14 @@ Widget handleFallBackWidget({
       );
     }
   }
+}
+
+String dateTimeFormatter({required String timestamp}) {
+  final DateFormat originalFormat = DateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+  final DateTime dateTime = originalFormat.parseUtc(timestamp);
+
+  final DateFormat desiredFormat = DateFormat.yMMMMd().add_jms();
+  final String formattedTimestamp = desiredFormat.format(dateTime);
+
+  return formattedTimestamp;
 }

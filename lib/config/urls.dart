@@ -1,5 +1,5 @@
 class Urls {
-  static const String baseUrl = 'http://192.168.11.27:3001';
+  static const String baseUrl = 'http://192.168.5.143:3000';
 
   static const String filesUrl = '$baseUrl/api/download?fileName=';
 
@@ -39,7 +39,13 @@ class Urls {
   static const String addOrder = '/user/Customer/addOrder';
   static const String getUserOrders = '/user/allUsers/getUserOrders';
   static const String getOrderById = '/user/allUsers/getOrderById/';
+  static const String cancelOrder = '/user/allUsers/ChangeOrderStatus';
   static const String orderAdvancedSearch = '/user/allUsers/advancedSearch/';
+  static const String getMyBalance = '/user/allUsers/getMyBalance';
+  static const String getOrderHistory =
+      '/user/allUsers/getUserProductsHistory/';
+  static const String getUserPointsHistory =
+      '/user/allUsers/getUserPointsHistory';
 
 // *************** Start Wishlist Management Feature **************
   static const String add2WishList = '/user/Customer/addToWishList';
@@ -49,7 +55,7 @@ class Urls {
       '/user/Customer/deleteWishListByUserID';
 
 // *************** Start Recommendation System Feature **************
-  static const String recSysML = '/user/allUsers/recommendationsMl';
+  static const String recSysML = '/user/allUsers/recommendations';
 
 // *************** Start Payment Feature **************
   static const String pay = '/user/Customer/pay';

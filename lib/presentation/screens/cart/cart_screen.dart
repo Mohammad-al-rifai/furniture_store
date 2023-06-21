@@ -1,23 +1,16 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:ecommerce/app/functions.dart';
 import 'package:ecommerce/presentation/components/button.dart';
-import 'package:ecommerce/presentation/components/loading.dart';
 import 'package:ecommerce/presentation/components/main_scaffold.dart';
 import 'package:ecommerce/presentation/cubit/cart_cubit/cart_cubit.dart';
-import 'package:ecommerce/presentation/resources/assets_manager.dart';
+import 'package:ecommerce/presentation/resources/color_manager.dart';
 import 'package:ecommerce/presentation/resources/string_manager.dart';
 import 'package:ecommerce/presentation/resources/values_manager.dart';
 import 'package:ecommerce/presentation/screens/merchant/products/product_widgets/pair_widget.dart';
+import 'package:ecommerce/presentation/screens/order/add_order_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_conditional_rendering/conditional.dart';
-import 'package:lottie/lottie.dart';
-
-import '../../components/my_text.dart';
-import '../../resources/color_manager.dart';
-import '../../resources/constants_manager.dart';
-import '../login/login_screen.dart';
-import '../order/add_order_screen.dart';
 import 'cart_widgets/cart_item_widget.dart';
 
 class CartScreen extends StatefulWidget {

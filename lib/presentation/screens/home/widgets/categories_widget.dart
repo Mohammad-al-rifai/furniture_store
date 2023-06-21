@@ -1,17 +1,16 @@
 import 'package:ecommerce/app/functions.dart';
+import 'package:ecommerce/domain/models/categories/all_categories_model.dart';
+import 'package:ecommerce/presentation/components/default_image.dart';
+import 'package:ecommerce/presentation/components/default_label.dart';
+import 'package:ecommerce/presentation/components/my_text.dart';
+import 'package:ecommerce/presentation/layouts/home_layout/home_layout_cubit/home_layout_cubit.dart';
 import 'package:ecommerce/presentation/resources/color_manager.dart';
-import 'package:ecommerce/presentation/screens/home/widgets/view_all_widget.dart';
+import 'package:ecommerce/presentation/resources/string_manager.dart';
+import 'package:ecommerce/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_conditional_rendering/flutter_conditional_rendering.dart';
 
-import '../../../../domain/models/categories/all_categories_model.dart';
-import '../../../components/default_element.dart';
-import '../../../components/default_image.dart';
-import '../../../components/my_text.dart';
-import '../../../layouts/home_layout/home_layout_cubit/home_layout_cubit.dart';
-import '../../../resources/string_manager.dart';
-import '../../../resources/values_manager.dart';
 
 class CategoriesWidget extends StatelessWidget {
   const CategoriesWidget({Key? key}) : super(key: key);
@@ -29,29 +28,25 @@ class CategoriesWidget extends StatelessWidget {
             return Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                const DefaultLabel(text: AppStrings.categories),
+                DefaultLabel(
+                  text: AppStrings.categories,
+                  showAllFunction: () => cubit.changeBottom(1),
+                ),
                 SizedBox(
                   height: AppSize.s110,
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Expanded(
-                        child: ListView.builder(
-                          shrinkWrap: true,
-                          physics: const BouncingScrollPhysics(),
-                          scrollDirection: Axis.horizontal,
-                          itemBuilder: (context, index) {
-                            return buildCatItem(
-                              catData: cubit.categories[index],
-                            );
-                          },
-                          itemCount: cubit.categories.length,
-                        ),
-                      ),
-                      ViewAllWidget(
-                        onTap: () {
-                          cubit.changeBottom(1);
+                      ListView.builder(
+                        shrinkWrap: true,
+                        physics: const BouncingScrollPhysics(),
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context, index) {
+                          return buildCatItem(
+                            catData: cubit.categories[index],
+                          );
                         },
+                        itemCount: cubit.categories.length,
                       ),
                     ],
                   ),

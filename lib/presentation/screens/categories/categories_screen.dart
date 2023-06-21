@@ -1,26 +1,16 @@
-import 'package:ecommerce/app/functions.dart';
-import 'package:ecommerce/domain/models/categories/all_categories_model.dart';
-import 'package:ecommerce/presentation/components/default_image.dart';
 import 'package:ecommerce/presentation/components/loading.dart';
 import 'package:ecommerce/presentation/components/main_scaffold.dart';
 import 'package:ecommerce/presentation/layouts/home_layout/home_layout_cubit/home_layout_cubit.dart';
 import 'package:ecommerce/presentation/layouts/merchant_layout/merchant_layout_cubit/merchant_layout_cubit.dart';
-import 'package:ecommerce/presentation/resources/color_manager.dart';
-import 'package:ecommerce/presentation/resources/styles_manager.dart';
 import 'package:ecommerce/presentation/resources/values_manager.dart';
 import 'package:ecommerce/presentation/screens/shared_widgets/category_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_conditional_rendering/conditional.dart';
 
-class CategoriesScreen extends StatefulWidget {
+class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({Key? key}) : super(key: key);
 
-  @override
-  State<CategoriesScreen> createState() => _CategoriesScreenState();
-}
-
-class _CategoriesScreenState extends State<CategoriesScreen> {
   @override
   Widget build(BuildContext context) {
     return MainScaffold(

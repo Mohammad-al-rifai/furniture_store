@@ -1,15 +1,14 @@
 // ignore_for_file: must_be_immutable
 
+import 'package:ecommerce/app/languages.dart';
+import 'package:ecommerce/presentation/components/my_divider.dart';
+import 'package:ecommerce/presentation/components/my_text.dart';
+import 'package:ecommerce/presentation/resources/color_manager.dart';
+import 'package:ecommerce/presentation/resources/string_manager.dart';
+import 'package:ecommerce/presentation/resources/styles_manager.dart';
+import 'package:ecommerce/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
-import '../../../../app/languages.dart';
-import '../../../components/my_divider.dart';
-import '../../../components/my_text.dart';
-import '../../../resources/color_manager.dart';
-import '../../../resources/string_manager.dart';
-import '../../../resources/styles_manager.dart';
-import '../../../resources/values_manager.dart';
 
 class SettingsItemWidget extends StatelessWidget {
   const SettingsItemWidget({
@@ -19,6 +18,7 @@ class SettingsItemWidget extends StatelessWidget {
     required this.titleTR,
     this.isLang = false,
     this.withDivider = true,
+    this.widget,
   });
 
   final Function onTap;
@@ -26,6 +26,7 @@ class SettingsItemWidget extends StatelessWidget {
   final String titleTR;
   final bool isLang;
   final bool withDivider;
+  final Widget? widget;
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +45,7 @@ class SettingsItemWidget extends StatelessWidget {
                 iconPath,
                 color: ColorManager.darkPrimary,
               ),
-               SizedBox(width: AppSize.s18),
+              SizedBox(width: AppSize.s18),
               Expanded(
                 child: MText(
                   text: titleTR,
@@ -60,11 +61,12 @@ class SettingsItemWidget extends StatelessWidget {
                       ),
                     )
                   : const SizedBox(),
+              (widget != null) ? widget! : const SizedBox(),
             ],
           ),
           withDivider
               ? Padding(
-                  padding:  EdgeInsetsDirectional.only(
+                  padding: EdgeInsetsDirectional.only(
                     start: AppSize.s40,
                   ),
                   child: MyDivider(

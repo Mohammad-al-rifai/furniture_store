@@ -6,21 +6,21 @@ import 'package:ecommerce/data/network/local/cache_helper.dart';
 import 'package:ecommerce/data/network/local/keys.dart';
 import 'package:ecommerce/presentation/components/button.dart';
 import 'package:ecommerce/presentation/components/my_divider.dart';
+import 'package:ecommerce/presentation/components/text_button.dart';
 import 'package:ecommerce/presentation/components/text_form_field.dart';
 import 'package:ecommerce/presentation/components/toast_notifications.dart';
+import 'package:ecommerce/presentation/layouts/home_layout/home_layout.dart';
+import 'package:ecommerce/presentation/resources/assets_manager.dart';
 import 'package:ecommerce/presentation/resources/color_manager.dart';
 import 'package:ecommerce/presentation/resources/constants_manager.dart';
 import 'package:ecommerce/presentation/resources/string_manager.dart';
 import 'package:ecommerce/presentation/resources/styles_manager.dart';
+import 'package:ecommerce/presentation/resources/values_manager.dart';
 import 'package:ecommerce/presentation/screens/register/forget_password_screen.dart';
 import 'package:ecommerce/presentation/screens/register/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../components/text_button.dart';
-import '../../layouts/home_layout/home_layout.dart';
-import '../../resources/assets_manager.dart';
-import '../../resources/values_manager.dart';
 import 'login_cubit/login_cubit.dart';
 
 class LoginScreen extends StatefulWidget {

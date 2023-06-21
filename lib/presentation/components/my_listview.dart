@@ -9,12 +9,14 @@ class MyListView<T> extends StatefulWidget {
     required this.list,
     required this.noMoreData,
     required this.itemBuilder,
+    this.physics,
   }) : super(key: key);
 
   final Function fetchData;
   final List<T> list;
   final bool noMoreData;
   final Widget Function(BuildContext context, T item) itemBuilder;
+  final ScrollPhysics? physics;
 
   @override
   State<MyListView<T>> createState() => _MyListViewState<T>();
@@ -46,6 +48,7 @@ class _MyListViewState<T> extends State<MyListView<T>> {
     return ListView(
       shrinkWrap: true,
       controller: _scrollController,
+      physics: widget.physics ?? const BouncingScrollPhysics(),
       children: [
         // Items
         ...List<Widget>.from(

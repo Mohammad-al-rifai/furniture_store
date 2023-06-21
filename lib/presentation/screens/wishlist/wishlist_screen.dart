@@ -1,6 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:ecommerce/app/functions.dart';
+import 'package:ecommerce/domain/models/wishlist_models/wishlist_model.dart';
 import 'package:ecommerce/presentation/components/button.dart';
+import 'package:ecommerce/presentation/components/default_dismissable.dart';
 import 'package:ecommerce/presentation/components/default_image.dart';
 import 'package:ecommerce/presentation/components/error.dart';
 import 'package:ecommerce/presentation/components/loading.dart';
@@ -8,6 +10,7 @@ import 'package:ecommerce/presentation/components/my_text.dart';
 import 'package:ecommerce/presentation/components/text_button.dart';
 import 'package:ecommerce/presentation/cubit/wishlist_cubit/wishlist_cubit.dart';
 import 'package:ecommerce/presentation/resources/assets_manager.dart';
+import 'package:ecommerce/presentation/resources/color_manager.dart';
 import 'package:ecommerce/presentation/resources/constants_manager.dart';
 import 'package:ecommerce/presentation/resources/string_manager.dart';
 import 'package:ecommerce/presentation/resources/values_manager.dart';
@@ -19,9 +22,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_conditional_rendering/conditional.dart';
 import 'package:lottie/lottie.dart';
 
-import '../../../domain/models/wishlist_models/wishlist_model.dart';
-import '../../components/default_dismissable.dart';
-import '../../resources/color_manager.dart';
 
 class WishlistScreen extends StatefulWidget {
   const WishlistScreen({Key? key}) : super(key: key);

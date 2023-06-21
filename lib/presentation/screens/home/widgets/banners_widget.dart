@@ -1,16 +1,14 @@
 import 'package:dotted_border/dotted_border.dart';
+import 'package:ecommerce/app/functions.dart';
+import 'package:ecommerce/domain/models/home_models/banner_model.dart';
+import 'package:ecommerce/presentation/components/default_carousal_slider.dart';
+import 'package:ecommerce/presentation/components/default_image.dart';
 import 'package:ecommerce/presentation/components/loading.dart';
+import 'package:ecommerce/presentation/layouts/home_layout/home_layout_cubit/home_layout_cubit.dart';
+import 'package:ecommerce/presentation/resources/color_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_conditional_rendering/flutter_conditional_rendering.dart';
-
-import '../../../../app/functions.dart';
-import '../../../../domain/models/home_models/banner_model.dart';
-import '../../../components/default_carousal_slider.dart';
-
-import '../../../components/default_image.dart';
-import '../../../layouts/home_layout/home_layout_cubit/home_layout_cubit.dart';
-import '../../../resources/color_manager.dart';
 
 class BannerWidget extends StatelessWidget {
   const BannerWidget({Key? key}) : super(key: key);

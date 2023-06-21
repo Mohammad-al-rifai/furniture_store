@@ -1,5 +1,5 @@
 import 'package:ecommerce/app/functions.dart';
-import 'package:ecommerce/presentation/components/button.dart';
+import 'package:ecommerce/domain/models/cart_models/user_cart_model.dart';
 import 'package:ecommerce/presentation/components/default_image.dart';
 import 'package:ecommerce/presentation/components/my_text.dart';
 import 'package:ecommerce/presentation/components/text_button.dart';
@@ -12,20 +12,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../domain/models/cart_models/user_cart_model.dart';
-
-class CartItemWidget extends StatefulWidget {
+class CartItemWidget extends StatelessWidget {
   const CartItemWidget({
     Key? key,
     required this.cartItem,
   }) : super(key: key);
   final UserCartItem cartItem;
 
-  @override
-  State<CartItemWidget> createState() => _CartItemWidgetState();
-}
-
-class _CartItemWidgetState extends State<CartItemWidget> {
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -39,7 +32,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
           child: Row(
             children: [
               DefaultImage(
-                imageUrl: widget.cartItem.product?.mainImage,
+                imageUrl: cartItem.product?.mainImage,
                 width: AppSize.s150,
                 fit: BoxFit.fill,
                 clickable: true,
@@ -51,7 +44,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                   child: Column(
                     children: [
                       MText(
-                        text: widget.cartItem.product?.name ?? 'Product Name',
+                        text: cartItem.product?.name ?? 'Product Name',
                         color: ColorManager.white,
                       ),
                       const Spacer(),
@@ -100,8 +93,8 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                         text: AppStrings.yes,
                         function: () {
                           CartCubit.get(context).deleteProFromCart(
-                            groupId: widget.cartItem.group?.id.toString(),
-                            itemID: widget.cartItem.itemID,
+                            groupId: cartItem.group?.id.toString(),
+                            itemID: cartItem.itemID,
                           );
                           Navigator.of(context).pop();
                         },
@@ -154,10 +147,10 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                 child: TextButton(
                   onPressed: () {
                     cubit.operationsOnCart(
-                      productId: widget.cartItem.product?.id ?? '',
-                      classId: widget.cartItem.itemClass?.id ?? '',
-                      groupId: widget.cartItem.group?.id ?? '',
-                      itemID: widget.cartItem.itemID ?? '',
+                      productId: cartItem.product?.id ?? '',
+                      classId: cartItem.itemClass?.id ?? '',
+                      groupId: cartItem.group?.id ?? '',
+                      itemID: cartItem.itemID ?? '',
                       increment: false,
                     );
                   },
@@ -168,16 +161,16 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                 ),
               ),
               MText(
-                text: widget.cartItem.quantity.toString(),
+                text: cartItem.quantity.toString(),
               ),
               Expanded(
                 child: TextButton(
                   onPressed: () {
                     cubit.operationsOnCart(
-                      productId: widget.cartItem.product?.id ?? '',
-                      classId: widget.cartItem.itemClass?.id ?? '',
-                      groupId: widget.cartItem.group?.id ?? '',
-                      itemID: widget.cartItem.itemID ?? '',
+                      productId: cartItem.product?.id ?? '',
+                      classId: cartItem.itemClass?.id ?? '',
+                      groupId: cartItem.group?.id ?? '',
+                      itemID: cartItem.itemID ?? '',
                       increment: true,
                     );
                   },

@@ -1,10 +1,7 @@
-import 'package:dotted_border/dotted_border.dart';
 import 'package:ecommerce/app/functions.dart';
 import 'package:ecommerce/app/languages.dart';
 import 'package:ecommerce/presentation/components/main_scaffold.dart';
-import 'package:ecommerce/presentation/components/my_divider.dart';
 import 'package:ecommerce/presentation/components/my_text.dart';
-import 'package:ecommerce/presentation/components/toast_notifications.dart';
 import 'package:ecommerce/presentation/cubit/order_cubit/order_cubit.dart';
 import 'package:ecommerce/presentation/layouts/home_layout/home_layout_cubit/home_layout_cubit.dart';
 import 'package:ecommerce/presentation/resources/color_manager.dart';
@@ -13,13 +10,10 @@ import 'package:ecommerce/presentation/resources/string_manager.dart';
 import 'package:ecommerce/presentation/resources/styles_manager.dart';
 import 'package:ecommerce/presentation/resources/values_manager.dart';
 import 'package:ecommerce/presentation/screens/order/user_orders_screen.dart';
-import 'package:ecommerce/presentation/screens/profile/widgets/old_language_widget.dart';
 import 'package:ecommerce/presentation/screens/profile/widgets/settings_item_widget.dart';
 import 'package:ecommerce/presentation/screens/profile/widgets/user_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_phoenix/flutter_phoenix.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../resources/assets_manager.dart';
 import '../wishlist/wishlist_screen.dart';
@@ -36,6 +30,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   void initState() {
     if (Constants.token.isNotEmpty) {
       HomeLayoutCubit.get(context).getProfile();
+      OrderCubit.get(context).getMyBalance();
     }
     super.initState();
   }
@@ -55,7 +50,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               child: Column(
                 children: [
                   const UserWidget(),
-                   SizedBox(height: AppSize.s8),
+                  SizedBox(height: AppSize.s8),
                   Container(
                     margin: const EdgeInsetsDirectional.all(AppMargin.m8),
                     padding: const EdgeInsetsDirectional.all(AppPadding.p12),
@@ -77,6 +72,23 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           onTap: () {},
                           iconPath: IconsAssets.payment,
                           titleTR: AppStrings.paymentMethod,
+                        ),
+                        SettingsItemWidget(
+                          onTap: () {},
+                          iconPath: IconsAssets.wallet,
+                          titleTR: AppStrings.myEWallet,
+                          widget: Row(
+                            children: [
+                              MText(
+                                text: OrderCubit.get(context).myBalance,
+                                style: getBoldStyle(color: ColorManager.black),
+                              ),
+                              SizedBox(width: AppSize.s4),
+                              MText(
+                                text: AppStrings.points,
+                              ),
+                            ],
+                          ),
                         ),
                         SettingsItemWidget(
                           onTap: () => handleOrderHistoryPress(),
@@ -149,7 +161,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   handleLangPress() {
     Langs.changeLang(context);
     setState(() {
-      Phoenix.rebirth(context);
+      // Phoenix.rebirth(context);
     });
   }
 

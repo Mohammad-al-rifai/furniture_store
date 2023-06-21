@@ -2,17 +2,17 @@
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:ecommerce/app/functions.dart';
+import 'package:ecommerce/presentation/components/button.dart';
 import 'package:ecommerce/presentation/components/my_text.dart';
 import 'package:ecommerce/presentation/components/text_button.dart';
 import 'package:ecommerce/presentation/components/text_form_field.dart';
+import 'package:ecommerce/presentation/cubit/search_cubit/search_cubit.dart';
+import 'package:ecommerce/presentation/resources/color_manager.dart';
 import 'package:ecommerce/presentation/resources/string_manager.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../components/button.dart';
-import '../../../../cubit/search_cubit/search_cubit.dart';
-import '../../../../resources/color_manager.dart';
 import 'filter_data_class.dart';
 
 class FilterItemWidget extends StatefulWidget {

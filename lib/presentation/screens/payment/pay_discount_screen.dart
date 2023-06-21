@@ -5,7 +5,7 @@ import 'package:ecommerce/presentation/resources/string_manager.dart';
 import 'package:ecommerce/presentation/screens/payment/paypal_payment_screen.dart';
 import 'package:flutter/material.dart';
 
-class PayDiscountScreen extends StatefulWidget {
+class PayDiscountScreen extends StatelessWidget {
   const PayDiscountScreen({
     super.key,
     required this.orderId,
@@ -13,11 +13,6 @@ class PayDiscountScreen extends StatefulWidget {
 
   final String? orderId;
 
-  @override
-  State<PayDiscountScreen> createState() => _PayDiscountScreenState();
-}
-
-class _PayDiscountScreenState extends State<PayDiscountScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +27,7 @@ class _PayDiscountScreenState extends State<PayDiscountScreen> {
             function: () {
               navigateTo(
                 context,
-                PayPalPaymentScreen(orderId: widget.orderId),
+                PayPalPaymentScreen(orderId: orderId),
               );
             },
             text: AppStrings.pay,

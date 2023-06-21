@@ -1,21 +1,21 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:ecommerce/app/functions.dart';
 import 'package:ecommerce/domain/requests/register_request.dart';
+import 'package:ecommerce/presentation/components/button.dart';
+import 'package:ecommerce/presentation/components/my_divider.dart';
+import 'package:ecommerce/presentation/components/text_button.dart';
+import 'package:ecommerce/presentation/components/text_form_field.dart';
+import 'package:ecommerce/presentation/resources/assets_manager.dart';
+import 'package:ecommerce/presentation/resources/color_manager.dart';
+import 'package:ecommerce/presentation/resources/string_manager.dart';
+import 'package:ecommerce/presentation/resources/styles_manager.dart';
+import 'package:ecommerce/presentation/resources/values_manager.dart';
 import 'package:ecommerce/presentation/screens/login/login_screen.dart';
 import 'package:ecommerce/presentation/screens/register/mail_verify_screen.dart';
 import 'package:ecommerce/presentation/screens/register/register_cubit/register_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../app/functions.dart';
-import '../../components/button.dart';
-import '../../components/my_divider.dart';
-import '../../components/text_button.dart';
-import '../../components/text_form_field.dart';
-import '../../resources/assets_manager.dart';
-import '../../resources/color_manager.dart';
-import '../../resources/string_manager.dart';
-import '../../resources/styles_manager.dart';
-import '../../resources/values_manager.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
@@ -71,7 +71,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                        SizedBox(
                         height: AppSize.s180,
                         width: AppSize.s180,
-                        child: Image(
+                        child: const Image(
                           image: AssetImage(
                             ImageAssets.splashLogo,
                           ),

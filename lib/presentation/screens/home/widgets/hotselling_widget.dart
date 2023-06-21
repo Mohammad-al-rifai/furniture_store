@@ -1,23 +1,20 @@
+import 'package:ecommerce/app/functions.dart';
+import 'package:ecommerce/presentation/components/default_label.dart';
+import 'package:ecommerce/presentation/components/loading.dart';
+import 'package:ecommerce/presentation/layouts/home_layout/home_layout_cubit/home_layout_cubit.dart';
+import 'package:ecommerce/presentation/resources/string_manager.dart';
+import 'package:ecommerce/presentation/resources/values_manager.dart';
 import 'package:ecommerce/presentation/screens/home/widgets/product_item.dart';
+import 'package:ecommerce/presentation/screens/hot_selling/hot_selling_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_conditional_rendering/flutter_conditional_rendering.dart';
 
-import '../../../components/default_element.dart';
-import '../../../components/loading.dart';
-import '../../../layouts/home_layout/home_layout_cubit/home_layout_cubit.dart';
-import '../../../resources/string_manager.dart';
-import '../../../resources/values_manager.dart';
 
-class HotSellingWidget extends StatefulWidget {
+class HotSellingWidget extends StatelessWidget {
   const HotSellingWidget({Key? key}) : super(key: key);
 
-  @override
-  State<HotSellingWidget> createState() => _HotSellingWidgetState();
-}
-
-class _HotSellingWidgetState extends State<HotSellingWidget> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<HomeLayoutCubit, HomeLayoutStates>(
@@ -31,7 +28,15 @@ class _HotSellingWidgetState extends State<HotSellingWidget> {
           widgetBuilder: (context) {
             return Column(
               children: [
-                const DefaultLabel(text: AppStrings.hotSelling),
+                DefaultLabel(
+                  text: AppStrings.hotSelling,
+                  showAllFunction: () {
+                    navigateTo(
+                      context,
+                      const HotSellingScreen(),
+                    );
+                  },
+                ),
                 SizedBox(height: AppSize.s8),
                 GridView.builder(
                   shrinkWrap: true,
@@ -42,7 +47,8 @@ class _HotSellingWidgetState extends State<HotSellingWidget> {
                     crossAxisSpacing: 3.0,
                     mainAxisSpacing: 3.0,
                   ),
-                  itemCount: cubit.products.length,
+                  itemCount:
+                      cubit.products.length > 2 ? 2 : cubit.products.length,
                   itemBuilder: (context, index) {
                     return ProductItem(product: cubit.products[index]);
                   },

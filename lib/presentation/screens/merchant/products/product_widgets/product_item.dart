@@ -1,17 +1,15 @@
+import 'package:ecommerce/app/functions.dart';
+import 'package:ecommerce/domain/models/product_models/products_list_model.dart';
+import 'package:ecommerce/presentation/components/default_image.dart';
+import 'package:ecommerce/presentation/components/my_text.dart';
+import 'package:ecommerce/presentation/components/price_widget.dart';
+import 'package:ecommerce/presentation/resources/color_manager.dart';
+import 'package:ecommerce/presentation/resources/values_manager.dart';
 import 'package:ecommerce/presentation/screens/merchant/products/details_screen.dart';
+import 'package:ecommerce/presentation/screens/shared_widgets/add_remove_wishlist_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../app/functions.dart';
-import '../../../../../domain/models/product_models/products_list_model.dart';
-import '../../../../components/default_image.dart';
-import '../../../../components/my_text.dart';
-import '../../../../components/price_widget.dart';
-import '../../../../cubit/wishlist_cubit/wishlist_cubit.dart';
-import '../../../../resources/color_manager.dart';
-import '../../../../resources/values_manager.dart';
-import '../../../../shared/add_remove_wishlist_widget.dart';
 
 class ProductWidget extends StatefulWidget {
   const ProductWidget({

@@ -1,22 +1,21 @@
+import 'package:ecommerce/app/functions.dart';
 import 'package:ecommerce/domain/models/product_models/products_list_model.dart';
+import 'package:ecommerce/presentation/components/default_image.dart';
 import 'package:ecommerce/presentation/components/error.dart';
 import 'package:ecommerce/presentation/components/loading.dart';
 import 'package:ecommerce/presentation/components/my_divider.dart';
 import 'package:ecommerce/presentation/layouts/merchant_layout/merchant_layout_cubit/merchant_layout_cubit.dart';
+import 'package:ecommerce/presentation/resources/assets_manager.dart';
 import 'package:ecommerce/presentation/resources/color_manager.dart';
 import 'package:ecommerce/presentation/resources/values_manager.dart';
+import 'package:ecommerce/presentation/screens/shared_widgets/add_remove_wishlist_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_conditional_rendering/conditional.dart';
 import 'package:lottie/lottie.dart';
-
-import '../../../../app/functions.dart';
-import '../../../components/default_image.dart';
-import '../../../resources/assets_manager.dart';
-import '../../../shared/add_remove_wishlist_widget.dart';
 import 'details_screen.dart';
 
-class ProductScreen extends StatefulWidget {
+class ProductScreen extends StatelessWidget {
   const ProductScreen({
     Key? key,
     required this.merchantId,
@@ -24,11 +23,6 @@ class ProductScreen extends StatefulWidget {
 
   final String merchantId;
 
-  @override
-  State<ProductScreen> createState() => _ProductScreenState();
-}
-
-class _ProductScreenState extends State<ProductScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<MerchantLayoutCubit, MerchantLayoutStates>(
@@ -57,6 +51,7 @@ class _ProductScreenState extends State<ProductScreen> {
                 itemBuilder: (context, index) {
                   return buildProductItem(
                     cubit.products[index],
+                    context,
                   );
                 },
                 itemCount: cubit.products.length,
@@ -75,7 +70,7 @@ class _ProductScreenState extends State<ProductScreen> {
     );
   }
 
-  Widget buildProductItem(Product product) {
+  Widget buildProductItem(Product product, context) {
     return GestureDetector(
       onTap: () {
         navigateTo(

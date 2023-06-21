@@ -1,9 +1,10 @@
+import 'package:ecommerce/presentation/resources/color_manager.dart';
+import 'package:ecommerce/presentation/resources/string_manager.dart';
+import 'package:ecommerce/presentation/resources/styles_manager.dart';
+import 'package:ecommerce/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
 
-import '../resources/color_manager.dart';
-import '../resources/string_manager.dart';
-import '../resources/styles_manager.dart';
-import '../resources/values_manager.dart';
+
 import 'my_text.dart';
 
 Widget priceWidget({

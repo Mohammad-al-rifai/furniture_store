@@ -1,8 +1,8 @@
+import 'package:ecommerce/presentation/resources/assets_manager.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
-import '../resources/assets_manager.dart';
 
 class DefaultError extends StatelessWidget {
   const DefaultError({

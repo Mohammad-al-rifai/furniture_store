@@ -112,4 +112,17 @@ class AppStrings {
   static const String siteFeatures = "site_features";
   static const String checkPayDiscountScreen = "check_pay_discount_screen";
   static const String pay = "pay";
+  static const String alBakriFurniture = "al_bakri_furniture";
+  static const String allRightsReserved2023 = "all_rights_reserved_2023";
+  static const String productHistory = "product_history";
+  static const String blockNumber = "block_number";
+  static const String seller = "seller";
+  static const String myEWallet = "my_e_wallet";
+  static const String productPrice = "product_price";
+  static const String yourProductHistoryAt = "your_product_history_at";
+  static const String ethereumNetwork = "ethereum_network";
+  static const String pleaseRunYourGanacheSoftware =
+      "please_run_your_ganache_software";
+  static const String points = "points";
+  static const String usersPointsHistory = "users_points_history";
 }

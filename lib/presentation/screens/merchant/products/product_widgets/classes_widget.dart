@@ -1,22 +1,21 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:dotted_border/dotted_border.dart';
+import 'package:ecommerce/app/functions.dart';
+import 'package:ecommerce/domain/models/product_models/single_pro_model.dart';
+import 'package:ecommerce/presentation/components/default_label.dart';
 import 'package:ecommerce/presentation/components/my_page_view.dart';
+import 'package:ecommerce/presentation/components/my_text.dart';
+import 'package:ecommerce/presentation/cubit/product_cubit/product_cubit.dart';
+import 'package:ecommerce/presentation/resources/color_manager.dart';
+import 'package:ecommerce/presentation/resources/fonts_manager.dart';
+import 'package:ecommerce/presentation/resources/string_manager.dart';
+import 'package:ecommerce/presentation/resources/styles_manager.dart';
+import 'package:ecommerce/presentation/resources/values_manager.dart';
 import 'package:ecommerce/presentation/screens/merchant/products/product_widgets/pair_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_conditional_rendering/conditional.dart';
-
-import '../../../../../app/functions.dart';
-import '../../../../../domain/models/product_models/single_pro_model.dart';
-import '../../../../components/default_element.dart';
-import '../../../../components/my_text.dart';
-import '../../../../cubit/product_cubit/product_cubit.dart';
-import '../../../../resources/color_manager.dart';
-import '../../../../resources/fonts_manager.dart';
-import '../../../../resources/string_manager.dart';
-import '../../../../resources/styles_manager.dart';
-import '../../../../resources/values_manager.dart';
 import 'add_2_cart_widget.dart';
 
 class ClassesWidget extends StatefulWidget {

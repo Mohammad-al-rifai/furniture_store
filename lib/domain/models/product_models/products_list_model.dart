@@ -166,7 +166,7 @@ class ProductClass {
   final bool? sallableInPoints;
   final List<ProductGroup> group;
   final String? id;
-  final int? priceAfterDiscount;
+  final dynamic priceAfterDiscount;
 
   ProductClass copyWith({
     String? size,
@@ -176,7 +176,7 @@ class ProductClass {
     bool? sallableInPoints,
     List<ProductGroup>? group,
     String? id,
-    int? priceAfterDiscount,
+    dynamic priceAfterDiscount,
   }) {
     return ProductClass(
       size: size ?? this.size,

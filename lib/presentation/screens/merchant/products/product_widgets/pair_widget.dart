@@ -1,9 +1,8 @@
+import 'package:ecommerce/presentation/components/my_text.dart';
+import 'package:ecommerce/presentation/resources/color_manager.dart';
+import 'package:ecommerce/presentation/resources/styles_manager.dart';
+import 'package:ecommerce/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../components/my_text.dart';
-import '../../../../resources/color_manager.dart';
-import '../../../../resources/styles_manager.dart';
-import '../../../../resources/values_manager.dart';
 
 class PairWidget extends StatelessWidget {
   const PairWidget({

@@ -32,3 +32,35 @@ class GetSingleOrderByIdLoadingState extends OrderStates {}
 class GetSingleOrderByIdDoneState extends OrderStates {}
 
 class GetSingleOrderByIdErrorState extends OrderStates {}
+
+// Get Order History States:
+
+class GetOrderHistoryLoadingState extends OrderStates {}
+
+class GetOrderHistoryDoneState extends OrderStates {}
+
+class GetOrderHistoryErrorState extends OrderStates {}
+
+// Get Users Points History States:
+
+class GetUsersPointsLoadingState extends OrderStates {}
+
+class GetUsersPointsDoneState extends OrderStates {}
+
+class GetUsersPointsErrorState extends OrderStates {}
+
+// Get My Balance States:
+
+class GetMyBalanceLoadingState extends OrderStates {}
+
+class GetMyBalanceDoneState extends OrderStates {}
+
+class GetMyBalanceErrorState extends OrderStates {}
+
+// Cancel States:
+
+class CancelOrderLoadingState extends OrderStates {}
+
+class CancelOrderDoneState extends OrderStates {}
+
+class CancelOrderErrorState extends OrderStates {}

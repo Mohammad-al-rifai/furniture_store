@@ -1,8 +1,8 @@
 // ignore_for_file: constant_identifier_names
+import 'package:ecommerce/presentation/resources/color_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-import '../resources/color_manager.dart';
 
 void showToast({
   required String text,

@@ -1,13 +1,12 @@
+import 'package:ecommerce/domain/models/product_models/single_pro_model.dart';
+import 'package:ecommerce/presentation/components/default_label.dart';
+import 'package:ecommerce/presentation/components/my_text.dart';
 import 'package:ecommerce/presentation/components/price_widget.dart';
+import 'package:ecommerce/presentation/resources/color_manager.dart';
+import 'package:ecommerce/presentation/resources/string_manager.dart';
 import 'package:ecommerce/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_conditional_rendering/conditional.dart';
-
-import '../../../../../domain/models/product_models/single_pro_model.dart';
-import '../../../../components/default_element.dart';
-import '../../../../components/my_text.dart';
-import '../../../../resources/color_manager.dart';
-import '../../../../resources/string_manager.dart';
 
 class DeliveryAreaWidget extends StatelessWidget {
   const DeliveryAreaWidget({

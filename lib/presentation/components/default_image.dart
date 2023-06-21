@@ -1,13 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce/app/functions.dart';
+import 'package:ecommerce/config/urls.dart';
 import 'package:ecommerce/presentation/components/full_screen_picture.dart';
 import 'package:ecommerce/presentation/resources/assets_manager.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../../config/urls.dart';
-import 'error.dart';
-import 'loading.dart';
 
 class DefaultImage extends StatelessWidget {
   const DefaultImage({
@@ -45,7 +42,7 @@ class DefaultImage extends StatelessWidget {
   }
 
   Widget image() => CachedNetworkImage(
-        imageUrl: Urls.filesUrl + (imageUrl ?? ''),
+        imageUrl: '${Urls.filesUrl}${imageUrl ?? ''}',
         fit: fit,
         width: width ?? double.infinity,
         height: height,

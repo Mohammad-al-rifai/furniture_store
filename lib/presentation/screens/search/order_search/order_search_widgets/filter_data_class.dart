@@ -1,6 +1,6 @@
+import 'package:ecommerce/presentation/resources/color_manager.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../resources/color_manager.dart';
 
 class FiltersData {
   String filterName;

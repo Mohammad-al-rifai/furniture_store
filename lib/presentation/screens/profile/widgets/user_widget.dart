@@ -1,26 +1,26 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:ecommerce/app/functions.dart';
+import 'package:ecommerce/data/network/local/cache_helper.dart';
+import 'package:ecommerce/data/network/local/keys.dart';
+import 'package:ecommerce/domain/models/auth_models/user_profile.dart';
+import 'package:ecommerce/presentation/components/button.dart';
+import 'package:ecommerce/presentation/components/loading.dart';
+import 'package:ecommerce/presentation/components/my_text.dart';
+import 'package:ecommerce/presentation/components/text_button.dart';
+import 'package:ecommerce/presentation/components/toast_notifications.dart';
+import 'package:ecommerce/presentation/layouts/home_layout/home_layout_cubit/home_layout_cubit.dart';
+import 'package:ecommerce/presentation/resources/assets_manager.dart';
+import 'package:ecommerce/presentation/resources/color_manager.dart';
+import 'package:ecommerce/presentation/resources/constants_manager.dart';
+import 'package:ecommerce/presentation/resources/string_manager.dart';
+import 'package:ecommerce/presentation/resources/styles_manager.dart';
+import 'package:ecommerce/presentation/resources/values_manager.dart';
+import 'package:ecommerce/presentation/screens/login/login_screen.dart';
+import 'package:ecommerce/presentation/screens/profile/widgets/login_2_account_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_conditional_rendering/conditional.dart';
 import 'package:lottie/lottie.dart';
-
-import '../../../../app/functions.dart';
-import '../../../../data/network/local/cache_helper.dart';
-import '../../../../data/network/local/keys.dart';
-import '../../../../domain/models/auth_models/user_profile.dart';
-import '../../../components/button.dart';
-import '../../../components/loading.dart';
-import '../../../components/my_text.dart';
-import '../../../components/text_button.dart';
-import '../../../components/toast_notifications.dart';
-import '../../../layouts/home_layout/home_layout_cubit/home_layout_cubit.dart';
-import '../../../resources/assets_manager.dart';
-import '../../../resources/color_manager.dart';
-import '../../../resources/constants_manager.dart';
-import '../../../resources/string_manager.dart';
-import '../../../resources/styles_manager.dart';
-import '../../../resources/values_manager.dart';
-import '../../login/login_screen.dart';
 
 class UserWidget extends StatefulWidget {
   const UserWidget({Key? key}) : super(key: key);
@@ -58,7 +58,7 @@ class _UserWidgetState extends State<UserWidget> {
             },
           );
           setState(() {
-            login2AccountWidget();
+            const Login2AccountWidget();
           });
         }
       },
@@ -74,6 +74,27 @@ class _UserWidgetState extends State<UserWidget> {
               decoration: BoxDecoration(
                 color: ColorManager.lightPrimary.withOpacity(.5),
                 borderRadius: BorderRadius.circular(AppSize.s8),
+                gradient: LinearGradient(
+                  colors: [
+                    ColorManager.lightPrimary.withOpacity(.2),
+                    ColorManager.lightPrimary.withOpacity(.2),
+                    ColorManager.lightPrimary.withOpacity(.2),
+                    ColorManager.lightPrimary.withOpacity(.5),
+                    ColorManager.lightPrimary.withOpacity(.5),
+                    ColorManager.lightPrimary.withOpacity(.5),
+                    ColorManager.lightPrimary.withOpacity(.7),
+                    ColorManager.lightPrimary.withOpacity(.8),
+                    ColorManager.lightPrimary.withOpacity(.9),
+                    ColorManager.lightPrimary.withOpacity(.9),
+                    ColorManager.lightPrimary,
+                  ],
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: ColorManager.lightPrimary.withOpacity(.3),
+                    blurRadius: 3.0,
+                  ),
+                ],
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -84,7 +105,7 @@ class _UserWidgetState extends State<UserWidget> {
                     width: 5.0,
                   ),
                   if (Constants.token.isEmpty || state is LogoutDoneState)
-                    login2AccountWidget()
+                    const Login2AccountWidget()
                   else
                     Conditional.single(
                       context: context,
@@ -109,26 +130,6 @@ class _UserWidgetState extends State<UserWidget> {
           ],
         );
       },
-    );
-  }
-
-  Widget login2AccountWidget() {
-    return Expanded(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          MText(
-            text: AppStrings.loginNow2YourAccount,
-          ),
-          DefaultButton(
-            function: () {
-              navigateTo(context, const LoginScreen());
-            },
-            text: AppStrings.login.tr(),
-            width: 90.0,
-          ),
-        ],
-      ),
     );
   }
 
@@ -200,10 +201,10 @@ class _UserWidgetState extends State<UserWidget> {
               style: getRegularStyle(
                   color: ColorManager.white, fontSize: AppSize.s8),
             ),
-             SizedBox(
+            SizedBox(
               width: AppSize.s4,
             ),
-             Icon(
+            Icon(
               Icons.logout,
               color: ColorManager.white,
               size: AppSize.s16,

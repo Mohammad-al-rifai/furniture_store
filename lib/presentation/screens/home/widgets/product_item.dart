@@ -1,16 +1,17 @@
+import 'package:ecommerce/app/functions.dart';
+import 'package:ecommerce/domain/models/product_models/products_list_model.dart';
+import 'package:ecommerce/presentation/components/default_image.dart';
+import 'package:ecommerce/presentation/components/my_text.dart';
+import 'package:ecommerce/presentation/components/price_widget.dart';
+import 'package:ecommerce/presentation/resources/color_manager.dart';
+import 'package:ecommerce/presentation/resources/values_manager.dart';
+import 'package:ecommerce/presentation/screens/merchant/products/details_screen.dart';
+import 'package:ecommerce/presentation/screens/shared_widgets/add_remove_wishlist_widget.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../app/functions.dart';
-import '../../../../domain/models/product_models/products_list_model.dart';
-import '../../../components/default_image.dart';
-import '../../../components/my_text.dart';
-import '../../../components/price_widget.dart';
-import '../../../resources/color_manager.dart';
-import '../../../resources/values_manager.dart';
-import '../../../shared/add_remove_wishlist_widget.dart';
-import '../../merchant/products/details_screen.dart';
 
-class ProductItem extends StatefulWidget {
+
+class ProductItem extends StatelessWidget {
   const ProductItem({
     Key? key,
     required this.product,
@@ -18,19 +19,14 @@ class ProductItem extends StatefulWidget {
   final Product product;
 
   @override
-  State<ProductItem> createState() => _ProductItemState();
-}
-
-class _ProductItemState extends State<ProductItem> {
-  @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
         navigateTo(
           context,
           DetailsScreen(
-            proId: widget.product.id,
-            mainImageUrl: widget.product.mainImage,
+            proId: product.id,
+            mainImageUrl: product.mainImage,
           ),
         );
       },
@@ -39,16 +35,18 @@ class _ProductItemState extends State<ProductItem> {
         clipBehavior: Clip.antiAliasWithSaveLayer,
         child: SizedBox(
           width: getScreenWidth(context) / 2.1,
+          height: AppSize.s260,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              SizedBox(
-                height: 140.0,
-                child: DefaultImage(imageUrl: widget.product.mainImage),
+              Expanded(
+                child: SizedBox(
+                  child: DefaultImage(imageUrl: product.mainImage),
+                ),
               ),
               SizedBox(height: AppSize.s8),
               MText(
-                text: widget.product.name ?? 'Pro Name',
+                text: product.name ?? 'Pro Name',
                 color: ColorManager.black,
                 maxLines: 2,
                 textAlign: TextAlign.center,
@@ -59,11 +57,10 @@ class _ProductItemState extends State<ProductItem> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  AddRemoveWishlistItem(proId: widget.product.id ?? ''),
+                  AddRemoveWishlistItem(proId: product.id ?? ''),
                   Expanded(
                     child: priceWidget(
-                      price: widget.product.productClass[0].price.toString() ??
-                          'Pro Price',
+                      price: product.productClass[0].price.toString(),
                       fontSize: AppSize.s18,
                     ),
                   ),

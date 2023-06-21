@@ -1,11 +1,10 @@
 import 'package:ecommerce/presentation/components/loading.dart';
 import 'package:ecommerce/presentation/components/my_text.dart';
+import 'package:ecommerce/presentation/cubit/order_cubit/order_cubit.dart';
+import 'package:ecommerce/presentation/resources/string_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_conditional_rendering/conditional.dart';
-
-import '../../cubit/order_cubit/order_cubit.dart';
-import '../../resources/string_manager.dart';
 import 'order_widgets/single_order_widget.dart';
 
 class OrderDetailsScreen extends StatefulWidget {

@@ -12,6 +12,7 @@ import 'package:ecommerce/domain/models/rec_ses_models/recomended_pro_model.dart
 import 'package:ecommerce/presentation/components/toast_notifications.dart';
 import 'package:ecommerce/presentation/resources/assets_manager.dart';
 import 'package:ecommerce/presentation/resources/constants_manager.dart';
+import 'package:ecommerce/presentation/resources/string_manager.dart';
 import 'package:ecommerce/presentation/screens/cart/cart_screen.dart';
 import 'package:ecommerce/presentation/screens/home/home_screen.dart';
 import 'package:ecommerce/presentation/screens/profile/profile_screen.dart';
@@ -30,7 +31,6 @@ class HomeLayoutCubit extends Cubit<HomeLayoutStates> {
   HomeLayoutCubit() : super(HomeInitial());
 
   static HomeLayoutCubit get(context) => BlocProvider.of(context);
-
   int currentIndex = 0;
 
   List<Widget> bottomScreens = [
@@ -43,19 +43,19 @@ class HomeLayoutCubit extends Cubit<HomeLayoutStates> {
   List<BottomNavigationBarItem> bottomItems = [
     BottomNavigationBarItem(
       icon: const DefaultIcon(path: IconsAssets.home),
-      label: 'home'.tr(),
+      label: AppStrings.home.tr(),
     ),
     BottomNavigationBarItem(
       icon: const DefaultIcon(path: IconsAssets.category),
-      label: 'categories'.tr(),
+      label: AppStrings.categories.tr(),
     ),
     BottomNavigationBarItem(
       icon: const DefaultIcon(path: IconsAssets.cart),
-      label: 'cart'.tr(),
+      label: AppStrings.cart.tr(),
     ),
     BottomNavigationBarItem(
       icon: const DefaultIcon(path: IconsAssets.profile),
-      label: 'profile'.tr(),
+      label: AppStrings.profile.tr(),
     ),
   ];
 
@@ -77,12 +77,12 @@ class HomeLayoutCubit extends Cubit<HomeLayoutStates> {
   // Home Screen Functions:
   fetchData() {
     emit(GetHomeDataLoadingState());
-    // getBanners();
-    // getCategories();
-    // getHotSelling();
-    // getProfile();
-    // getMerchant();
-    // getRecommendedProducts();
+    getBanners();
+    getCategories();
+    getHotSelling();
+    getProfile();
+    getMerchant();
+    getRecommendedProducts();
     getFeatures();
   }
 
@@ -180,7 +180,7 @@ class HomeLayoutCubit extends Cubit<HomeLayoutStates> {
           }
         }
       }).catchError((err) {
-        print(err.toString());
+        print(err);
         emit(GetHotSellingErrorState());
       });
     }
@@ -245,13 +245,12 @@ class HomeLayoutCubit extends Cubit<HomeLayoutStates> {
 
 // Get Recommended Products Using Machine Learning
 
-  RecommendedProModel recommendedProModel = RecommendedProModel();
+  ProductsListModel recommendedProModel = ProductsListModel();
 
   List<Product> recommendedProducts = [];
 
   getRecommendedProducts() {
     emit(GetRecommendedProductsLoadingState());
-
     if (recommendedProducts.isNotEmpty) {
       emit(GetRecommendedProductsDoneState());
     } else {
@@ -259,13 +258,14 @@ class HomeLayoutCubit extends Cubit<HomeLayoutStates> {
         url: Urls.recSysML,
         token: Constants.bearer + Constants.token,
       ).then((value) {
-        recommendedProModel = RecommendedProModel.fromJson(value.data);
+        recommendedProModel = ProductsListModel.fromJson(value.data);
         if (value.data['status']) {
-          if (recommendedProModel.recommendedProducts != null) {
-            recommendedProducts = recommendedProModel.recommendedProducts!;
+          if (recommendedProModel.data != null) {
+            recommendedProducts = recommendedProModel.data!.products;
             emit(GetRecommendedProductsDoneState());
           }
         }
+        print('RECSYS: ${recommendedProducts.length}');
       }).catchError((err) {
         print(err.toString());
         emit(GetRecommendedProductsErrorState());

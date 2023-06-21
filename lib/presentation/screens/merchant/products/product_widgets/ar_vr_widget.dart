@@ -1,13 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:ecommerce/app/functions.dart';
 import 'package:ecommerce/presentation/components/text_button.dart';
+import 'package:ecommerce/presentation/cubit/product_cubit/product_cubit.dart';
+import 'package:ecommerce/presentation/resources/string_manager.dart';
+import 'package:ecommerce/presentation/screens/merchant/products/vr_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../app/functions.dart';
-import '../../../../components/button.dart';
-import '../../../../cubit/product_cubit/product_cubit.dart';
-import '../../../../resources/string_manager.dart';
-import '../../../../resources/values_manager.dart';
-import '../vr_screen.dart';
 
 class ArVRWidget extends StatelessWidget {
   const ArVRWidget({

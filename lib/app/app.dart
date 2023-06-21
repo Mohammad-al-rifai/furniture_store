@@ -39,7 +39,8 @@ class _MyAppState extends State<MyApp> {
         ),
         BlocProvider(create: (BuildContext context) => MerchantLayoutCubit()),
         BlocProvider(create: (BuildContext context) => CartCubit()),
-        BlocProvider(create: (BuildContext context) => OrderCubit()),
+        BlocProvider(
+            create: (BuildContext context) => OrderCubit()..getMyBalance()),
         BlocProvider(
           create: (BuildContext context) => WishlistCubit()..getMyWishlist(),
         ),

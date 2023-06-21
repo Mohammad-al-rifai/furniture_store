@@ -1,14 +1,13 @@
+import 'package:ecommerce/app/functions.dart';
+import 'package:ecommerce/config/urls.dart';
+import 'package:ecommerce/presentation/components/default_image.dart';
+import 'package:ecommerce/presentation/components/my_page_view.dart';
 import 'package:ecommerce/presentation/cubit/product_cubit/product_cubit.dart';
+import 'package:ecommerce/presentation/resources/color_manager.dart';
+import 'package:ecommerce/presentation/resources/values_manager.dart';
 import 'package:ecommerce/presentation/screens/merchant/products/product_widgets/video_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../../../app/functions.dart';
-import '../../../../../config/urls.dart';
-import '../../../../components/default_image.dart';
-import '../../../../components/my_page_view.dart';
-import '../../../../resources/color_manager.dart';
-import '../../../../resources/values_manager.dart';
 
 class GalleryWidget extends StatelessWidget {
   GalleryWidget({

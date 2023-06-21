@@ -1,10 +1,10 @@
+import 'package:ecommerce/presentation/resources/color_manager.dart';
 import 'package:ecommerce/presentation/resources/values_manager.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../resources/color_manager.dart';
 
-class MyPageView extends StatefulWidget {
+class MyPageView extends StatelessWidget {
   const MyPageView({
     Key? key,
     required this.controller,
@@ -19,23 +19,18 @@ class MyPageView extends StatefulWidget {
   final double? height;
 
   @override
-  State<MyPageView> createState() => _MyPageViewState();
-}
-
-class _MyPageViewState extends State<MyPageView> {
-  @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: widget.height,
+      height: height,
       child: Stack(
         alignment: AlignmentDirectional.bottomEnd,
         children: [
           PageView.builder(
-            controller: widget.controller,
+            controller: controller,
             onPageChanged: (int index) {},
             physics: const BouncingScrollPhysics(),
-            itemBuilder: widget.pageWidget,
-            itemCount: widget.itemCount,
+            itemBuilder: pageWidget,
+            itemCount: itemCount,
           ),
           Padding(
             padding: const EdgeInsetsDirectional.only(
@@ -43,7 +38,7 @@ class _MyPageViewState extends State<MyPageView> {
               end: AppPadding.p18,
             ),
             child: SmoothPageIndicator(
-              controller: widget.controller,
+              controller: controller,
               effect: ExpandingDotsEffect(
                 dotColor: ColorManager.lightPrimary.withOpacity(.6),
                 activeDotColor: ColorManager.darkPrimary,
@@ -52,7 +47,7 @@ class _MyPageViewState extends State<MyPageView> {
                 spacing: 5,
                 expansionFactor: 2,
               ),
-              count: widget.itemCount,
+              count: itemCount,
             ),
           ),
         ],

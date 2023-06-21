@@ -1,23 +1,23 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:easy_localization/easy_localization.dart';
+import 'package:ecommerce/app/functions.dart';
+import 'package:ecommerce/data/network/local/cache_helper.dart';
+import 'package:ecommerce/data/network/local/keys.dart';
+import 'package:ecommerce/domain/requests/register_request.dart';
 import 'package:ecommerce/presentation/components/button.dart';
 import 'package:ecommerce/presentation/components/text_form_field.dart';
+import 'package:ecommerce/presentation/components/toast_notifications.dart';
+import 'package:ecommerce/presentation/layouts/home_layout/home_layout.dart';
+import 'package:ecommerce/presentation/resources/color_manager.dart';
+import 'package:ecommerce/presentation/resources/constants_manager.dart';
 import 'package:ecommerce/presentation/resources/string_manager.dart';
 import 'package:ecommerce/presentation/resources/styles_manager.dart';
+import 'package:ecommerce/presentation/resources/values_manager.dart';
 import 'package:ecommerce/presentation/screens/register/register_cubit/register_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../app/functions.dart';
-import '../../../data/network/local/cache_helper.dart';
-import '../../../data/network/local/keys.dart';
-import '../../../domain/requests/register_request.dart';
-import '../../components/toast_notifications.dart';
-import '../../layouts/home_layout/home_layout.dart';
-import '../../resources/color_manager.dart';
-import '../../resources/constants_manager.dart';
-import '../../resources/values_manager.dart';
 
 class MailVerifyScreen extends StatefulWidget {
   MailVerifyScreen({Key? key, required this.registerRequest}) : super(key: key);

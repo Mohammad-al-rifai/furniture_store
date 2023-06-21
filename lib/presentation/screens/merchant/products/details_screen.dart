@@ -1,5 +1,8 @@
+import 'package:ecommerce/presentation/components/default_label.dart';
 import 'package:ecommerce/presentation/components/my_text.dart';
+import 'package:ecommerce/presentation/cubit/product_cubit/product_cubit.dart';
 import 'package:ecommerce/presentation/resources/color_manager.dart';
+import 'package:ecommerce/presentation/resources/string_manager.dart';
 import 'package:ecommerce/presentation/resources/styles_manager.dart';
 import 'package:ecommerce/presentation/resources/values_manager.dart';
 import 'package:ecommerce/presentation/screens/merchant/products/product_widgets/ar_vr_widget.dart';
@@ -10,9 +13,6 @@ import 'package:ecommerce/presentation/screens/merchant/products/product_widgets
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../components/default_element.dart';
-import '../../../cubit/product_cubit/product_cubit.dart';
-import '../../../resources/string_manager.dart';
 
 class DetailsScreen extends StatefulWidget {
   const DetailsScreen({

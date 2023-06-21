@@ -1,5 +1,6 @@
 import 'package:chewie/chewie.dart';
 import 'package:ecommerce/config/urls.dart';
+import 'package:ecommerce/presentation/resources/assets_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
@@ -17,6 +18,7 @@ class VideoWidget extends StatefulWidget {
 
 class _VideoWidgetState extends State<VideoWidget> {
   late ChewieController _controller;
+  late VideoPlayerController _videoPlayerController;
 
   @override
   void initState() {
@@ -26,21 +28,16 @@ class _VideoWidgetState extends State<VideoWidget> {
 
   void _initializeChewieController() {
     print('Video URL is:===>${Urls.filesUrl + widget.videoUrl}');
-    final videoPlayerController = VideoPlayerController.network(
-      Urls.filesUrl + widget.videoUrl,
-      // httpHeaders: {
-      //   'Accept': '*/*',
-      //   'Connection': 'keep-alive',
-      //   'Accept-Encoding': 'gzip, deflate, br',
-      // },
-    )..initialize().then((_) {
-        // Ensure the first frame is shown after the video is initialized,
-        // even before the play button has been pressed.
-        setState(() {});
-      });
+    _videoPlayerController = VideoPlayerController.asset(
+      ImageAssets.video,
+    );
+
+    _videoPlayerController.initialize().then((_) {
+      setState(() {});
+    });
 
     _controller = ChewieController(
-      videoPlayerController: videoPlayerController,
+      videoPlayerController: _videoPlayerController,
       autoPlay: false,
       looping: false,
       aspectRatio: 16 / 9,
@@ -67,6 +64,7 @@ class _VideoWidgetState extends State<VideoWidget> {
   @override
   void dispose() {
     super.dispose();
+    _videoPlayerController.dispose();
     _controller.dispose();
   }
 }

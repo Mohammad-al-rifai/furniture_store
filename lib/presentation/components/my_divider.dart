@@ -2,7 +2,6 @@
 
 import 'package:ecommerce/app/functions.dart';
 import 'package:ecommerce/presentation/resources/color_manager.dart';
-import 'package:ecommerce/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
 
 class MyDivider extends StatelessWidget {

@@ -1,7 +1,6 @@
 import 'package:ecommerce/app/functions.dart';
 import 'package:ecommerce/domain/models/categories/all_categories_model.dart';
 import 'package:ecommerce/presentation/components/default_image.dart';
-import 'package:ecommerce/presentation/components/loading.dart';
 import 'package:ecommerce/presentation/layouts/merchant_layout/merchant_layout_cubit/merchant_layout_cubit.dart';
 import 'package:ecommerce/presentation/resources/assets_manager.dart';
 import 'package:ecommerce/presentation/resources/color_manager.dart';
@@ -13,7 +12,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_conditional_rendering/conditional.dart';
 import 'package:lottie/lottie.dart';
 
-class MerchantCategoriesScreen extends StatefulWidget {
+class MerchantCategoriesScreen extends StatelessWidget {
   const MerchantCategoriesScreen({
     Key? key,
     required this.merchantId,
@@ -21,12 +20,6 @@ class MerchantCategoriesScreen extends StatefulWidget {
 
   final String merchantId;
 
-  @override
-  State<MerchantCategoriesScreen> createState() =>
-      _MerchantCategoriesScreenState();
-}
-
-class _MerchantCategoriesScreenState extends State<MerchantCategoriesScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<MerchantLayoutCubit, MerchantLayoutStates>(
@@ -54,7 +47,7 @@ class _MerchantCategoriesScreenState extends State<MerchantCategoriesScreen> {
                 itemBuilder: (context, index) {
                   return CategoryItemWidget(
                     catData: cubit.categories[index],
-                    merchantId: widget.merchantId,
+                    merchantId: merchantId,
                   );
                 },
               ),

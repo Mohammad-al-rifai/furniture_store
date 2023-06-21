@@ -5,6 +5,7 @@ const String iconsPath = "assets/icons";
 class ImageAssets {
   static const String splashLogo = "$imagePath/splash_logo.png";
   static const String noImage = "$imagePath/no_image.jpg";
+  static const String video = "$imagePath/file.mp4";
 }
 
 class IconsAssets {
@@ -19,6 +20,8 @@ class IconsAssets {
   static const String star = "$iconsPath/star.svg";
   static const String payment = "$iconsPath/payment.svg";
   static const String wishlist = "$iconsPath/wishlist.svg";
+  static const String copyRight = "$iconsPath/copyright.svg";
+  static const String wallet = "$iconsPath/wallet.svg";
 }
 
 class JsonAssets {
@@ -29,4 +32,7 @@ class JsonAssets {
   static const String login = "$jsonPath/login.json";
   static const String video = "$jsonPath/video.json";
   static const String emptyWishlist = "$jsonPath/empty_wishlist.json";
+  static const String currency = "$jsonPath/currency.json";
+  static const String blockchain = "$jsonPath/blockchain.json";
+  static const String opps = "$jsonPath/opps.json";
 }

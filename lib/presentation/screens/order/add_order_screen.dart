@@ -12,7 +12,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../payment/pay_discount_screen.dart';
-import '../payment/paypal_payment_screen.dart';
 
 // ignore: must_be_immutable
 class AddOrderScreen extends StatelessWidget {

@@ -1,12 +1,11 @@
 // ignore_for_file: must_be_immutable
 
-import 'package:easy_localization/easy_localization.dart';
+import 'package:ecommerce/presentation/resources/color_manager.dart';
+import 'package:ecommerce/presentation/resources/styles_manager.dart';
+import 'package:ecommerce/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_conditional_rendering/conditional.dart';
 
-import '../resources/color_manager.dart';
-import '../resources/styles_manager.dart';
-import '../resources/values_manager.dart';
 import 'loading.dart';
 
 class DefaultButton extends StatelessWidget {

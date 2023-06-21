@@ -1,14 +1,12 @@
-import 'package:ecommerce/app/functions.dart';
+import 'package:ecommerce/presentation/components/loading.dart';
+import 'package:ecommerce/presentation/components/my_divider.dart';
+import 'package:ecommerce/presentation/layouts/merchant_layout/merchant_layout_cubit/merchant_layout_cubit.dart';
+import 'package:ecommerce/presentation/resources/color_manager.dart';
+import 'package:ecommerce/presentation/resources/values_manager.dart';
+import 'package:ecommerce/presentation/screens/merchant/products/product_widgets/product_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_conditional_rendering/conditional.dart';
-
-import '../../../components/loading.dart';
-import '../../../components/my_divider.dart';
-import '../../../layouts/merchant_layout/merchant_layout_cubit/merchant_layout_cubit.dart';
-import '../../../resources/color_manager.dart';
-import '../../../resources/values_manager.dart';
-import '../products/product_widgets/product_item.dart';
 
 class Products4Screen extends StatefulWidget {
   const Products4Screen({

@@ -1,16 +1,16 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:ecommerce/app/functions.dart';
+import 'package:ecommerce/presentation/components/button.dart';
+import 'package:ecommerce/presentation/components/my_text.dart';
+import 'package:ecommerce/presentation/components/toast_notifications.dart';
+import 'package:ecommerce/presentation/cubit/cart_cubit/cart_cubit.dart';
+import 'package:ecommerce/presentation/resources/color_manager.dart';
+import 'package:ecommerce/presentation/resources/string_manager.dart';
+import 'package:ecommerce/presentation/resources/values_manager.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../app/functions.dart';
-import '../../../../components/button.dart';
-import '../../../../components/my_text.dart';
-import '../../../../components/toast_notifications.dart';
-import '../../../../cubit/cart_cubit/cart_cubit.dart';
-import '../../../../resources/color_manager.dart';
-import '../../../../resources/string_manager.dart';
-import '../../../../resources/values_manager.dart';
 
 class Add2CartWidget extends StatefulWidget {
   const Add2CartWidget({
@@ -31,10 +31,7 @@ class Add2CartWidget extends StatefulWidget {
 class _Add2CartWidgetState extends State<Add2CartWidget> {
   num quantity = 1;
 
-  @override
-  void initState() {
-    super.initState();
-  }
+
 
   @override
   Widget build(BuildContext context) {

@@ -1,20 +1,11 @@
-import 'package:easy_localization/easy_localization.dart';
-import 'package:ecommerce/presentation/components/text_form_field.dart';
-import 'package:ecommerce/presentation/resources/color_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../resources/values_manager.dart';
 import 'home_layout_cubit/home_layout_cubit.dart';
 
-class HomeLayout extends StatefulWidget {
+class HomeLayout extends StatelessWidget {
   const HomeLayout({Key? key}) : super(key: key);
 
-  @override
-  State<HomeLayout> createState() => _HomeLayoutState();
-}
-
-class _HomeLayoutState extends State<HomeLayout> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<HomeLayoutCubit, HomeLayoutStates>(

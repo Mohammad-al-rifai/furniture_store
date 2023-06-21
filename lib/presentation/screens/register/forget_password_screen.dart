@@ -2,20 +2,19 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:ecommerce/app/functions.dart';
 import 'package:ecommerce/app/validations/validations.dart';
 import 'package:ecommerce/domain/requests/forget_password_request.dart';
+import 'package:ecommerce/presentation/components/button.dart';
 import 'package:ecommerce/presentation/components/my_text.dart';
 import 'package:ecommerce/presentation/components/text_form_field.dart';
 import 'package:ecommerce/presentation/components/toast_notifications.dart';
+import 'package:ecommerce/presentation/resources/color_manager.dart';
 import 'package:ecommerce/presentation/resources/string_manager.dart';
+import 'package:ecommerce/presentation/resources/styles_manager.dart';
+import 'package:ecommerce/presentation/resources/values_manager.dart';
 import 'package:ecommerce/presentation/screens/login/login_screen.dart';
 import 'package:ecommerce/presentation/screens/register/register_cubit/register_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-
-import '../../components/button.dart';
-import '../../resources/color_manager.dart';
-import '../../resources/styles_manager.dart';
-import '../../resources/values_manager.dart';
 
 class ForgetPasswordScreen extends StatefulWidget {
   const ForgetPasswordScreen({Key? key}) : super(key: key);

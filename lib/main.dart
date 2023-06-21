@@ -24,8 +24,6 @@ void main() async {
   Langs.isEN = CacheHelper.getData(key: CacheHelperKeys.isEN) ?? true;
   Constants.token = CacheHelper.getData(key: CacheHelperKeys.token) ?? "";
 
-
-
   runApp(
     EasyLocalization(
       path: 'assets/translations',

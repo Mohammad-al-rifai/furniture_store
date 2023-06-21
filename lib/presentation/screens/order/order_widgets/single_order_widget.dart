@@ -1,16 +1,20 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:ecommerce/app/functions.dart';
+import 'package:ecommerce/domain/models/order_models/single_order_model.dart';
+import 'package:ecommerce/presentation/components/button.dart';
 import 'package:ecommerce/presentation/components/default_image.dart';
 import 'package:ecommerce/presentation/components/my_text.dart';
 import 'package:ecommerce/presentation/components/price_widget.dart';
+import 'package:ecommerce/presentation/cubit/order_cubit/order_cubit.dart';
+import 'package:ecommerce/presentation/resources/color_manager.dart';
 import 'package:ecommerce/presentation/resources/string_manager.dart';
+import 'package:ecommerce/presentation/resources/values_manager.dart';
+import 'package:ecommerce/presentation/screens/merchant/products/details_screen.dart';
 import 'package:ecommerce/presentation/screens/merchant/products/product_widgets/pair_widget.dart';
+import 'package:ecommerce/presentation/screens/order/product_history_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../domain/models/order_models/single_order_model.dart';
-import '../../../resources/color_manager.dart';
-import '../../../resources/values_manager.dart';
-import '../../merchant/products/details_screen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SingleOrderWidget extends StatelessWidget {
   const SingleOrderWidget({
@@ -114,13 +118,13 @@ class SingleOrderWidget extends StatelessWidget {
                 height: AppSize.s200,
                 clickable: true,
               ),
-               SizedBox(height: AppSize.s8),
+              SizedBox(height: AppSize.s8),
               MText(
                 text: item?.singleProduct?.product?.name ?? '',
                 color: ColorManager.black,
                 notTR: true,
               ),
-               SizedBox(height: AppSize.s4),
+              SizedBox(height: AppSize.s4),
               priceWidget(
                 price: item?.price.toString() ?? '',
               ),
@@ -152,6 +156,7 @@ class SingleOrderWidget extends StatelessWidget {
                         '',
                 notTR: true,
               ),
+              productHistory(proId: item?.singleProduct?.product?.id ?? ''),
             ],
           ),
         ),
@@ -170,7 +175,7 @@ class SingleOrderWidget extends StatelessWidget {
                 ),
               );
             },
-            icon:  Icon(
+            icon: Icon(
               CupertinoIcons.info_circle,
               color: ColorManager.darkPrimary,
               size: AppSize.s30,
@@ -178,6 +183,40 @@ class SingleOrderWidget extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+
+  Widget productHistory({required String proId}) {
+    return BlocConsumer<OrderCubit, OrderStates>(
+      listener: (context, state) {
+        if (state is GetOrderHistoryDoneState &&
+            OrderCubit.get(context).usersPointsModel.data != null) {
+          navigateTo(context, const ProductHistoryScreen());
+        }
+      },
+      builder: (context, state) {
+        OrderCubit cubit = OrderCubit.get(context);
+        return DefaultButton(
+          function: () {
+            cubit.getOrderHistory(
+              proId: proId,
+              orderId: data?.id ?? '',
+            );
+            cubit.getUsersPointsHistory();
+
+            if (cubit.proHistoryModel.status != null &&
+                cubit.proHistoryModel.status!) {
+              if (cubit.proHistoryModel.data == null) {
+                print('Here');
+              }
+            }
+          },
+          text: AppStrings.productHistory.tr(),
+          isUpperCase: false,
+          isLoading: state is GetOrderHistoryLoadingState ||
+              state is GetUsersPointsLoadingState,
+        );
+      },
     );
   }
 }
