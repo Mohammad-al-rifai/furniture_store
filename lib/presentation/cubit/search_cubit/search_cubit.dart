@@ -46,7 +46,7 @@ class SearchCubit extends Cubit<SearchStates> {
     OrderAdvancedSearchParams? params,
   }) {
     emit(OrderAdvancedSearchLoadingState());
-    DioHelper.getData(
+    DioHelper.instance.getData(
       url: Urls.orderAdvancedSearch,
       token: Constants.bearer + Constants.token,
       query: params?.toJson(),

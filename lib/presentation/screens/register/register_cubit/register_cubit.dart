@@ -22,10 +22,12 @@ class RegisterCubit extends Cubit<RegisterStates> {
     required RegisterRequest registerRequest,
   }) {
     emit(RegisterLoadingState());
-    DioHelper.postData(
+    DioHelper.instance
+        .postData(
       url: Urls.register,
       data: registerRequest.toJson(),
-    ).then((value) {
+    )
+        .then((value) {
       if (value.data['status']) {
         registerModel = RegisterModel.fromJson(value.data);
         emit(RegisterDoneState(registerModel: registerModel));
@@ -40,7 +42,7 @@ class RegisterCubit extends Cubit<RegisterStates> {
     required String email,
   }) {
     emit(MailVerificationLoadingState());
-    DioHelper.postData(
+    DioHelper.instance.postData(
       url: Urls.mailVerify,
       data: {"email": email},
     ).then((value) {
@@ -60,10 +62,12 @@ class RegisterCubit extends Cubit<RegisterStates> {
   }) {
     emit(ForgetPasswordLoadingState());
 
-    DioHelper.putData(
+    DioHelper.instance
+        .putData(
       url: Urls.forgetPassword,
       data: forgetPasswordRequest.toJson(),
-    ).then((value) {
+    )
+        .then((value) {
       if (value.data['status']) {
         emit(ForgetPasswordDoneState());
       }

@@ -14,7 +14,7 @@ class TestCubit extends Cubit<TestStates> {
   // Add 2 Cart Function:
   add2Cart() {
     emit(AddCartLoadingState());
-    DioHelper.postData(
+    DioHelper.instance.postData(
       url: Urls.add2Cart,
       token: Constants.bearer + Constants.token,
       data: {
@@ -35,7 +35,7 @@ class TestCubit extends Cubit<TestStates> {
 
   operationsOnCart() {
     emit(OperationsOnCartLoadingState());
-    DioHelper.postData(
+    DioHelper.instance.postData(
       url: Urls.operationsOnCart,
       token: Constants.bearer + Constants.token,
       data: {

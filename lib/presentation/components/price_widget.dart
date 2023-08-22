@@ -26,6 +26,7 @@ Widget priceWidget({
       MText(
         text: AppStrings.sp,
         textAlign: TextAlign.start,
+        maxLines: 2,
         style: getMediumStyle(
           color: ColorManager.darkPrimary,
         ),

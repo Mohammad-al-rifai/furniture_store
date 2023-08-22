@@ -14,15 +14,20 @@ import 'data/network/local/cache_helper.dart';
 import 'data/network/remote/dio_helper.dart';
 
 void main() async {
+  print("Start Main");
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
   Bloc.observer = MyBlocObserver();
-  DioHelper.init();
+
   await CacheHelper.init();
   await ScreenUtil.ensureScreenSize();
 
   Langs.isEN = CacheHelper.getData(key: CacheHelperKeys.isEN) ?? true;
   Constants.token = CacheHelper.getData(key: CacheHelperKeys.token) ?? "";
+  Constants.serverIP = CacheHelper.getData(key: CacheHelperKeys.serverIP) ?? "";
+  DioHelper.init();
+  print(Constants.serverIP);
+  print(Urls.baseUrl);
 
   runApp(
     EasyLocalization(
@@ -38,4 +43,5 @@ void main() async {
       ),
     ),
   );
+  print("End Main");
 }

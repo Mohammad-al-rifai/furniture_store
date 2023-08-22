@@ -12,6 +12,8 @@ import 'package:ecommerce/presentation/resources/values_manager.dart';
 import 'package:ecommerce/presentation/screens/order/user_orders_screen.dart';
 import 'package:ecommerce/presentation/screens/profile/widgets/settings_item_widget.dart';
 import 'package:ecommerce/presentation/screens/profile/widgets/user_widget.dart';
+import 'package:ecommerce/presentation/screens/splash/server_ip_screen.dart';
+import 'package:ecommerce/presentation/screens/wallet/user_wallet_points_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -34,6 +36,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
     }
     super.initState();
   }
+
+  String myBalance = '';
 
   @override
   Widget build(BuildContext context) {
@@ -74,14 +78,24 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           titleTR: AppStrings.paymentMethod,
                         ),
                         SettingsItemWidget(
-                          onTap: () {},
+                          onTap: () => handleMyWalletPress(),
                           iconPath: IconsAssets.wallet,
                           titleTR: AppStrings.myEWallet,
                           widget: Row(
                             children: [
-                              MText(
-                                text: OrderCubit.get(context).myBalance,
-                                style: getBoldStyle(color: ColorManager.black),
+                              BlocConsumer<OrderCubit, OrderStates>(
+                                listener: (context, state) {
+                                  if (state is GetMyBalanceDoneState) {
+                                    setState(() {});
+                                  }
+                                },
+                                builder: (context, state) {
+                                  return MText(
+                                    text: OrderCubit.get(context).myBalance,
+                                    style:
+                                        getBoldStyle(color: ColorManager.black),
+                                  );
+                                },
                               ),
                               SizedBox(width: AppSize.s4),
                               MText(
@@ -138,6 +152,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           titleTR: AppStrings.privacyPolicy,
                         ),
                         SettingsItemWidget(
+                          onTap: () {
+                            handleIPConfig();
+                          },
+                          iconPath: IconsAssets.ip,
+                          titleTR: AppStrings.serverIp,
+                        ),
+                        SettingsItemWidget(
                           onTap: () {},
                           iconPath: IconsAssets.star,
                           titleTR: AppStrings.rateOurApp,
@@ -173,5 +194,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
   // 3. handle Wishlist Press
   handleWishlistPress() {
     navigateTo(context, const WishlistScreen());
+  }
+
+  // 4. handle IPConfig
+  handleIPConfig() {
+    navigateTo(context, const ServerIPScreen());
+  }
+
+  // 5. handle myWallet Press
+  handleMyWalletPress() {
+    navigateTo(context, const UserWalletPointsScreen());
   }
 }

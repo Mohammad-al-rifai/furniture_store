@@ -4,4 +4,5 @@ class CacheHelperKeys {
   static String email = "email";
   static String uId = "uId";
   static String isEN = "isEN";
+  static String serverIP = "serverIP";
 }

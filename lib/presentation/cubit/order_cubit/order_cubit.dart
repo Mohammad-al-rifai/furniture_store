@@ -24,7 +24,7 @@ class OrderCubit extends Cubit<OrderStates> {
   }) {
     emit(AddOrderLoadingState());
 
-    DioHelper.postData(
+    DioHelper.instance.postData(
       url: Urls.addOrder,
       token: Constants.bearer + Constants.token,
       data: addOrderRequest.toJson(),
@@ -46,7 +46,7 @@ class OrderCubit extends Cubit<OrderStates> {
   getUserOrders() {
     emit(GetUserOrdersLoadingState());
 
-    DioHelper.getData(
+    DioHelper.instance.getData(
       url: Urls.getUserOrders,
       token: Constants.bearer + Constants.token,
     ).then((value) {
@@ -70,7 +70,7 @@ class OrderCubit extends Cubit<OrderStates> {
     required String orderId,
   }) {
     emit(GetSingleOrderByIdLoadingState());
-    DioHelper.getData(
+    DioHelper.instance.getData(
       url: Urls.getOrderById + orderId,
       token: Constants.bearer + Constants.token,
     ).then((value) {
@@ -93,7 +93,7 @@ class OrderCubit extends Cubit<OrderStates> {
     required String orderId,
   }) {
     emit(GetOrderHistoryLoadingState());
-    DioHelper.getData(
+    DioHelper.instance.getData(
       url: Urls.getOrderHistory + proId,
       token: Constants.bearer + Constants.token,
       query: {"order": orderId},
@@ -113,7 +113,7 @@ class OrderCubit extends Cubit<OrderStates> {
 
   getUsersPointsHistory() {
     emit(GetUsersPointsLoadingState());
-    DioHelper.getData(
+    DioHelper.instance.getData(
       url: Urls.getUserPointsHistory,
       token: Constants.bearer + Constants.token,
     ).then((value) {
@@ -133,7 +133,7 @@ class OrderCubit extends Cubit<OrderStates> {
 
   getMyBalance() {
     emit(GetMyBalanceLoadingState());
-    DioHelper.getData(
+    DioHelper.instance.getData(
       url: Urls.getMyBalance,
       token: Constants.bearer + Constants.token,
     ).then((value) {
@@ -152,7 +152,7 @@ class OrderCubit extends Cubit<OrderStates> {
   }) {
     emit(CancelOrderLoadingState());
 
-    DioHelper.putData(
+    DioHelper.instance.putData(
       url: Urls.cancelOrder,
       token: Constants.bearer + Constants.token,
       data: {

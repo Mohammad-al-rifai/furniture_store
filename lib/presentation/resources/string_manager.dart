@@ -91,7 +91,6 @@ class AppStrings {
   static const String privacyPolicy = "privacy_policy";
   static const String rateOurApp = "rate_our_app";
 
-// need Translation Form Here:
   static const String paymentStatus = "payment_status";
   static const String fromMerchant = "from_merchant";
   static const String orderDetails = "order_details";
@@ -125,4 +124,15 @@ class AppStrings {
       "please_run_your_ganache_software";
   static const String points = "points";
   static const String usersPointsHistory = "users_points_history";
+
+// need Translation Form Here:
+  static const String serverIp = "server_ip";
+  static const String submit = "submit";
+  static const String ipNotValidTryAgain = "ip_not_valid_try_again";
+  static const String areYouSureYouWant2DeleteServerIP =
+      "are_you_sure_you_want_2_delete_server_ip";
+
+  static const String notExistPointsYet = "not_exist_points_yet";
+  static const String pointsHistory4u = "points_history_4_u";
+
 }

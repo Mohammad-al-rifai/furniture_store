@@ -34,7 +34,7 @@ class ProductCubit extends Cubit<ProductStates> {
     required String proId,
   }) {
     emit(GetSingleProLoadingState());
-    DioHelper.getData(
+    DioHelper.instance.getData(
       url: Urls.getSinglePro + proId,
     ).then((value) {
       if (value.data['status']) {
@@ -62,7 +62,7 @@ class ProductCubit extends Cubit<ProductStates> {
     if (gallery.isNotEmpty) {
       emit(GetProductGalleryDoneState());
     } else {
-      DioHelper.getData(
+      DioHelper.instance.getData(
         url: Urls.getGalleryProduct + proId,
       ).then((value) {
         productGalleryModel = ProductGalleryModel.fromJson(value.data);
@@ -90,7 +90,7 @@ class ProductCubit extends Cubit<ProductStates> {
   }) {
     emit(GetProductVideoLoadingState());
 
-    DioHelper.getData(
+    DioHelper.instance.getData(
       url: Urls.getVideo4Product + proId,
       query: {"mainVideo": "1"},
     ).then((value) {
@@ -119,7 +119,7 @@ class ProductCubit extends Cubit<ProductStates> {
     required String proId,
   }) {
     emit(GetProductVRImageLoadingState());
-    DioHelper.getData(
+    DioHelper.instance.getData(
       url: Urls.getVRModel4Product + proId,
       query: {"vrImage": "1"},
     ).then((value) {
@@ -146,7 +146,7 @@ class ProductCubit extends Cubit<ProductStates> {
     required String proId,
   }) {
     emit(GetProductARImageLoadingState());
-    DioHelper.getData(
+    DioHelper.instance.getData(
       url: Urls.getVRModel4Product + proId,
       query: {"arImage": "1"},
     ).then((value) {

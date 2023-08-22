@@ -104,7 +104,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                         SizedBox(
+                        SizedBox(
                           height: AppSize.s180,
                           width: AppSize.s180,
                           child: const Image(
@@ -152,6 +152,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         DefaultButton(
                           function: () {
                             if (formKey.currentState!.validate()) {
+                              print(Constants.serverIP);
                               LoginCubit.get(context).login(
                                 email: emailController.text,
                                 password: passwordController.text,

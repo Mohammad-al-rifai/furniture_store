@@ -34,7 +34,7 @@ class ProductItem extends StatelessWidget {
       child: Card(
         clipBehavior: Clip.antiAliasWithSaveLayer,
         child: SizedBox(
-          width: getScreenWidth(context) / 2.1,
+          width: getScreenWidth(context) / 2.0,
           height: AppSize.s260,
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -61,7 +61,7 @@ class ProductItem extends StatelessWidget {
                   Expanded(
                     child: priceWidget(
                       price: product.productClass[0].price.toString(),
-                      fontSize: AppSize.s18,
+                      fontSize: AppSize.s16,
                     ),
                   ),
                 ],

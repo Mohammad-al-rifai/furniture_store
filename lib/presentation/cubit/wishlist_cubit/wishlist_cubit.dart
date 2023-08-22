@@ -20,7 +20,7 @@ class WishlistCubit extends Cubit<WishlistStates> {
   addPro2Wishlist({required String proId}) {
     emit(AddPro2WishlistLoadingState());
 
-    DioHelper.postData(
+    DioHelper.instance.postData(
       url: Urls.add2WishList,
       token: Constants.bearer + Constants.token,
       data: {"product_id": proId},
@@ -43,7 +43,7 @@ class WishlistCubit extends Cubit<WishlistStates> {
   }) {
     emit(RemoveProFromWishlistLoadingState());
 
-    DioHelper.postData(
+    DioHelper.instance.postData(
       url: Urls.removeProFromWishlist,
       token: Constants.bearer + Constants.token,
       data: {"product_id": proId},
@@ -65,10 +65,12 @@ class WishlistCubit extends Cubit<WishlistStates> {
   getMyWishlist() {
     if (Constants.token.isNotEmpty) {
       emit(GetMyWishlistLoadingState());
-      DioHelper.getData(
+      DioHelper.instance
+          .getData(
         url: Urls.getMyWishlist,
         token: Constants.bearer + Constants.token,
-      ).then((value) {
+      )
+          .then((value) {
         wishlistModel = WishlistModel.fromJson(value.data);
         if (wishlistModel.data?.products != null) {
           myProducts = wishlistModel.data!.products;
@@ -90,10 +92,12 @@ class WishlistCubit extends Cubit<WishlistStates> {
 
   deleteMyWishlist() {
     emit(DeleteMyWishlistLoadingState());
-    DioHelper.deleteData(
+    DioHelper.instance
+        .deleteData(
       url: Urls.deleteMyWishlist,
       token: Constants.bearer + Constants.token,
-    ).then((value) {
+    )
+        .then((value) {
       if (value.data['status']) {
         emit(DeleteMyWishlistDoneState());
         getMyWishlist();

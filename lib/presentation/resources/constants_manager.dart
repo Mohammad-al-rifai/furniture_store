@@ -1,4 +1,5 @@
 class Constants {
+  static String serverIP = '';
   static const int splashDelay = 2;
   static const int sliderAnimationTime = 300;
   static const int apiTimeOut = 60000;

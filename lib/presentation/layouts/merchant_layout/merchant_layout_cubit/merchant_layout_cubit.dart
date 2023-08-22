@@ -26,7 +26,7 @@ class MerchantLayoutCubit extends Cubit<MerchantLayoutStates> {
     if (products.isNotEmpty) {
       emit(GetMerchantProDoneState(products: products));
     } else {
-      DioHelper.getData(
+      DioHelper.instance.getData(
         url: Urls.getMerchantProducts + merchantId,
       ).then((value) {
         merchantProductsModel = ProductsListModel.fromJson(value.data);
@@ -54,7 +54,7 @@ class MerchantLayoutCubit extends Cubit<MerchantLayoutStates> {
     if (categories.isNotEmpty) {
       emit(GetMerchantCategoriesDoneState());
     } else {
-      DioHelper.getData(
+      DioHelper.instance.getData(
         url: Urls.getCategories,
         query: {'owner': merchantId},
       ).then((value) {
@@ -87,7 +87,7 @@ class MerchantLayoutCubit extends Cubit<MerchantLayoutStates> {
     if (productsOfCat.isNotEmpty) {
       emit(GetMerchantProsByCatDoneState());
     } else {
-      DioHelper.getData(
+      DioHelper.instance.getData(
         url: Urls.getMerchantProsByCat + catName,
         query: {
           "owner": merchantId,

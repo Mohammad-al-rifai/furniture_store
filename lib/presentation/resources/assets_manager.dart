@@ -22,6 +22,7 @@ class IconsAssets {
   static const String wishlist = "$iconsPath/wishlist.svg";
   static const String copyRight = "$iconsPath/copyright.svg";
   static const String wallet = "$iconsPath/wallet.svg";
+  static const String ip = "$iconsPath/ip.svg";
 }
 
 class JsonAssets {

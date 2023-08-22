@@ -1,7 +1,9 @@
-class Urls {
-  static const String baseUrl = 'http://192.168.5.143:3000';
+import 'package:ecommerce/presentation/resources/constants_manager.dart';
 
-  static const String filesUrl = '$baseUrl/api/download?fileName=';
+class Urls {
+  static String baseUrl = 'http://${Constants.serverIP}:3000';
+
+  static String filesUrl = '$baseUrl/api/download?fileName=';
 
   // *************** Start Auth Feature **************
   static const String login = '/user/Customer/auth';

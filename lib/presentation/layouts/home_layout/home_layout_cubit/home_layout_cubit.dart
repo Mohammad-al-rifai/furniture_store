@@ -96,7 +96,7 @@ class HomeLayoutCubit extends Cubit<HomeLayoutStates> {
     if (Constants.token.isNotEmpty) {
       emit(GetProfileDoneState());
     } else {
-      DioHelper.getData(
+      DioHelper.instance.getData(
         url: Urls.getProfile,
         token: Constants.bearer + Constants.token,
       ).then((value) {
@@ -129,7 +129,7 @@ class HomeLayoutCubit extends Cubit<HomeLayoutStates> {
         bannersModel.data!.banners!.isNotEmpty) {
       emit(GetBannersDoneState(banners: bannersModel.data!.banners!));
     } else {
-      DioHelper.getData(url: Urls.banners).then((value) {
+      DioHelper.instance.getData(url: Urls.banners).then((value) {
         if (value.data['status']) {
           bannersModel = BannersModel.fromJson(value.data);
           emit(GetBannersDoneState(banners: bannersModel.data!.banners!));
@@ -144,7 +144,7 @@ class HomeLayoutCubit extends Cubit<HomeLayoutStates> {
   // Logout
   logout() {
     emit(LogoutLoadingState());
-    DioHelper.getData(
+    DioHelper.instance.getData(
       url: Urls.logout,
       token: Constants.bearer + Constants.token,
     ).then((value) {
@@ -169,7 +169,7 @@ class HomeLayoutCubit extends Cubit<HomeLayoutStates> {
     if (products.isNotEmpty) {
       emit(GetHotSellingDoneState());
     } else {
-      DioHelper.getData(
+      DioHelper.instance.getData(
         url: Urls.getHotSelling,
       ).then((value) {
         hotSellingModel = ProductsListModel.fromJson(value.data);
@@ -196,7 +196,7 @@ class HomeLayoutCubit extends Cubit<HomeLayoutStates> {
     if (categories.isNotEmpty) {
       emit(GetCategoriesDoneState(categories: categories));
     } else {
-      DioHelper.getData(
+      DioHelper.instance.getData(
         url: Urls.getCategories,
       ).then((value) {
         categoriesModel = CategoriesModel.fromJson(value.data);
@@ -225,7 +225,7 @@ class HomeLayoutCubit extends Cubit<HomeLayoutStates> {
     if (merchants.isNotEmpty) {
       emit(GetMerchantsDoneState(merchants: merchants));
     } else {
-      DioHelper.getData(
+      DioHelper.instance.getData(
         url: Urls.getAllMerchants,
       ).then((value) {
         merchantsModel = MerchantsModel.fromJson(value.data);
@@ -254,7 +254,7 @@ class HomeLayoutCubit extends Cubit<HomeLayoutStates> {
     if (recommendedProducts.isNotEmpty) {
       emit(GetRecommendedProductsDoneState());
     } else {
-      DioHelper.getData(
+      DioHelper.instance.getData(
         url: Urls.recSysML,
         token: Constants.bearer + Constants.token,
       ).then((value) {
@@ -290,7 +290,7 @@ class HomeLayoutCubit extends Cubit<HomeLayoutStates> {
       emit(GetSiteFeaturesLoadingState());
     }
     emit(GetSiteFeaturesLoadingState());
-    DioHelper.getData(
+    DioHelper.instance.getData(
         url: Urls.getFeatures,
         token: Constants.bearer + Constants.token,
         query: {

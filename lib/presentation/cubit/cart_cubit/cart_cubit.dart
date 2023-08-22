@@ -21,7 +21,7 @@ class CartCubit extends Cubit<CartStates> {
     required num quantity,
   }) {
     emit(Add2CartLoadingState());
-    DioHelper.postData(
+    DioHelper.instance.postData(
       url: Urls.add2Cart,
       token: Constants.bearer + Constants.token,
       data: {
@@ -47,7 +47,7 @@ class CartCubit extends Cubit<CartStates> {
   getUserCart() {
     emit(GetUserCartLoadingState());
 
-    DioHelper.getData(
+    DioHelper.instance.getData(
       url: Urls.getUserCart,
       token: Constants.bearer + Constants.token,
     ).then((value) {
@@ -70,7 +70,7 @@ class CartCubit extends Cubit<CartStates> {
     required String? itemID,
   }) {
     emit(DeleteProFromCartLoadingState());
-    DioHelper.postData(
+    DioHelper.instance.postData(
       url: Urls.deleteProFromCart,
       token: Constants.bearer + Constants.token,
       data: {
@@ -96,7 +96,7 @@ class CartCubit extends Cubit<CartStates> {
     required bool increment,
   }) {
     emit(DoOperationOnCartLoadingState());
-    DioHelper.postData(
+    DioHelper.instance.postData(
       url: Urls.operationsOnCart,
       token: Constants.bearer + Constants.token,
       data: {

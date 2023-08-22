@@ -1,5 +1,3 @@
-// ignore_for_file: constant_identifier_names
-
 import 'package:dio/dio.dart';
 import 'package:ecommerce/config/urls.dart';
 import 'package:flutter/foundation.dart';
@@ -15,8 +13,16 @@ const String DEFAULT_LANGUAGE = "language";
 
 class DioHelper {
   static late Dio dio;
+  static DioHelper? _instance;
 
-  static init() {
+  DioHelper._(); // Private constructor
+
+  static DioHelper get instance {
+    _instance ??= DioHelper._(); // Create a new instance if not exists
+    return _instance!;
+  }
+
+  static void init() {
     Map<String, String> headers = {
       CONTENT_TYPE: APPLICATION_JSON,
       // ACCEPT: APPLICATION_JSON,
@@ -35,7 +41,7 @@ class DioHelper {
     );
 
     if (!kReleaseMode) {
-      // its debug mode so print app logs
+      // It's debug mode so print app logs
       dio.interceptors.add(
         PrettyDioLogger(
           requestHeader: true,
@@ -46,7 +52,7 @@ class DioHelper {
     }
   }
 
-  static Future<Response> getData({
+  Future<Response> getData({
     required String url,
     Map<String, dynamic>? query,
     String? token,
@@ -60,7 +66,7 @@ class DioHelper {
     );
   }
 
-  static Future<Response> postData({
+  Future<Response> postData({
     required String url,
     Map<String, dynamic>? query,
     required Map<String, dynamic> data,
@@ -76,7 +82,7 @@ class DioHelper {
     );
   }
 
-  static Future<Response> putData({
+  Future<Response> putData({
     required String url,
     Map<String, dynamic>? query,
     required Map<String, dynamic> data,
@@ -92,7 +98,7 @@ class DioHelper {
     );
   }
 
-  static Future<Response> deleteData({
+  Future<Response> deleteData({
     required String url,
     Map<String, dynamic>? query,
     Map<String, dynamic>? data,

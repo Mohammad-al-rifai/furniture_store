@@ -136,7 +136,7 @@ class ProductHistoryScreen extends StatelessWidget {
             child: RotatedBox(
               quarterTurns: 1,
               child: MText(
-                text: dateTimeFormatter(timestamp: data.timestamp.toString()),
+                text: data.timestamp.toString(),
                 style: getBoldStyle(color: ColorManager.black),
               ),
             ),

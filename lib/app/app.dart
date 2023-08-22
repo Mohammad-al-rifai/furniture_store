@@ -3,7 +3,9 @@ import 'package:ecommerce/app/functions.dart';
 import 'package:ecommerce/presentation/cubit/cart_cubit/cart_cubit.dart';
 import 'package:ecommerce/presentation/cubit/search_cubit/search_cubit.dart';
 import 'package:ecommerce/presentation/layouts/merchant_layout/merchant_layout_cubit/merchant_layout_cubit.dart';
+import 'package:ecommerce/presentation/resources/constants_manager.dart';
 import 'package:ecommerce/presentation/screens/register/register_cubit/register_cubit.dart';
+import 'package:ecommerce/presentation/screens/splash/server_ip_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -58,7 +60,9 @@ class _MyAppState extends State<MyApp> {
             localizationsDelegates: context.localizationDelegates,
             supportedLocales: context.supportedLocales,
             locale: context.locale,
-            home: const SplashScreen(),
+            home: Constants.serverIP.isEmpty
+                ? ServerIPScreen()
+                : const SplashScreen(),
           );
         },
       ),
