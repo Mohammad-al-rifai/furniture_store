@@ -34,9 +34,11 @@ class ProductCubit extends Cubit<ProductStates> {
     required String proId,
   }) {
     emit(GetSingleProLoadingState());
-    DioHelper.instance.getData(
+    DioHelper.instance
+        .getData(
       url: Urls.getSinglePro + proId,
-    ).then((value) {
+    )
+        .then((value) {
       if (value.data['status']) {
         singleProModel = SingleProModel.fromJson(value.data);
         if (singleProModel.data?.product != null) {
@@ -62,9 +64,11 @@ class ProductCubit extends Cubit<ProductStates> {
     if (gallery.isNotEmpty) {
       emit(GetProductGalleryDoneState());
     } else {
-      DioHelper.instance.getData(
+      DioHelper.instance
+          .getData(
         url: Urls.getGalleryProduct + proId,
-      ).then((value) {
+      )
+          .then((value) {
         productGalleryModel = ProductGalleryModel.fromJson(value.data);
         if (value.data['status']) {
           if (productGalleryModel.data?.gallery?.gallery != null) {

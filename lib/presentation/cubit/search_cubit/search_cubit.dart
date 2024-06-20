@@ -16,6 +16,9 @@ class SearchCubit extends Cubit<SearchStates> {
 
   static SearchCubit get(context) => BlocProvider.of(context);
 
+
+  // CreateBillBloc.get(context).fitch();
+
   // 1. Order Advanced Search:
 
   OrderAdvancedSearchModel orderAdvancedSearchModel =
